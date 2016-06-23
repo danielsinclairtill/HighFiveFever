@@ -1,0 +1,293 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6861DDA71D1C8E4600E8E4D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6861DDA61D1C8E4600E8E4D8 /* AppDelegate.swift */; };
+		6861DDAC1D1C8E4600E8E4D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6861DDAA1D1C8E4600E8E4D8 /* Main.storyboard */; };
+		6861DDAE1D1C8E4600E8E4D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6861DDAD1D1C8E4600E8E4D8 /* Assets.xcassets */; };
+		6861DDB11D1C8E4700E8E4D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6861DDAF1D1C8E4700E8E4D8 /* LaunchScreen.storyboard */; };
+		6861DDB91D1C8EC600E8E4D8 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6861DDB81D1C8EC600E8E4D8 /* MenuViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		6861DDA31D1C8E4600E8E4D8 /* High Five Fever.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "High Five Fever.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6861DDA61D1C8E4600E8E4D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		6861DDAB1D1C8E4600E8E4D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6861DDAD1D1C8E4600E8E4D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6861DDB01D1C8E4700E8E4D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		6861DDB21D1C8E4700E8E4D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6861DDB81D1C8EC600E8E4D8 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6861DDA01D1C8E4600E8E4D8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6861DD9A1D1C8E4600E8E4D8 = {
+			isa = PBXGroup;
+			children = (
+				6861DDA51D1C8E4600E8E4D8 /* High Five Fever */,
+				6861DDA41D1C8E4600E8E4D8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6861DDA41D1C8E4600E8E4D8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6861DDA31D1C8E4600E8E4D8 /* High Five Fever.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6861DDA51D1C8E4600E8E4D8 /* High Five Fever */ = {
+			isa = PBXGroup;
+			children = (
+				6861DDA61D1C8E4600E8E4D8 /* AppDelegate.swift */,
+				6861DDB81D1C8EC600E8E4D8 /* MenuViewController.swift */,
+				6861DDAA1D1C8E4600E8E4D8 /* Main.storyboard */,
+				6861DDAD1D1C8E4600E8E4D8 /* Assets.xcassets */,
+				6861DDAF1D1C8E4700E8E4D8 /* LaunchScreen.storyboard */,
+				6861DDB21D1C8E4700E8E4D8 /* Info.plist */,
+			);
+			path = "High Five Fever";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6861DDA21D1C8E4600E8E4D8 /* High Five Fever */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6861DDB51D1C8E4700E8E4D8 /* Build configuration list for PBXNativeTarget "High Five Fever" */;
+			buildPhases = (
+				6861DD9F1D1C8E4600E8E4D8 /* Sources */,
+				6861DDA01D1C8E4600E8E4D8 /* Frameworks */,
+				6861DDA11D1C8E4600E8E4D8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "High Five Fever";
+			productName = "High Five Fever";
+			productReference = 6861DDA31D1C8E4600E8E4D8 /* High Five Fever.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6861DD9B1D1C8E4600E8E4D8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Lunet Apps";
+				TargetAttributes = {
+					6861DDA21D1C8E4600E8E4D8 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 6861DD9E1D1C8E4600E8E4D8 /* Build configuration list for PBXProject "High Five Fever" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6861DD9A1D1C8E4600E8E4D8;
+			productRefGroup = 6861DDA41D1C8E4600E8E4D8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6861DDA21D1C8E4600E8E4D8 /* High Five Fever */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6861DDA11D1C8E4600E8E4D8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6861DDB11D1C8E4700E8E4D8 /* LaunchScreen.storyboard in Resources */,
+				6861DDAE1D1C8E4600E8E4D8 /* Assets.xcassets in Resources */,
+				6861DDAC1D1C8E4600E8E4D8 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6861DD9F1D1C8E4600E8E4D8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6861DDA71D1C8E4600E8E4D8 /* AppDelegate.swift in Sources */,
+				6861DDB91D1C8EC600E8E4D8 /* MenuViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		6861DDAA1D1C8E4600E8E4D8 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6861DDAB1D1C8E4600E8E4D8 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		6861DDAF1D1C8E4700E8E4D8 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6861DDB01D1C8E4700E8E4D8 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6861DDB31D1C8E4700E8E4D8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		6861DDB41D1C8E4700E8E4D8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6861DDB61D1C8E4700E8E4D8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "High Five Fever/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.lunetapps.High-Five-Fever";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		6861DDB71D1C8E4700E8E4D8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "High Five Fever/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.lunetapps.High-Five-Fever";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6861DD9E1D1C8E4600E8E4D8 /* Build configuration list for PBXProject "High Five Fever" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6861DDB31D1C8E4700E8E4D8 /* Debug */,
+				6861DDB41D1C8E4700E8E4D8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6861DDB51D1C8E4700E8E4D8 /* Build configuration list for PBXNativeTarget "High Five Fever" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6861DDB61D1C8E4700E8E4D8 /* Debug */,
+				6861DDB71D1C8E4700E8E4D8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6861DD9B1D1C8E4600E8E4D8 /* Project object */;
+}
