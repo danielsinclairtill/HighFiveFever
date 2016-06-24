@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Menu View Controller-->
@@ -14,24 +15,39 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Zy-3n-bw3">
-                                <rect key="frame" x="277" y="285" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background.png" translatesAutoresizingMaskIntoConstraints="NO" id="4Bu-za-0nJ">
+                                <rect key="frame" x="-4" y="0.0" width="383" height="667"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Title.png" translatesAutoresizingMaskIntoConstraints="NO" id="3Ke-w5-YLS">
+                                <rect key="frame" x="22" y="40" width="330" height="110"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="110" id="Dkw-Af-569"/>
+                                    <constraint firstAttribute="width" constant="330" id="mTk-ch-sy1"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="4Zy-3n-bw3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="CiJ-cb-uBa"/>
-                            <constraint firstItem="4Zy-3n-bw3" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="QcB-94-bGU"/>
+                            <constraint firstItem="4Bu-za-0nJ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="0Pf-Tq-Dki"/>
+                            <constraint firstItem="3Ke-w5-YLS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9pf-X6-aTP"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="4Bu-za-0nJ" secondAttribute="bottom" id="OSM-Eu-vod"/>
+                            <constraint firstItem="3Ke-w5-YLS" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="QhT-Wa-4bH"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="4Bu-za-0nJ" secondAttribute="trailing" constant="-20" id="tcf-Se-1ma"/>
+                            <constraint firstItem="4Bu-za-0nJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="yQj-Zg-x3D"/>
                         </constraints>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="440" y="364"/>
+            <point key="canvasLocation" x="439.5" y="363.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Title.png" width="925" height="276"/>
+        <image name="background.png" width="1080" height="1920"/>
+    </resources>
 </document>
