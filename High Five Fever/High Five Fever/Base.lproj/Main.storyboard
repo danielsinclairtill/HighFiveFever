@@ -28,16 +28,54 @@
                                     <constraint firstAttribute="width" constant="330" id="mTk-ch-sy1"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lZ1-0F-S7s">
+                                <rect key="frame" x="31" y="228" width="313" height="78"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="78" id="WVX-7d-68V"/>
+                                    <constraint firstAttribute="width" constant="313" id="uxV-qJ-9H0"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="Play.png"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TPD-jb-xhV">
+                                <rect key="frame" x="31" y="335" width="313" height="78"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="78" id="Pnd-1Z-2Pp"/>
+                                    <constraint firstAttribute="width" constant="313" id="noD-gl-JjW"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="Settings.png"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cCH-KS-4uF">
+                                <rect key="frame" x="31" y="440" width="313" height="78"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="313" id="YqY-8I-aup"/>
+                                    <constraint firstAttribute="height" constant="78" id="ZCU-DJ-kng"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="About.png"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="4Bu-za-0nJ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="0Pf-Tq-Dki"/>
+                            <constraint firstItem="cCH-KS-4uF" firstAttribute="top" secondItem="TPD-jb-xhV" secondAttribute="bottom" constant="27" id="7sL-uc-EG2"/>
                             <constraint firstItem="3Ke-w5-YLS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9pf-X6-aTP"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="4Bu-za-0nJ" secondAttribute="bottom" id="OSM-Eu-vod"/>
                             <constraint firstItem="3Ke-w5-YLS" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="QhT-Wa-4bH"/>
+                            <constraint firstItem="TPD-jb-xhV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="b3D-5a-anE"/>
+                            <constraint firstItem="TPD-jb-xhV" firstAttribute="top" secondItem="lZ1-0F-S7s" secondAttribute="bottom" constant="29" id="dMY-6q-Fw7"/>
+                            <constraint firstItem="lZ1-0F-S7s" firstAttribute="top" secondItem="3Ke-w5-YLS" secondAttribute="bottom" constant="78" id="dPT-AU-sRX"/>
+                            <constraint firstItem="cCH-KS-4uF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dVG-1S-nD0"/>
+                            <constraint firstItem="cCH-KS-4uF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ioR-6S-dh8"/>
+                            <constraint firstItem="lZ1-0F-S7s" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kfK-wx-vEH"/>
                             <constraint firstAttribute="trailingMargin" secondItem="4Bu-za-0nJ" secondAttribute="trailing" constant="-20" id="tcf-Se-1ma"/>
+                            <constraint firstItem="lZ1-0F-S7s" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vOh-oK-e5w"/>
                             <constraint firstItem="4Bu-za-0nJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="yQj-Zg-x3D"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="vOh-oK-e5w"/>
+                                <exclude reference="dVG-1S-nD0"/>
+                            </mask>
+                        </variation>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
@@ -47,6 +85,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="About.png" width="660" height="180"/>
+        <image name="Play.png" width="660" height="180"/>
+        <image name="Settings.png" width="660" height="180"/>
         <image name="Title.png" width="925" height="276"/>
         <image name="background.png" width="1080" height="1920"/>
     </resources>
