@@ -28,7 +28,7 @@
                                     <constraint firstAttribute="width" constant="330" id="mTk-ch-sy1"/>
                                 </constraints>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="aJZ-es-mES">
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="aJZ-es-mES">
                                 <rect key="frame" x="37" y="190" width="300" height="360"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mz9-dC-mJE">
@@ -42,14 +42,14 @@
                                             <segue destination="PSt-k6-eOw" kind="show" id="azY-zt-PBw"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="553-Fc-iua">
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="553-Fc-iua">
                                         <rect key="frame" x="0.0" y="130" width="300" height="100"/>
                                         <state key="normal" image="settingsButton.png"/>
                                         <connections>
                                             <segue destination="lxv-mw-1DC" kind="show" id="py0-zU-jd3"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g78-D0-NKb">
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g78-D0-NKb">
                                         <rect key="frame" x="0.0" y="260" width="300" height="100"/>
                                         <state key="normal" image="aboutButton.png"/>
                                         <connections>
