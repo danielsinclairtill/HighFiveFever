@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -28,7 +28,7 @@
                                     <constraint firstAttribute="width" constant="330" id="mTk-ch-sy1"/>
                                 </constraints>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="aJZ-es-mES">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="aJZ-es-mES">
                                 <rect key="frame" x="37" y="190" width="300" height="360"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mz9-dC-mJE">
@@ -42,18 +42,18 @@
                                             <segue destination="PSt-k6-eOw" kind="show" id="azY-zt-PBw"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="553-Fc-iua">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="553-Fc-iua">
                                         <rect key="frame" x="0.0" y="130" width="300" height="100"/>
                                         <state key="normal" image="settingsButton.png"/>
                                         <connections>
                                             <segue destination="lxv-mw-1DC" kind="show" id="py0-zU-jd3"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g78-D0-NKb">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g78-D0-NKb">
                                         <rect key="frame" x="0.0" y="260" width="300" height="100"/>
                                         <state key="normal" image="aboutButton.png"/>
                                         <connections>
-                                            <segue destination="UqK-2A-o2M" kind="show" id="XZo-N5-5as"/>
+                                            <segue destination="UqK-2A-o2M" kind="show" id="mKM-qb-NcY"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -71,6 +71,7 @@
                             <constraint firstItem="4Bu-za-0nJ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="yQj-Zg-x3D"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="B4E-N1-USJ"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -110,22 +111,37 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background.png" translatesAutoresizingMaskIntoConstraints="NO" id="9gj-S5-d3b">
                                 <rect key="frame" x="-4" y="0.0" width="383" height="667"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Settings.png" translatesAutoresizingMaskIntoConstraints="NO" id="d96-ny-a4P">
-                                <rect key="frame" x="68" y="28" width="240" height="128"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mn1-9s-QDZ">
+                                <rect key="frame" x="16" y="9" width="50" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="eCy-ME-S0O"/>
-                                    <constraint firstAttribute="width" constant="240" id="wpu-eg-Gb1"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="NED-Dl-fcr"/>
+                                    <constraint firstAttribute="width" constant="50" id="UIc-XB-Kcn"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="eA3-f0-p9R"/>
+                                    <constraint firstAttribute="height" constant="50" id="xqq-hh-DK6"/>
+                                </constraints>
+                                <state key="normal" image="BackButton.png"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="eVu-LQ-7bG"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="settingsButton.png" translatesAutoresizingMaskIntoConstraints="NO" id="A23-ev-Z9h">
+                                <rect key="frame" x="37" y="67" width="300" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="K3L-V9-Tab"/>
+                                    <constraint firstAttribute="height" constant="100" id="VKg-Kq-IF9"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="d96-ny-a4P" firstAttribute="top" secondItem="jws-KA-kPV" secondAttribute="bottom" constant="8" id="3zS-7I-XEe"/>
+                            <constraint firstItem="A23-ev-Z9h" firstAttribute="centerX" secondItem="9po-Vu-qxh" secondAttribute="centerX" id="6NX-lX-jzT"/>
                             <constraint firstItem="okA-Rd-dCo" firstAttribute="top" secondItem="9gj-S5-d3b" secondAttribute="bottom" id="7IA-rn-HC4"/>
                             <constraint firstAttribute="trailingMargin" secondItem="9gj-S5-d3b" secondAttribute="trailing" constant="-20" id="V6q-rE-OIC"/>
                             <constraint firstItem="9gj-S5-d3b" firstAttribute="leading" secondItem="9po-Vu-qxh" secondAttribute="leadingMargin" constant="-20" id="egZ-jr-jaX"/>
                             <constraint firstItem="9gj-S5-d3b" firstAttribute="top" secondItem="9po-Vu-qxh" secondAttribute="topMargin" id="hlU-3q-weN"/>
-                            <constraint firstItem="d96-ny-a4P" firstAttribute="centerX" secondItem="9po-Vu-qxh" secondAttribute="centerX" id="jeT-6E-u0I"/>
+                            <constraint firstItem="mn1-9s-QDZ" firstAttribute="leading" secondItem="9po-Vu-qxh" secondAttribute="leadingMargin" id="s5K-Mz-FYo"/>
+                            <constraint firstItem="mn1-9s-QDZ" firstAttribute="top" secondItem="9po-Vu-qxh" secondAttribute="topMargin" constant="9" id="vJY-IM-tAa"/>
+                            <constraint firstItem="A23-ev-Z9h" firstAttribute="top" secondItem="mn1-9s-QDZ" secondAttribute="bottom" constant="8" id="xcl-ib-GVZ"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -148,20 +164,33 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background.png" translatesAutoresizingMaskIntoConstraints="NO" id="msn-Cc-hvS">
                                 <rect key="frame" x="-4" y="0.0" width="383" height="667"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="About.png" translatesAutoresizingMaskIntoConstraints="NO" id="9E9-Gz-5vD">
-                                <rect key="frame" x="68" y="20" width="240" height="128"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8sr-kf-ofH">
+                                <rect key="frame" x="16" y="9" width="50" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="kWu-Oc-kJP"/>
-                                    <constraint firstAttribute="width" constant="240" id="xUR-Wl-blz"/>
+                                    <constraint firstAttribute="height" constant="50" id="KJ3-97-8h4"/>
+                                    <constraint firstAttribute="width" constant="50" id="vOI-H2-vQK"/>
+                                </constraints>
+                                <state key="normal" image="BackButton.png"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="jPc-hN-KJi"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="aboutButton.png" translatesAutoresizingMaskIntoConstraints="NO" id="6x5-65-ulM">
+                                <rect key="frame" x="37" y="67" width="300" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="DqT-vA-vxf"/>
+                                    <constraint firstAttribute="width" constant="300" id="YLd-1d-Hk8"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="9E9-Gz-5vD" firstAttribute="top" secondItem="N4n-eF-Jgh" secondAttribute="bottom" id="6i7-ev-4EN"/>
-                            <constraint firstItem="9E9-Gz-5vD" firstAttribute="centerX" secondItem="Hjg-uo-688" secondAttribute="centerX" id="7Qu-JL-TzU"/>
+                            <constraint firstItem="8sr-kf-ofH" firstAttribute="top" secondItem="Hjg-uo-688" secondAttribute="topMargin" constant="9" id="8xf-lh-nqE"/>
+                            <constraint firstItem="8sr-kf-ofH" firstAttribute="leading" secondItem="Hjg-uo-688" secondAttribute="leadingMargin" id="HLV-t7-MzC"/>
+                            <constraint firstItem="6x5-65-ulM" firstAttribute="top" secondItem="8sr-kf-ofH" secondAttribute="bottom" constant="8" id="PDn-w3-bht"/>
                             <constraint firstItem="msn-Cc-hvS" firstAttribute="leading" secondItem="Hjg-uo-688" secondAttribute="leadingMargin" constant="-20" id="PqK-ER-bKK"/>
                             <constraint firstAttribute="trailingMargin" secondItem="msn-Cc-hvS" secondAttribute="trailing" constant="-20" id="VWC-HG-4mi"/>
+                            <constraint firstItem="6x5-65-ulM" firstAttribute="centerX" secondItem="Hjg-uo-688" secondAttribute="centerX" id="d0w-u1-ZmV"/>
                             <constraint firstItem="Ve0-DK-2eZ" firstAttribute="top" secondItem="msn-Cc-hvS" secondAttribute="bottom" id="rdM-mM-rUy"/>
                             <constraint firstItem="msn-Cc-hvS" firstAttribute="top" secondItem="Hjg-uo-688" secondAttribute="topMargin" id="xvT-uA-C10"/>
                         </constraints>
@@ -173,12 +202,14 @@
         </scene>
     </scenes>
     <resources>
-        <image name="About.png" width="660" height="180"/>
-        <image name="Settings.png" width="660" height="180"/>
+        <image name="BackButton.png" width="50" height="50"/>
         <image name="Title.png" width="925" height="276"/>
         <image name="aboutButton.png" width="300" height="100"/>
         <image name="background.png" width="1080" height="1920"/>
         <image name="playButton.png" width="300" height="100"/>
         <image name="settingsButton.png" width="300" height="100"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="eVu-LQ-7bG"/>
+    </inferredMetricsTieBreakers>
 </document>
