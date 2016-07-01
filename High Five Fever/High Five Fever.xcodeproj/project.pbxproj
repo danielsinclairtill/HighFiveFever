@@ -57,6 +57,8 @@
 		686CC0501D1CBD7400872043 /* c32.png in Resources */ = {isa = PBXBuildFile; fileRef = 686CC02F1D1CBD7400872043 /* c32.png */; };
 		686CC0511D1CBD7400872043 /* c33.png in Resources */ = {isa = PBXBuildFile; fileRef = 686CC0301D1CBD7400872043 /* c33.png */; };
 		8BA1269C1D24A8410018945E /* BackButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BA1269B1D24A8410018945E /* BackButton.png */; };
+		A02417921D26F0280023F4A8 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02417911D26F0280023F4A8 /* AudioManager.swift */; };
+		A02417971D26FE3E0023F4A8 /* prelude_c.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A02417961D26FE3E0023F4A8 /* prelude_c.mp3 */; };
 		A09A496C1D236E3B002E8E4A /* settingsButton.png in Resources */ = {isa = PBXBuildFile; fileRef = A09A49691D236E3B002E8E4A /* settingsButton.png */; };
 		A09A496D1D236E3B002E8E4A /* aboutButton.png in Resources */ = {isa = PBXBuildFile; fileRef = A09A496A1D236E3B002E8E4A /* aboutButton.png */; };
 		A09A496E1D236E3B002E8E4A /* playButton.png in Resources */ = {isa = PBXBuildFile; fileRef = A09A496B1D236E3B002E8E4A /* playButton.png */; };
@@ -118,6 +120,8 @@
 		686CC02F1D1CBD7400872043 /* c32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = c32.png; sourceTree = "<group>"; };
 		686CC0301D1CBD7400872043 /* c33.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = c33.png; sourceTree = "<group>"; };
 		8BA1269B1D24A8410018945E /* BackButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BackButton.png; sourceTree = "<group>"; };
+		A02417911D26F0280023F4A8 /* AudioManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
+		A02417961D26FE3E0023F4A8 /* prelude_c.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = prelude_c.mp3; sourceTree = "<group>"; };
 		A09A49691D236E3B002E8E4A /* settingsButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingsButton.png; sourceTree = "<group>"; };
 		A09A496A1D236E3B002E8E4A /* aboutButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = aboutButton.png; sourceTree = "<group>"; };
 		A09A496B1D236E3B002E8E4A /* playButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playButton.png; sourceTree = "<group>"; };
@@ -157,12 +161,14 @@
 			isa = PBXGroup;
 			children = (
 				6861DDA61D1C8E4600E8E4D8 /* AppDelegate.swift */,
+				A02417911D26F0280023F4A8 /* AudioManager.swift */,
 				6861DDB81D1C8EC600E8E4D8 /* MenuViewController.swift */,
 				A09D55231D1F9A3A002064A3 /* AboutViewController.swift */,
 				A09D55241D1F9A3A002064A3 /* PlayViewController.swift */,
 				A09D55251D1F9A3A002064A3 /* SettingsViewController.swift */,
 				6861DDAA1D1C8E4600E8E4D8 /* Main.storyboard */,
 				6861DDAD1D1C8E4600E8E4D8 /* Assets.xcassets */,
+				A02417951D26F0E50023F4A8 /* Audio */,
 				686CC00F1D1CBD5400872043 /* Images */,
 				6861DDAF1D1C8E4700E8E4D8 /* LaunchScreen.storyboard */,
 				6861DDB21D1C8E4700E8E4D8 /* Info.plist */,
@@ -233,6 +239,14 @@
 			name = logo;
 			sourceTree = "<group>";
 		};
+		A02417951D26F0E50023F4A8 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				A02417961D26FE3E0023F4A8 /* prelude_c.mp3 */,
+			);
+			name = Audio;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -293,6 +307,7 @@
 			files = (
 				686CC04D1D1CBD7400872043 /* c29.png in Resources */,
 				686CC0491D1CBD7400872043 /* c25.png in Resources */,
+				A02417971D26FE3E0023F4A8 /* prelude_c.mp3 in Resources */,
 				686CC0411D1CBD7400872043 /* c17.png in Resources */,
 				686CC03C1D1CBD7400872043 /* c12.png in Resources */,
 				686CC0371D1CBD7400872043 /* c7.png in Resources */,
@@ -352,6 +367,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A02417921D26F0280023F4A8 /* AudioManager.swift in Sources */,
 				A09D55271D1F9A3A002064A3 /* PlayViewController.swift in Sources */,
 				A09D55261D1F9A3A002064A3 /* AboutViewController.swift in Sources */,
 				6861DDA71D1C8E4600E8E4D8 /* AppDelegate.swift in Sources */,

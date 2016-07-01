@@ -15,7 +15,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        AudioManager.sharedInstance.setUpPlayer();
+        AudioManager.sharedInstance.playMusic();
+        
+        NSUserDefaults.standardUserDefaults().setBool(true, forKey: "isMenuMusicPlaying");
         return true
     }
 
