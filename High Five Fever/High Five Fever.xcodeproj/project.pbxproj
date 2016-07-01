@@ -65,6 +65,7 @@
 		A09D55261D1F9A3A002064A3 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09D55231D1F9A3A002064A3 /* AboutViewController.swift */; };
 		A09D55271D1F9A3A002064A3 /* PlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09D55241D1F9A3A002064A3 /* PlayViewController.swift */; };
 		A09D55281D1F9A3A002064A3 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09D55251D1F9A3A002064A3 /* SettingsViewController.swift */; };
+		A0B09E601D270FE8009AD37E /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B09E5F1D270FE8009AD37E /* SplashScreenViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -128,6 +129,7 @@
 		A09D55231D1F9A3A002064A3 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		A09D55241D1F9A3A002064A3 /* PlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayViewController.swift; sourceTree = "<group>"; };
 		A09D55251D1F9A3A002064A3 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		A0B09E5F1D270FE8009AD37E /* SplashScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +168,7 @@
 				A09D55231D1F9A3A002064A3 /* AboutViewController.swift */,
 				A09D55241D1F9A3A002064A3 /* PlayViewController.swift */,
 				A09D55251D1F9A3A002064A3 /* SettingsViewController.swift */,
+				A0B09E5F1D270FE8009AD37E /* SplashScreenViewController.swift */,
 				6861DDAA1D1C8E4600E8E4D8 /* Main.storyboard */,
 				6861DDAD1D1C8E4600E8E4D8 /* Assets.xcassets */,
 				A02417951D26F0E50023F4A8 /* Audio */,
@@ -369,6 +372,7 @@
 			files = (
 				A02417921D26F0280023F4A8 /* AudioManager.swift in Sources */,
 				A09D55271D1F9A3A002064A3 /* PlayViewController.swift in Sources */,
+				A0B09E601D270FE8009AD37E /* SplashScreenViewController.swift in Sources */,
 				A09D55261D1F9A3A002064A3 /* AboutViewController.swift in Sources */,
 				6861DDA71D1C8E4600E8E4D8 /* AppDelegate.swift in Sources */,
 				A09D55281D1F9A3A002064A3 /* SettingsViewController.swift in Sources */,
@@ -485,10 +489,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "High Five Fever/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.lunetapps.High-Five-Fever";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -496,10 +503,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "High Five Fever/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.lunetapps.High-Five-Fever";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
