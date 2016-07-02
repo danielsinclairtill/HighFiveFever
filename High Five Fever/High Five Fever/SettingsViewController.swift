@@ -9,11 +9,27 @@
 import UIKit
 
 class SettingsViewController: UIViewController {
-
+    
+    @IBOutlet weak var menuMusicSwitch: UISwitch!
+    
+    @IBAction func menuMusicSwitched(sender: UISwitch) {
+        
+        if (!sender.on) {
+            AudioManager.sharedInstance.stopMusic();
+        } else {
+            AudioManager.sharedInstance.playMusic();
+        }
+        
+        NSUserDefaults.standardUserDefaults().setBool(sender.on, forKey: "isMenuMusicPlaying");
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        let isMusicPLaying = NSUserDefaults.standardUserDefaults().objectForKey("isMenuMusicPlaying") as! Bool;
+        
+        menuMusicSwitch.on = isMusicPLaying;
+        
     }
 
     override func didReceiveMemoryWarning() {
