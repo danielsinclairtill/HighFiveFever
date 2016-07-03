@@ -17,7 +17,7 @@ class AudioManager: NSObject {
     
     private var musicPlaying: Bool = false;
     
-    private let menuSongName = "prelude_c";
+    private let menuSongName = "Zackery Wilson - RIGHT Off The Bat(tle) [Final Fantasy IV]_165634314_soundcloud";
     private let mp3 = "mp3";
     
     private override init() {

@@ -57,6 +57,8 @@
 		686CC0501D1CBD7400872043 /* c32.png in Resources */ = {isa = PBXBuildFile; fileRef = 686CC02F1D1CBD7400872043 /* c32.png */; };
 		686CC0511D1CBD7400872043 /* c33.png in Resources */ = {isa = PBXBuildFile; fileRef = 686CC0301D1CBD7400872043 /* c33.png */; };
 		8BA1269C1D24A8410018945E /* BackButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BA1269B1D24A8410018945E /* BackButton.png */; };
+		8BF607241D2838FC00058600 /* FinalBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BF607231D2838FC00058600 /* FinalBackground.png */; };
+		8BF607261D283B1E00058600 /* Zackery Wilson - RIGHT Off The Bat(tle) [Final Fantasy IV]_165634314_soundcloud.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8BF607251D283B1E00058600 /* Zackery Wilson - RIGHT Off The Bat(tle) [Final Fantasy IV]_165634314_soundcloud.mp3 */; };
 		A02417921D26F0280023F4A8 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02417911D26F0280023F4A8 /* AudioManager.swift */; };
 		A02417971D26FE3E0023F4A8 /* prelude_c.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A02417961D26FE3E0023F4A8 /* prelude_c.mp3 */; };
 		A09A496C1D236E3B002E8E4A /* settingsButton.png in Resources */ = {isa = PBXBuildFile; fileRef = A09A49691D236E3B002E8E4A /* settingsButton.png */; };
@@ -121,6 +123,8 @@
 		686CC02F1D1CBD7400872043 /* c32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = c32.png; sourceTree = "<group>"; };
 		686CC0301D1CBD7400872043 /* c33.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = c33.png; sourceTree = "<group>"; };
 		8BA1269B1D24A8410018945E /* BackButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BackButton.png; sourceTree = "<group>"; };
+		8BF607231D2838FC00058600 /* FinalBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FinalBackground.png; sourceTree = "<group>"; };
+		8BF607251D283B1E00058600 /* Zackery Wilson - RIGHT Off The Bat(tle) [Final Fantasy IV]_165634314_soundcloud.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Zackery Wilson - RIGHT Off The Bat(tle) [Final Fantasy IV]_165634314_soundcloud.mp3"; sourceTree = "<group>"; };
 		A02417911D26F0280023F4A8 /* AudioManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
 		A02417961D26FE3E0023F4A8 /* prelude_c.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = prelude_c.mp3; sourceTree = "<group>"; };
 		A09A49691D236E3B002E8E4A /* settingsButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingsButton.png; sourceTree = "<group>"; };
@@ -189,6 +193,7 @@
 				A09A496A1D236E3B002E8E4A /* aboutButton.png */,
 				686CBFFB1D1CBD4D00872043 /* confetti.png */,
 				686CBFFC1D1CBD4D00872043 /* fb.png */,
+				8BF607231D2838FC00058600 /* FinalBackground.png */,
 				8BA1269B1D24A8410018945E /* BackButton.png */,
 				686CBFFD1D1CBD4D00872043 /* Glasses.png */,
 				686CBFFE1D1CBD4D00872043 /* Hearts.png */,
@@ -245,6 +250,7 @@
 		A02417951D26F0E50023F4A8 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
+				8BF607251D283B1E00058600 /* Zackery Wilson - RIGHT Off The Bat(tle) [Final Fantasy IV]_165634314_soundcloud.mp3 */,
 				A02417961D26FE3E0023F4A8 /* prelude_c.mp3 */,
 			);
 			name = Audio;
@@ -341,10 +347,12 @@
 				686CC04A1D1CBD7400872043 /* c26.png in Resources */,
 				686CC0441D1CBD7400872043 /* c20.png in Resources */,
 				686CC0481D1CBD7400872043 /* c24.png in Resources */,
+				8BF607241D2838FC00058600 /* FinalBackground.png in Resources */,
 				686CC0041D1CBD4D00872043 /* About.png in Resources */,
 				686CC0401D1CBD7400872043 /* c16.png in Resources */,
 				686CC04C1D1CBD7400872043 /* c28.png in Resources */,
 				686CC0341D1CBD7400872043 /* c4.png in Resources */,
+				8BF607261D283B1E00058600 /* Zackery Wilson - RIGHT Off The Bat(tle) [Final Fantasy IV]_165634314_soundcloud.mp3 in Resources */,
 				686CC0351D1CBD7400872043 /* c5.png in Resources */,
 				686CC0501D1CBD7400872043 /* c32.png in Resources */,
 				686CC00C1D1CBD4D00872043 /* Settings.png in Resources */,
