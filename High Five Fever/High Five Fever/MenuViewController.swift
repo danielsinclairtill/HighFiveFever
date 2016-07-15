@@ -9,10 +9,17 @@
 import UIKit
 
 class MenuViewController: UIViewController {
-   
+    
     override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        super.viewDidLoad();
+        if(AudioManager.sharedInstance.enteredFromPlayView){
+            AudioManager.sharedInstance.setUpPlayer(AudioManager.sharedInstance.menuSongName);
+            
+            if(NSUserDefaults.standardUserDefaults().objectForKey("isMenuMusicSet") as! Bool){
+                AudioManager.sharedInstance.playMusic();
+            }
+            AudioManager.sharedInstance.enteredFromPlayView = false;
+        }
     }
     
     override func didReceiveMemoryWarning() {

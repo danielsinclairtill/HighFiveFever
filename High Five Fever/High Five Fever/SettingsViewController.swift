@@ -11,6 +11,7 @@ import UIKit
 class SettingsViewController: UIViewController {
     
     @IBOutlet weak var menuMusicSwitch: UISwitch!
+    @IBOutlet weak var gameMusicSwitch: UISwitch!
     
     @IBAction func menuMusicSwitched(sender: UISwitch) {
         
@@ -20,15 +21,17 @@ class SettingsViewController: UIViewController {
             AudioManager.sharedInstance.playMusic();
         }
         
-        NSUserDefaults.standardUserDefaults().setBool(sender.on, forKey: "isMenuMusicPlaying");
+        NSUserDefaults.standardUserDefaults().setBool(sender.on, forKey: "isMenuMusicSet");
     }
     
+    @IBAction func gameMusicSwitched(sender: UISwitch) {
+        NSUserDefaults.standardUserDefaults().setBool(sender.on, forKey: "isGameMusicSet");
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let isMusicPLaying = NSUserDefaults.standardUserDefaults().objectForKey("isMenuMusicPlaying") as! Bool;
-        
-        menuMusicSwitch.on = isMusicPLaying;
+        menuMusicSwitch.on = NSUserDefaults.standardUserDefaults().objectForKey("isMenuMusicSet") as! Bool;
+        gameMusicSwitch.on = NSUserDefaults.standardUserDefaults().objectForKey("isGameMusicSet") as! Bool;
         
     }
 

@@ -15,7 +15,7 @@ class GameScene: SKScene {
     // hardcoded values determined experimentally
     let X_COORD_SCORE_LABEL: CGFloat = 549.67;
     let Y_COORD_SCORE_LABEL: CGFloat = 570.786;
-    let WIDTH_BACKGROUND: CGFloat = 480.964;
+    let WIDTH_BACKGROUND: CGFloat = 430;
     let HEIGHT_BACKGROUND: CGFloat = 766.226;
     
     var background = SKSpriteNode();

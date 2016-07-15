@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		68516F8D1D385AA800B30174 /* Zackery Wilson - SELECT Tech Samba [Chrono Trigger]_169740465_soundcloud.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 68516F8C1D385AA800B30174 /* Zackery Wilson - SELECT Tech Samba [Chrono Trigger]_169740465_soundcloud.mp3 */; };
 		6861DDA71D1C8E4600E8E4D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6861DDA61D1C8E4600E8E4D8 /* AppDelegate.swift */; };
 		6861DDAC1D1C8E4600E8E4D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6861DDAA1D1C8E4600E8E4D8 /* Main.storyboard */; };
 		6861DDAE1D1C8E4600E8E4D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6861DDAD1D1C8E4600E8E4D8 /* Assets.xcassets */; };
@@ -72,6 +73,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		68516F8C1D385AA800B30174 /* Zackery Wilson - SELECT Tech Samba [Chrono Trigger]_169740465_soundcloud.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Zackery Wilson - SELECT Tech Samba [Chrono Trigger]_169740465_soundcloud.mp3"; sourceTree = "<group>"; };
 		6861DDA31D1C8E4600E8E4D8 /* High Five Fever.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "High Five Fever.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6861DDA61D1C8E4600E8E4D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6861DDAB1D1C8E4600E8E4D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -254,6 +256,7 @@
 		A02417951D26F0E50023F4A8 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
+				68516F8C1D385AA800B30174 /* Zackery Wilson - SELECT Tech Samba [Chrono Trigger]_169740465_soundcloud.mp3 */,
 				8BF607251D283B1E00058600 /* Zackery Wilson - RIGHT Off The Bat(tle) [Final Fantasy IV]_165634314_soundcloud.mp3 */,
 			);
 			name = Audio;
@@ -337,6 +340,7 @@
 				686CC0071D1CBD4D00872043 /* fb.png in Resources */,
 				686CC0051D1CBD4D00872043 /* background.png in Resources */,
 				686CC03A1D1CBD7400872043 /* c10.png in Resources */,
+				68516F8D1D385AA800B30174 /* Zackery Wilson - SELECT Tech Samba [Chrono Trigger]_169740465_soundcloud.mp3 in Resources */,
 				686CC0381D1CBD7400872043 /* c8.png in Resources */,
 				8BA1269C1D24A8410018945E /* BackButton.png in Resources */,
 				A09A496C1D236E3B002E8E4A /* settingsButton.png in Resources */,
