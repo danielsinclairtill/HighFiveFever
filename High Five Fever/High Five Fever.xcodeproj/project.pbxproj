@@ -57,6 +57,7 @@
 		686CC04F1D1CBD7400872043 /* c31.png in Resources */ = {isa = PBXBuildFile; fileRef = 686CC02E1D1CBD7400872043 /* c31.png */; };
 		686CC0501D1CBD7400872043 /* c32.png in Resources */ = {isa = PBXBuildFile; fileRef = 686CC02F1D1CBD7400872043 /* c32.png */; };
 		686CC0511D1CBD7400872043 /* c33.png in Resources */ = {isa = PBXBuildFile; fileRef = 686CC0301D1CBD7400872043 /* c33.png */; };
+		8B7901EB1D3AE714009F0B23 /* PlayerNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B7901EA1D3AE714009F0B23 /* PlayerNormal.png */; };
 		8BA1269C1D24A8410018945E /* BackButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BA1269B1D24A8410018945E /* BackButton.png */; };
 		8BF607241D2838FC00058600 /* FinalBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BF607231D2838FC00058600 /* FinalBackground.png */; };
 		8BF607261D283B1E00058600 /* Zackery Wilson - RIGHT Off The Bat(tle) [Final Fantasy IV]_165634314_soundcloud.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8BF607251D283B1E00058600 /* Zackery Wilson - RIGHT Off The Bat(tle) [Final Fantasy IV]_165634314_soundcloud.mp3 */; };
@@ -125,6 +126,7 @@
 		686CC02E1D1CBD7400872043 /* c31.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = c31.png; sourceTree = "<group>"; };
 		686CC02F1D1CBD7400872043 /* c32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = c32.png; sourceTree = "<group>"; };
 		686CC0301D1CBD7400872043 /* c33.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = c33.png; sourceTree = "<group>"; };
+		8B7901EA1D3AE714009F0B23 /* PlayerNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PlayerNormal.png; sourceTree = "<group>"; };
 		8BA1269B1D24A8410018945E /* BackButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BackButton.png; sourceTree = "<group>"; };
 		8BF607231D2838FC00058600 /* FinalBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FinalBackground.png; sourceTree = "<group>"; };
 		8BF607251D283B1E00058600 /* Zackery Wilson - RIGHT Off The Bat(tle) [Final Fantasy IV]_165634314_soundcloud.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Zackery Wilson - RIGHT Off The Bat(tle) [Final Fantasy IV]_165634314_soundcloud.mp3"; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 				8BF607231D2838FC00058600 /* FinalBackground.png */,
 				8BA1269B1D24A8410018945E /* BackButton.png */,
 				686CBFFD1D1CBD4D00872043 /* Glasses.png */,
+				8B7901EA1D3AE714009F0B23 /* PlayerNormal.png */,
 				686CBFFF1D1CBD4D00872043 /* HighScore.png */,
 				686CC0001D1CBD4D00872043 /* Play.png */,
 				686CC0011D1CBD4D00872043 /* Settings.png */,
@@ -345,6 +348,7 @@
 				8BA1269C1D24A8410018945E /* BackButton.png in Resources */,
 				A09A496C1D236E3B002E8E4A /* settingsButton.png in Resources */,
 				6861DDAE1D1C8E4600E8E4D8 /* Assets.xcassets in Resources */,
+				8B7901EB1D3AE714009F0B23 /* PlayerNormal.png in Resources */,
 				6861DDAC1D1C8E4600E8E4D8 /* Main.storyboard in Resources */,
 				686CC0331D1CBD7400872043 /* c3.png in Resources */,
 				686CC00D1D1CBD4D00872043 /* Title.png in Resources */,
