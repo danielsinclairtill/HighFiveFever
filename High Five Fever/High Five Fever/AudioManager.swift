@@ -17,20 +17,24 @@ class AudioManager: NSObject {
     
     private var musicPlaying: Bool = false;
     
-    private let menuSongName = "Zackery Wilson - RIGHT Off The Bat(tle) [Final Fantasy IV]_165634314_soundcloud";
+    var enteredFromPlayView: Bool = false;
+    
+    var lastPlayedWasMenuSong: Bool?;
+    
+    let menuSongName = "Zackery Wilson - SELECT Tech Samba [Chrono Trigger]_169740465_soundcloud";
+    let gameSongName = "Zackery Wilson - RIGHT Off The Bat(tle) [Final Fantasy IV]_165634314_soundcloud";
     private let mp3 = "mp3";
     
     private override init() {
         
     }
     
-    func setUpPlayer() {
-        
-        let menuSong = NSBundle.mainBundle().pathForResource(menuSongName, ofType: mp3);
+    func setUpPlayer(songName: String) {
+        let song = NSBundle.mainBundle().pathForResource(songName, ofType: mp3);
         
         do {
-            let menuSongUrl = NSURL(fileURLWithPath: menuSong!);
-            try musicPlayer = AVAudioPlayer(contentsOfURL: menuSongUrl);
+            let songUrl = NSURL(fileURLWithPath: song!);
+            try musicPlayer = AVAudioPlayer(contentsOfURL: songUrl);
             
         } catch {
             print ("Error setting up music player");
@@ -38,7 +42,6 @@ class AudioManager: NSObject {
     }
     
     func playMusic() {
-        
         if (!musicPlaying){
             musicPlayer.play();
             musicPlaying = true;
@@ -46,7 +49,6 @@ class AudioManager: NSObject {
     }
     
     func stopMusic() {
-        
         if (musicPlaying){
             musicPlayer.stop();
             musicPlaying = false;

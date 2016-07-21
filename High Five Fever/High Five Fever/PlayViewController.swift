@@ -10,9 +10,20 @@ import UIKit
 import SpriteKit
 
 class PlayViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // turn menu music off
+        AudioManager.sharedInstance.stopMusic();
+        AudioManager.sharedInstance.enteredFromPlayView = false;
+        
+        // turn game music on
+        // check if user has game music muted
+        if(NSUserDefaults.standardUserDefaults().objectForKey("isGameMusicSet") as! Bool){
+            AudioManager.sharedInstance.setUpPlayer(AudioManager.sharedInstance.gameSongName);
+            AudioManager.sharedInstance.playMusic();
+        }
         
         if let scene = GameScene(fileNamed:"GameScene") {
             // Configure the view.
@@ -49,5 +60,14 @@ class PlayViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if(segue.identifier == "toMainMenu"){
+            if segue.destinationViewController is MenuViewController{
+                AudioManager.sharedInstance.stopMusic();
+                AudioManager.sharedInstance.enteredFromPlayView = true;
+                
+            }
+        }
+    }
+    
 }

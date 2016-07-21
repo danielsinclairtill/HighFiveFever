@@ -11,22 +11,23 @@ import SpriteKit
 class GameScene: SKScene {
 
     let FILE_NAME_BACKGROUND = "FinalBackground.png";
+    let FILE_NAME_PLAYER_N = "PlayerNormal.png";
     
     // hardcoded values determined experimentally
     let X_COORD_SCORE_LABEL: CGFloat = 549.67;
     let Y_COORD_SCORE_LABEL: CGFloat = 570.786;
-    let WIDTH_BACKGROUND: CGFloat = 480.964;
+    let WIDTH_BACKGROUND: CGFloat = 430;
     let HEIGHT_BACKGROUND: CGFloat = 766.226;
     
     var background = SKSpriteNode();
-    
+    var player = SKSpriteNode();
     var scoreLabel = SKLabelNode();
     
     override func didMoveToView(view: SKView) {
         initiateScene();
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
         
     }
     
@@ -38,6 +39,12 @@ class GameScene: SKScene {
         background.size = CGSizeMake(WIDTH_BACKGROUND, HEIGHT_BACKGROUND);
         background.zPosition = -5;
         self.addChild(background);
+        
+        // add player to scene
+        player = createSpriteNode(FILE_NAME_PLAYER_N);
+        player.position = CGPoint(x: 600, y: 200)
+        player.setScale(0.45);
+        self.addChild(player);
         
         // set score label
         scoreLabel.position = CGPoint(x: X_COORD_SCORE_LABEL, y: Y_COORD_SCORE_LABEL);

@@ -11,18 +11,19 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var window: UIWindow?
-
+    var window: UIWindow?;
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         // set up music player
-        AudioManager.sharedInstance.setUpPlayer();
+        AudioManager.sharedInstance.setUpPlayer(AudioManager.sharedInstance.menuSongName);
         AudioManager.sharedInstance.playMusic();
         
-        NSUserDefaults.standardUserDefaults().setBool(true, forKey: "isMenuMusicPlaying");
+        // set up cache
+        NSUserDefaults.standardUserDefaults().setBool(true, forKey: "isMenuMusicSet");
+        NSUserDefaults.standardUserDefaults().setBool(true, forKey: "isGameMusicSet");
         
-        return true
+        return true;
     }
 
     func applicationWillResignActive(application: UIApplication) {
@@ -31,11 +32,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidEnterBackground(application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-        if(NSUserDefaults.standardUserDefaults().objectForKey("isMenuMusicPlaying") as! Bool){
-            AudioManager.sharedInstance.stopMusic();
-        }
+ 
+        AudioManager.sharedInstance.stopMusic();
     }
 
     func applicationWillEnterForeground(application: UIApplication) {
@@ -45,8 +43,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
         
-        if(NSUserDefaults.standardUserDefaults().objectForKey("isMenuMusicPlaying") as! Bool){
-            AudioManager.sharedInstance.playMusic();
+        if(NSUserDefaults.standardUserDefaults().objectForKey("isMenuMusicSet") as! Bool){
+            if (AudioManager.sharedInstance.lastPlayedWasMenuSong ?? false) {
+                AudioManager.sharedInstance.setUpPlayer(AudioManager.sharedInstance.menuSongName);
+                AudioManager.sharedInstance.playMusic();
+                AudioManager.sharedInstance.lastPlayedWasMenuSong = true;
+            }
         }
         
     }
