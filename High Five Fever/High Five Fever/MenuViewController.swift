@@ -17,6 +17,7 @@ class MenuViewController: UIViewController {
             
             if(NSUserDefaults.standardUserDefaults().objectForKey("isMenuMusicSet") as! Bool){
                 AudioManager.sharedInstance.playMusic();
+                AudioManager.sharedInstance.lastPlayedWasMenuSong = true;
             }
             AudioManager.sharedInstance.enteredFromPlayView = false;
         }
@@ -29,5 +30,23 @@ class MenuViewController: UIViewController {
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent;
+    }
+    
+    @IBAction func prepareForUnwind(segue: UIStoryboardSegue) {
+        
+            if (segue.sourceViewController is PlayViewController) {
+                AudioManager.sharedInstance.stopMusic();
+                AudioManager.sharedInstance.enteredFromPlayView = true;
+                
+                if(NSUserDefaults.standardUserDefaults().objectForKey("isMenuMusicSet") as! Bool){
+                    AudioManager.sharedInstance.setUpPlayer(AudioManager.sharedInstance.menuSongName)
+                    AudioManager.sharedInstance.playMusic();
+                    AudioManager.sharedInstance.lastPlayedWasMenuSong = true;
+                }
+                
+            }
+    }
+    @IBAction func unwindFromSettingsOrAbout(segue: UIStoryboardSegue) {
+        return;
     }
 }

@@ -11,6 +11,8 @@ import SpriteKit
 
 class PlayViewController: UIViewController {
     
+    var currentGame: GameScene!;
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,6 +25,7 @@ class PlayViewController: UIViewController {
         if(NSUserDefaults.standardUserDefaults().objectForKey("isGameMusicSet") as! Bool){
             AudioManager.sharedInstance.setUpPlayer(AudioManager.sharedInstance.gameSongName);
             AudioManager.sharedInstance.playMusic();
+            AudioManager.sharedInstance.lastPlayedWasMenuSong = false;
         }
         
         if let scene = GameScene(fileNamed:"GameScene") {
@@ -38,6 +41,8 @@ class PlayViewController: UIViewController {
             scene.scaleMode = .AspectFill
             
             skView.presentScene(scene)
+            currentGame = scene;
+            scene.playViewController = self;
         }
 
     }
@@ -60,14 +65,5 @@ class PlayViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if(segue.identifier == "toMainMenu"){
-            if segue.destinationViewController is MenuViewController{
-                AudioManager.sharedInstance.stopMusic();
-                AudioManager.sharedInstance.enteredFromPlayView = true;
-                
-            }
-        }
-    }
     
 }

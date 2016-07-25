@@ -9,6 +9,8 @@
 import SpriteKit
 
 class GameScene: SKScene {
+    
+    weak var playViewController: PlayViewController!;
 
     let FILE_NAME_BACKGROUND = "FinalBackground.png";
     let FILE_NAME_PLAYER_N = "PlayerNormal.png";
@@ -23,8 +25,12 @@ class GameScene: SKScene {
     var player = SKSpriteNode();
     var scoreLabel = SKLabelNode();
     
+    var playerPosition = [0,1,0,0];
+    var currentIndex = 1;
+    
     override func didMoveToView(view: SKView) {
         initiateScene();
+        setUpGestureRecognizers();
     }
     
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -42,7 +48,7 @@ class GameScene: SKScene {
         
         // add player to scene
         player = createSpriteNode(FILE_NAME_PLAYER_N);
-        player.position = CGPoint(x: 600, y: 200)
+        player.position = CGPoint(x: 650, y: 200)
         player.setScale(0.45);
         self.addChild(player);
         
@@ -69,4 +75,48 @@ class GameScene: SKScene {
         return CGPoint(x: CGRectGetMidX(screen.frame), y: CGRectGetMidY(screen.frame));
     }
     
+    func setUpGestureRecognizers() {
+        // up
+        let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(swiped(_:)));
+        swipeUp.direction = UISwipeGestureRecognizerDirection.Up;
+        self.view?.addGestureRecognizer(swipeUp);
+        
+        // down
+        let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(swiped(_:)));
+        swipeDown.direction = UISwipeGestureRecognizerDirection.Down;
+        self.view?.addGestureRecognizer(swipeDown);
+    }
+    
+    func swiped(sender: UISwipeGestureRecognizer){
+        // move player
+        switch(sender.direction) {
+            case UISwipeGestureRecognizerDirection.Up: movePlayerUp();
+            case UISwipeGestureRecognizerDirection.Down: movePlayerDown();
+            default: break;
+        }
+    
+    }
+    
+    func movePlayerUp(){
+        if(playerPosition.last! == 1) { // player is at last spot
+            return;
+        }
+        let moveUp = SKAction.moveByX(0, y: 70, duration: 0.0);
+        player.runAction(moveUp);
+        playerPosition[currentIndex] = 0;
+        currentIndex += 1;
+        playerPosition[currentIndex] = 1;
+        
+    }
+    func movePlayerDown() {
+        if (playerPosition.first! == 1){
+            return;
+        }
+        let moveDown = SKAction.moveByX(0, y: -70, duration: 0.0);
+        player.runAction(moveDown);
+        
+        playerPosition[currentIndex] = 0;
+        currentIndex -= 1;
+        playerPosition[currentIndex] = 1;
+    }
 }
