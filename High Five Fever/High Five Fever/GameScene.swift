@@ -9,9 +9,12 @@
 import SpriteKit
 
 class GameScene: SKScene {
+    
+    weak var playViewController: PlayViewController!;
 
     let FILE_NAME_BACKGROUND = "FinalBackground.png";
     let FILE_NAME_PLAYER_N = "PlayerNormal.png";
+    let FILE_NAME_PLAYER_HF = "PlayerHF.png";
     
     // hardcoded values determined experimentally
     let X_COORD_SCORE_LABEL: CGFloat = 549.67;
@@ -23,14 +26,18 @@ class GameScene: SKScene {
     var player = SKSpriteNode();
     var scoreLabel = SKLabelNode();
     
+    var playerPosition = [0,1,0,0];
+    var currentIndex = 1;
+    
+    var gestureStartPoint: CGPoint?;
+    var gestureEndPoint: CGPoint?;
+    
+    var highFiveAction: SKAction?;
+    
     override func didMoveToView(view: SKView) {
         initiateScene();
     }
-    
-    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        
-    }
-    
+
     /* Utility function to create scene with initial components */
     func initiateScene() {
         // add background to scene
@@ -41,8 +48,9 @@ class GameScene: SKScene {
         self.addChild(background);
         
         // add player to scene
+        highFiveAction = createHighFiveAction();
         player = createSpriteNode(FILE_NAME_PLAYER_N);
-        player.position = CGPoint(x: 600, y: 200)
+        player.position = CGPoint(x: 650, y: 200)
         player.setScale(0.45);
         self.addChild(player);
         
@@ -68,5 +76,66 @@ class GameScene: SKScene {
     func setToScreenCenter(screen: GameScene) -> CGPoint {
         return CGPoint(x: CGRectGetMidX(screen.frame), y: CGRectGetMidY(screen.frame));
     }
+
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        if let touch = touches.first {
+            self.gestureStartPoint = touch.locationInView(self.view);
+        }
+    }
+  
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        if let touch = touches.first {
+            
+            self.gestureEndPoint = touch.locationInView(self.view);
+            
+            if (self.gestureEndPoint!.y > self.gestureStartPoint!.y) {
+                
+                movePlayerDown();
+                
+            } else if (self.gestureEndPoint!.y < self.gestureStartPoint!.y) {
+                
+                movePlayerUp();
+                
+            } else {
+                
+                player.runAction(highFiveAction!);
+            }
+        }
+    }
+  
+    func movePlayerUp(){
+        if (playerPosition.last! == 1) { // player is at last spot
+            return;
+        }
+        
+        let moveUp = SKAction.moveByX(0, y: 70, duration: 0.0);
+        player.runAction(moveUp);
+        playerPosition[currentIndex] = 0;
+        currentIndex += 1;
+        playerPosition[currentIndex] = 1;
+        
+    }
     
+    func movePlayerDown() {
+        if (playerPosition.first! == 1){
+            return;
+        }
+        
+        let moveDown = SKAction.moveByX(0, y: -70, duration: 0.0);
+        player.runAction(moveDown);
+        
+        playerPosition[currentIndex] = 0;
+        currentIndex -= 1;
+        playerPosition[currentIndex] = 1;
+    }
+    
+    func createHighFiveAction() -> SKAction {
+        let highFiveTexture = SKTexture(imageNamed: FILE_NAME_PLAYER_HF);
+        let normalTexture = SKTexture(imageNamed: FILE_NAME_PLAYER_N);
+        
+        let highFiveAnimation = SKAction.animateWithTextures([highFiveTexture, normalTexture], timePerFrame: 0.1);
+        
+        return highFiveAnimation;
+    }
+ 
 }

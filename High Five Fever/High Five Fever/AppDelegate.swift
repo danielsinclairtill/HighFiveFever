@@ -12,7 +12,9 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?;
-
+    
+    var fromLaunch = true;
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         // set up music player
@@ -48,8 +50,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 AudioManager.sharedInstance.setUpPlayer(AudioManager.sharedInstance.menuSongName);
                 AudioManager.sharedInstance.playMusic();
                 AudioManager.sharedInstance.lastPlayedWasMenuSong = true;
+            } else if (!fromLaunch){
+                AudioManager.sharedInstance.setUpPlayer(AudioManager.sharedInstance.gameSongName);
+                AudioManager.sharedInstance.playMusic();
+                AudioManager.sharedInstance.lastPlayedWasMenuSong = false;
             }
         }
+        fromLaunch = false;
         
     }
 
