@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-class GameScene: SKScene {
+class GameScene: SKScene, SKPhysicsContactDelegate {
     
     weak var playViewController: PlayViewController!;
 
@@ -27,15 +27,30 @@ class GameScene: SKScene {
     var scoreLabel = SKLabelNode();
     
     var playerPosition = [0,1,0,0];
+    let botPosition: [CGPoint] = [CGPoint(x: 350, y: 130), CGPoint(x: 350, y: 200), CGPoint(x: 350, y: 270), CGPoint(x: 350, y: 340)];
+    let botImage = ["Bot1Normal.png", ];
     var currentIndex = 1;
     
     var gestureStartPoint: CGPoint?;
     var gestureEndPoint: CGPoint?;
     
+    var timer = NSTimer()
+    
     var highFiveAction: SKAction?;
     
+    enum ColliderType: UInt32 {
+        case playerBot = 1;
+        case enemyBot = 2;
+        case wall = 3;
+    }
+    
     override func didMoveToView(view: SKView) {
+        self.physicsWorld.contactDelegate = self;
+        
         initiateScene();
+       // _ = NSTimer.scheduledTimerWithTimeInterval(0.8, target: self, selector: #selector(startBotAnimation), userInfo: nil, repeats: true);
+        
+
     }
 
     /* Utility function to create scene with initial components */
@@ -44,14 +59,20 @@ class GameScene: SKScene {
         background = createSpriteNode(FILE_NAME_BACKGROUND);
         background.position = setToScreenCenter(self);
         background.size = CGSizeMake(WIDTH_BACKGROUND, HEIGHT_BACKGROUND);
-        background.zPosition = -5;
+        //background.zPosition = -5;
         self.addChild(background);
         
         // add player to scene
         highFiveAction = createHighFiveAction();
         player = createSpriteNode(FILE_NAME_PLAYER_N);
         player.position = CGPoint(x: 650, y: 200)
+        //player.zPosition = 1;
         player.setScale(0.45);
+        player.physicsBody = SKPhysicsBody(rectangleOfSize: (player.size));
+        player.physicsBody?.dynamic = false;
+        player.physicsBody?.categoryBitMask = ColliderType.playerBot.rawValue;
+        player.physicsBody?.contactTestBitMask = ColliderType.enemyBot.rawValue;
+        player.physicsBody?.collisionBitMask = ColliderType.enemyBot.rawValue;
         self.addChild(player);
         
         // set score label
@@ -62,6 +83,56 @@ class GameScene: SKScene {
         scoreLabel.text = "0";
         self.addChild(scoreLabel);
         
+        let wall = SKNode()
+        wall.position = CGPoint(x: 650, y: 0)
+        wall.physicsBody = SKPhysicsBody(rectangleOfSize: CGSizeMake(1, self.frame.height))
+        wall.physicsBody?.dynamic = false;
+        wall.physicsBody?.categoryBitMask = ColliderType.wall.rawValue
+        wall.physicsBody?.collisionBitMask = ColliderType.wall.rawValue
+        wall.physicsBody?.contactTestBitMask = ColliderType.wall.rawValue
+        let bot = createSpriteNode(botImage[0]);
+        bot.position = CGPoint(x: 300, y: 200)
+        
+        bot.setScale(0.45);
+        bot.physicsBody = SKPhysicsBody(rectangleOfSize: bot.size)
+        bot.physicsBody?.dynamic = false;
+        bot.physicsBody?.categoryBitMask = ColliderType.enemyBot.rawValue;
+        bot.physicsBody?.contactTestBitMask = ColliderType.wall.rawValue;
+        bot.physicsBody?.collisionBitMask = ColliderType.wall.rawValue;
+        
+        let moveBot = SKAction.moveByX(50, y: 0, duration: 1)
+        let moveBotForever = SKAction.repeatActionForever(moveBot)
+        bot.runAction(moveBotForever)
+        
+        
+        self.addChild(bot);
+        
+    }
+    
+    func startBotAnimation() -> Void {
+        let positionIndex = Int(arc4random() % 4);
+        let bot = createSpriteNode(botImage[0]);
+        bot.position = botPosition[positionIndex];
+        
+        bot.setScale(0.45);
+        bot.physicsBody = SKPhysicsBody(rectangleOfSize: (bot.texture?.size())!)
+        bot.physicsBody?.dynamic = false;
+        bot.physicsBody?.categoryBitMask = ColliderType.playerBot.rawValue;
+        bot.physicsBody?.contactTestBitMask = ColliderType.playerBot.rawValue;
+        bot.physicsBody?.collisionBitMask = ColliderType.playerBot.rawValue;
+        self.addChild(bot);
+        timer = NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: #selector(moveBot(_:)), userInfo: bot, repeats: true);
+        
+    }
+    
+    func didBeginContact(contact: SKPhysicsContact) {
+        print("contact between " )
+    }
+    func moveBot (timer: NSTimer) -> Void {
+        let moveBot = SKAction.moveByX(50, y: 0, duration: 0);
+
+        let bot = timer.userInfo as? SKSpriteNode
+        bot?.runAction(moveBot)
     }
     
     /* Helper function to create a SKSpriteNode from a image filename */
