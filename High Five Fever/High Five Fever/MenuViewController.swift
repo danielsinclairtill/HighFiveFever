@@ -15,7 +15,7 @@ class MenuViewController: UIViewController {
         if(AudioManager.sharedInstance.enteredFromPlayView){
             AudioManager.sharedInstance.setUpPlayer(AudioManager.sharedInstance.menuSongName);
             
-            if(NSUserDefaults.standardUserDefaults().objectForKey("isMenuMusicSet") as! Bool){
+            if(UserDefaults.standard.object(forKey: "isMenuMusicSet") as! Bool){
                 AudioManager.sharedInstance.playMusic();
                 AudioManager.sharedInstance.lastPlayedWasMenuSong = true;
             }
@@ -28,17 +28,17 @@ class MenuViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return UIStatusBarStyle.LightContent;
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return UIStatusBarStyle.lightContent;
     }
     
-    @IBAction func prepareForUnwind(segue: UIStoryboardSegue) {
+    @IBAction func prepareForUnwind(_ segue: UIStoryboardSegue) {
         
-            if (segue.sourceViewController is PlayViewController) {
+            if (segue.source is PlayViewController) {
                 AudioManager.sharedInstance.stopMusic();
                 AudioManager.sharedInstance.enteredFromPlayView = true;
                 
-                if(NSUserDefaults.standardUserDefaults().objectForKey("isMenuMusicSet") as! Bool){
+                if(UserDefaults.standard.object(forKey: "isMenuMusicSet") as! Bool){
                     AudioManager.sharedInstance.setUpPlayer(AudioManager.sharedInstance.menuSongName)
                     AudioManager.sharedInstance.playMusic();
                     AudioManager.sharedInstance.lastPlayedWasMenuSong = true;
@@ -46,7 +46,7 @@ class MenuViewController: UIViewController {
                 
             }
     }
-    @IBAction func unwindFromSettingsOrAbout(segue: UIStoryboardSegue) {
+    @IBAction func unwindFromSettingsOrAbout(_ segue: UIStoryboardSegue) {
         return;
     }
 }

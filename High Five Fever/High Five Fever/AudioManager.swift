@@ -13,9 +13,9 @@ class AudioManager: NSObject {
     
     static let sharedInstance = AudioManager();
     
-    private var musicPlayer: AVAudioPlayer = AVAudioPlayer();
+    fileprivate var musicPlayer: AVAudioPlayer = AVAudioPlayer();
     
-    private var musicPlaying: Bool = false;
+    fileprivate var musicPlaying: Bool = false;
     
     var enteredFromPlayView: Bool = false;
     
@@ -23,18 +23,18 @@ class AudioManager: NSObject {
     
     let menuSongName = "Zackery Wilson - SELECT Tech Samba [Chrono Trigger]_169740465_soundcloud";
     let gameSongName = "Zackery Wilson - RIGHT Off The Bat(tle) [Final Fantasy IV]_165634314_soundcloud";
-    private let mp3 = "mp3";
+    fileprivate let mp3 = "mp3";
     
-    private override init() {
+    fileprivate override init() {
         
     }
     
-    func setUpPlayer(songName: String) {
-        let song = NSBundle.mainBundle().pathForResource(songName, ofType: mp3);
+    func setUpPlayer(_ songName: String) {
+        let song = Bundle.main.path(forResource: songName, ofType: mp3);
         
         do {
-            let songUrl = NSURL(fileURLWithPath: song!);
-            try musicPlayer = AVAudioPlayer(contentsOfURL: songUrl);
+            let songUrl = URL(fileURLWithPath: song!);
+            try musicPlayer = AVAudioPlayer(contentsOf: songUrl);
             
         } catch {
             print ("Error setting up music player");

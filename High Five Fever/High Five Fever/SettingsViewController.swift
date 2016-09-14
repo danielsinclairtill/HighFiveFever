@@ -13,25 +13,25 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var menuMusicSwitch: UISwitch!
     @IBOutlet weak var gameMusicSwitch: UISwitch!
     
-    @IBAction func menuMusicSwitched(sender: UISwitch) {
+    @IBAction func menuMusicSwitched(_ sender: UISwitch) {
         
-        if (!sender.on) {
+        if (!sender.isOn) {
             AudioManager.sharedInstance.stopMusic();
         } else {
             AudioManager.sharedInstance.playMusic();
         }
         
-        NSUserDefaults.standardUserDefaults().setBool(sender.on, forKey: "isMenuMusicSet");
+        UserDefaults.standard.set(sender.isOn, forKey: "isMenuMusicSet");
     }
     
-    @IBAction func gameMusicSwitched(sender: UISwitch) {
-        NSUserDefaults.standardUserDefaults().setBool(sender.on, forKey: "isGameMusicSet");
+    @IBAction func gameMusicSwitched(_ sender: UISwitch) {
+        UserDefaults.standard.set(sender.isOn, forKey: "isGameMusicSet");
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        menuMusicSwitch.on = NSUserDefaults.standardUserDefaults().objectForKey("isMenuMusicSet") as! Bool;
-        gameMusicSwitch.on = NSUserDefaults.standardUserDefaults().objectForKey("isGameMusicSet") as! Bool;
+        menuMusicSwitch.isOn = UserDefaults.standard.object(forKey: "isMenuMusicSet") as! Bool;
+        gameMusicSwitch.isOn = UserDefaults.standard.object(forKey: "isGameMusicSet") as! Bool;
         
     }
 
@@ -40,8 +40,8 @@ class SettingsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return UIStatusBarStyle.LightContent;
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return UIStatusBarStyle.lightContent;
     }
 
     /*

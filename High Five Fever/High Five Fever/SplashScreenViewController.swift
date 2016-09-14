@@ -12,20 +12,20 @@ class SplashScreenViewController: UIViewController {
 
     @IBOutlet weak var splashImageView: UIImageView!
     var frameCount = 33;
-    var timer = NSTimer();
+    var timer = Timer();
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        timer = NSTimer.scheduledTimerWithTimeInterval(0.05, target: self, selector: #selector(animateSplashView), userInfo: nil, repeats: true);
+        timer = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(animateSplashView), userInfo: nil, repeats: true);
         
     }
     
     func animateSplashView(){
         if (frameCount == 0){
             // segue to main menu
-            let menuViewController = (self.storyboard?.instantiateViewControllerWithIdentifier("mainMenu"))! as UIViewController;
-            presentViewController(menuViewController, animated: true, completion: nil);
+            let menuViewController = (self.storyboard?.instantiateViewController(withIdentifier: "mainMenu"))! as UIViewController;
+            present(menuViewController, animated: true, completion: nil);
             
             
         }

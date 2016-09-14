@@ -22,7 +22,7 @@ class PlayViewController: UIViewController {
         
         // turn game music on
         // check if user has game music muted
-        if(NSUserDefaults.standardUserDefaults().objectForKey("isGameMusicSet") as! Bool){
+        if(UserDefaults.standard.object(forKey: "isGameMusicSet") as! Bool){
             AudioManager.sharedInstance.setUpPlayer(AudioManager.sharedInstance.gameSongName);
             AudioManager.sharedInstance.playMusic();
             AudioManager.sharedInstance.lastPlayedWasMenuSong = false;
@@ -38,7 +38,7 @@ class PlayViewController: UIViewController {
             skView.ignoresSiblingOrder = true
             
             /* Set the scale mode to scale to fit the window */
-            scene.scaleMode = .AspectFill
+            scene.scaleMode = .aspectFill
             
             skView.presentScene(scene)
             currentGame = scene;
@@ -53,7 +53,7 @@ class PlayViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override func prefersStatusBarHidden() -> Bool {
+    override var prefersStatusBarHidden : Bool {
         return true
     }
 
