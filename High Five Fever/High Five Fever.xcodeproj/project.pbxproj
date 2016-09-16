@@ -72,6 +72,10 @@
 		A09D55271D1F9A3A002064A3 /* PlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09D55241D1F9A3A002064A3 /* PlayViewController.swift */; };
 		A09D55281D1F9A3A002064A3 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09D55251D1F9A3A002064A3 /* SettingsViewController.swift */; };
 		A0B09E601D270FE8009AD37E /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B09E5F1D270FE8009AD37E /* SplashScreenViewController.swift */; };
+		A0DB90C51D8B733800A83C78 /* BotFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DB90C41D8B733800A83C78 /* BotFactory.swift */; };
+		A0DB90C71D8B74B800A83C78 /* PlayerBot.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DB90C61D8B74B800A83C78 /* PlayerBot.swift */; };
+		A0DB90C91D8B74C200A83C78 /* EnemyBot.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DB90C81D8B74C200A83C78 /* EnemyBot.swift */; };
+		A0DB90CB1D8B82CE00A83C78 /* SceneFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DB90CA1D8B82CE00A83C78 /* SceneFactory.swift */; };
 		A0F2D71A1D31B93F00B59CCE /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F2D7191D31B93F00B59CCE /* GameScene.swift */; };
 		A0F2D71E1D31BBEC00B59CCE /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = A0F2D71D1D31BBEC00B59CCE /* GameScene.sks */; };
 /* End PBXBuildFile section */
@@ -144,6 +148,10 @@
 		A09D55241D1F9A3A002064A3 /* PlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayViewController.swift; sourceTree = "<group>"; };
 		A09D55251D1F9A3A002064A3 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		A0B09E5F1D270FE8009AD37E /* SplashScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
+		A0DB90C41D8B733800A83C78 /* BotFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BotFactory.swift; path = ../BotFactory.swift; sourceTree = "<group>"; };
+		A0DB90C61D8B74B800A83C78 /* PlayerBot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerBot.swift; sourceTree = "<group>"; };
+		A0DB90C81D8B74C200A83C78 /* EnemyBot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnemyBot.swift; sourceTree = "<group>"; };
+		A0DB90CA1D8B82CE00A83C78 /* SceneFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneFactory.swift; sourceTree = "<group>"; };
 		A0F2D7191D31B93F00B59CCE /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		A0F2D71D1D31BBEC00B59CCE /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -178,6 +186,10 @@
 		6861DDA51D1C8E4600E8E4D8 /* High Five Fever */ = {
 			isa = PBXGroup;
 			children = (
+				A0DB90C41D8B733800A83C78 /* BotFactory.swift */,
+				A0DB90CA1D8B82CE00A83C78 /* SceneFactory.swift */,
+				A0DB90C61D8B74B800A83C78 /* PlayerBot.swift */,
+				A0DB90C81D8B74C200A83C78 /* EnemyBot.swift */,
 				6861DDA61D1C8E4600E8E4D8 /* AppDelegate.swift */,
 				A02417911D26F0280023F4A8 /* AudioManager.swift */,
 				6861DDB81D1C8EC600E8E4D8 /* MenuViewController.swift */,
@@ -405,9 +417,13 @@
 			files = (
 				A02417921D26F0280023F4A8 /* AudioManager.swift in Sources */,
 				A09D55271D1F9A3A002064A3 /* PlayViewController.swift in Sources */,
+				A0DB90C71D8B74B800A83C78 /* PlayerBot.swift in Sources */,
 				A0F2D71A1D31B93F00B59CCE /* GameScene.swift in Sources */,
 				A0B09E601D270FE8009AD37E /* SplashScreenViewController.swift in Sources */,
+				A0DB90C51D8B733800A83C78 /* BotFactory.swift in Sources */,
 				A09D55261D1F9A3A002064A3 /* AboutViewController.swift in Sources */,
+				A0DB90CB1D8B82CE00A83C78 /* SceneFactory.swift in Sources */,
+				A0DB90C91D8B74C200A83C78 /* EnemyBot.swift in Sources */,
 				6861DDA71D1C8E4600E8E4D8 /* AppDelegate.swift in Sources */,
 				A09D55281D1F9A3A002064A3 /* SettingsViewController.swift in Sources */,
 				6861DDB91D1C8EC600E8E4D8 /* MenuViewController.swift in Sources */,
