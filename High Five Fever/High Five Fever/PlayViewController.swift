@@ -15,14 +15,34 @@ class PlayViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadScene()
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    override var prefersStatusBarHidden : Bool {
+        return true
+    }
+    
+    @IBAction func prepareForUnwindFromGameScene(_ segue: UIStoryboardSegue) {
+        if segue.source is GameOverViewController {
+            self.loadScene()
+        }
         
+        return
+    }
+    
+    private func loadScene() {
         // turn menu music off
         AudioManager.sharedInstance.stopMusic();
         AudioManager.sharedInstance.enteredFromPlayView = false;
         
         // turn game music on
         // check if user has game music muted
-        if(NSUserDefaults.standardUserDefaults().objectForKey("isGameMusicSet") as! Bool){
+        if(UserDefaults.standard.object(forKey: "isGameMusicSet") as! Bool){
             AudioManager.sharedInstance.setUpPlayer(AudioManager.sharedInstance.gameSongName);
             AudioManager.sharedInstance.playMusic();
             AudioManager.sharedInstance.lastPlayedWasMenuSong = false;
@@ -38,33 +58,11 @@ class PlayViewController: UIViewController {
             skView.ignoresSiblingOrder = true
             
             /* Set the scale mode to scale to fit the window */
-            scene.scaleMode = .AspectFill
+            scene.scaleMode = .aspectFill
             
             skView.presentScene(scene)
             currentGame = scene;
             scene.playViewController = self;
         }
-
     }
-
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    override func prefersStatusBarHidden() -> Bool {
-        return true
-    }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
 }
