@@ -61,6 +61,8 @@
 		8BA1269C1D24A8410018945E /* BackButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BA1269B1D24A8410018945E /* BackButton.png */; };
 		8BF607241D2838FC00058600 /* FinalBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BF607231D2838FC00058600 /* FinalBackground.png */; };
 		8BF607261D283B1E00058600 /* Zackery Wilson - RIGHT Off The Bat(tle) [Final Fantasy IV]_165634314_soundcloud.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8BF607251D283B1E00058600 /* Zackery Wilson - RIGHT Off The Bat(tle) [Final Fantasy IV]_165634314_soundcloud.mp3 */; };
+		A01E14931D8E47B200838B18 /* GameOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01E14921D8E47B200838B18 /* GameOverViewController.swift */; };
+		A01E14971D8E4CE500838B18 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01E14961D8E4CE500838B18 /* Util.swift */; };
 		A02417921D26F0280023F4A8 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02417911D26F0280023F4A8 /* AudioManager.swift */; };
 		A038C2651D459AAA00A4C5D8 /* PlayerHF.png in Resources */ = {isa = PBXBuildFile; fileRef = A038C2641D459AAA00A4C5D8 /* PlayerHF.png */; };
 		A038C2681D459ABE00A4C5D8 /* Bot1HF.png in Resources */ = {isa = PBXBuildFile; fileRef = A038C2661D459ABE00A4C5D8 /* Bot1HF.png */; };
@@ -137,6 +139,8 @@
 		8BA1269B1D24A8410018945E /* BackButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BackButton.png; sourceTree = "<group>"; };
 		8BF607231D2838FC00058600 /* FinalBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FinalBackground.png; sourceTree = "<group>"; };
 		8BF607251D283B1E00058600 /* Zackery Wilson - RIGHT Off The Bat(tle) [Final Fantasy IV]_165634314_soundcloud.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Zackery Wilson - RIGHT Off The Bat(tle) [Final Fantasy IV]_165634314_soundcloud.mp3"; sourceTree = "<group>"; };
+		A01E14921D8E47B200838B18 /* GameOverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverViewController.swift; sourceTree = "<group>"; };
+		A01E14961D8E4CE500838B18 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		A02417911D26F0280023F4A8 /* AudioManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
 		A038C2641D459AAA00A4C5D8 /* PlayerHF.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PlayerHF.png; sourceTree = "<group>"; };
 		A038C2661D459ABE00A4C5D8 /* Bot1HF.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bot1HF.png; sourceTree = "<group>"; };
@@ -186,19 +190,11 @@
 		6861DDA51D1C8E4600E8E4D8 /* High Five Fever */ = {
 			isa = PBXGroup;
 			children = (
-				A0DB90C41D8B733800A83C78 /* BotFactory.swift */,
-				A0DB90CA1D8B82CE00A83C78 /* SceneFactory.swift */,
-				A0DB90C61D8B74B800A83C78 /* PlayerBot.swift */,
-				A0DB90C81D8B74C200A83C78 /* EnemyBot.swift */,
+				A01E14941D8E47C800838B18 /* Model */,
 				6861DDA61D1C8E4600E8E4D8 /* AppDelegate.swift */,
-				A02417911D26F0280023F4A8 /* AudioManager.swift */,
-				6861DDB81D1C8EC600E8E4D8 /* MenuViewController.swift */,
-				A09D55231D1F9A3A002064A3 /* AboutViewController.swift */,
+				A01E14951D8E47D400838B18 /* Controller */,
 				A0F2D7191D31B93F00B59CCE /* GameScene.swift */,
 				A0F2D71D1D31BBEC00B59CCE /* GameScene.sks */,
-				A09D55241D1F9A3A002064A3 /* PlayViewController.swift */,
-				A09D55251D1F9A3A002064A3 /* SettingsViewController.swift */,
-				A0B09E5F1D270FE8009AD37E /* SplashScreenViewController.swift */,
 				6861DDAA1D1C8E4600E8E4D8 /* Main.storyboard */,
 				6861DDAD1D1C8E4600E8E4D8 /* Assets.xcassets */,
 				A02417951D26F0E50023F4A8 /* Audio */,
@@ -275,6 +271,32 @@
 				686CC0301D1CBD7400872043 /* c33.png */,
 			);
 			name = logo;
+			sourceTree = "<group>";
+		};
+		A01E14941D8E47C800838B18 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A0DB90C41D8B733800A83C78 /* BotFactory.swift */,
+				A0DB90CA1D8B82CE00A83C78 /* SceneFactory.swift */,
+				A0DB90C61D8B74B800A83C78 /* PlayerBot.swift */,
+				A0DB90C81D8B74C200A83C78 /* EnemyBot.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		A01E14951D8E47D400838B18 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A02417911D26F0280023F4A8 /* AudioManager.swift */,
+				6861DDB81D1C8EC600E8E4D8 /* MenuViewController.swift */,
+				A09D55231D1F9A3A002064A3 /* AboutViewController.swift */,
+				A01E14921D8E47B200838B18 /* GameOverViewController.swift */,
+				A01E14961D8E4CE500838B18 /* Util.swift */,
+				A09D55241D1F9A3A002064A3 /* PlayViewController.swift */,
+				A09D55251D1F9A3A002064A3 /* SettingsViewController.swift */,
+				A0B09E5F1D270FE8009AD37E /* SplashScreenViewController.swift */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 		A02417951D26F0E50023F4A8 /* Audio */ = {
@@ -426,7 +448,9 @@
 				A0DB90C91D8B74C200A83C78 /* EnemyBot.swift in Sources */,
 				6861DDA71D1C8E4600E8E4D8 /* AppDelegate.swift in Sources */,
 				A09D55281D1F9A3A002064A3 /* SettingsViewController.swift in Sources */,
+				A01E14971D8E4CE500838B18 /* Util.swift in Sources */,
 				6861DDB91D1C8EC600E8E4D8 /* MenuViewController.swift in Sources */,
+				A01E14931D8E47B200838B18 /* GameOverViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

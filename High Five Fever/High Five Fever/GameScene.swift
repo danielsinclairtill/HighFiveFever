@@ -13,12 +13,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     weak var playViewController: PlayViewController!
     var count = 0
     
-    // File name constants
     let FILE_NAME_BACKGROUND = "FinalBackground.png"
     let FILE_NAME_PLAYER_N = "PlayerNormal.png"
     let FILE_NAME_PLAYER_HF = "PlayerHF.png"
     let FILE_NAME_ENEMY_BOT_N = "Bot1Normal.png"
     let FILE_NAME_ENEMY_BOT_HF = "Bot1HF.png"
+    let gameOverVC = "GameOverVC"
     
     // hardcoded values determined experimentally
     let X_COORD_SCORE_LABEL: CGFloat = 549.67
@@ -44,6 +44,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var botCount = 0
     
+    var enemyBotCreationTimer: Timer?
+    
+    var enemyBotMovementTimers = [Timer]()
+    
     /* Scene starting point */
     override func didMove(to view: SKView) {
         self.physicsWorld.contactDelegate = self;
@@ -51,34 +55,28 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         initiateScene();
         
         // Create enemy bots
-        _ = Timer.scheduledTimer(timeInterval: 0.8, target: self, selector: #selector(addEnemyBot), userInfo: nil, repeats: true);
+        enemyBotCreationTimer = Timer.scheduledTimer(timeInterval: 0.8, target: self, selector: #selector(addEnemyBot), userInfo: nil, repeats: true);
     }
     
     /* Contact between objects occurred */
     func didBegin(_ contact: SKPhysicsContact) {
         let bodyA = contact.bodyA
         let bodyB = contact.bodyB
-        
-        if bodyA.categoryBitMask == ColliderType.playerBot.rawValue || bodyB.categoryBitMask == ColliderType.playerBot.rawValue {
-            player?.highFive()
-        }
-        // Find the bot that made contact with player
-        if bodyB.categoryBitMask == ColliderType.enemyBot.rawValue  {
-            self.enumerateChildNodes(withName: (bodyB.node?.name)!, using: { (node, stop) in
-                if let bot = node as? EnemyBot {
-                    bot.highFive()
-                    // Wait half a second before getting rid of bot
-                    _ = Timer.scheduledTimer(timeInterval: 0.5, target: bot, selector: #selector(bot.removeFromParent), userInfo: nil, repeats: false)
-                }
-            })
+
+        // Game over
+        if bodyA.categoryBitMask == ColliderType.wall.rawValue || bodyB.categoryBitMask == ColliderType.wall.rawValue {
+            endGame()
         }
         
-        count += 1
-        scoreLabel.text = "\(count)"
+        // Score
+        if bodyA.categoryBitMask == ColliderType.playerBot.rawValue && bodyB.categoryBitMask == ColliderType.enemyBot.rawValue {
+            scoreAndRemove(enemyBot: bodyB)
+        }
+        
     }
 
     /* Utility function to create scene with initial components */
-    func initiateScene() {
+    private func initiateScene() {
         // Set up Swipe gesture recognizer
         let swipeUp: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(movePlayerUp))
         swipeUp.direction = .up
@@ -98,11 +96,52 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         scoreLabel = sceneFactory.createScoreLabel(position: CGPoint(x: X_COORD_SCORE_LABEL, y: Y_COORD_SCORE_LABEL))
         self.addChild(scoreLabel);
         
+        // Set up wall
+        let wall: SKNode = sceneFactory.createWallOn(edge: WallEdge.right, of: self)!
+        self.addChild(wall)
+        
         // Add player bot to scene
-        player = botFactory.createPlayerBotWith(normalFilename: FILE_NAME_PLAYER_N, highFiveFilename: FILE_NAME_PLAYER_HF, position: CGPoint(x: 650, y: 200), textureScaledBy: 0.45, physicsBodyScaledBy: 0.2)
+        player = botFactory.createPlayerBotWith(normalFilename: FILE_NAME_PLAYER_N, highFiveFilename: FILE_NAME_PLAYER_HF, position: CGPoint(x: 650, y: 200), textureScaledBy: 0.45, physicsBodyScaledBy: 0.25)
         self.addChild(player!)
     }
     
+    /* Helper function to return coordinates of screens center */
+    private func setToScreenCenter(_ screen: GameScene) -> CGPoint {
+        return CGPoint(x: screen.frame.midX, y: screen.frame.midY);
+    }
+    
+    private func scoreAndRemove(enemyBot: SKPhysicsBody) {
+        player?.highFive()
+        
+        // Find the bot that made contact with player
+        self.enumerateChildNodes(withName: (enemyBot.node?.name)!, using: { (node, stop) in
+            if let bot = node as? EnemyBot {
+                bot.highFive()
+                _ = Timer.scheduledTimer(timeInterval: 0.3, target: bot, selector: #selector(bot.removeFromParent), userInfo: nil, repeats: false)
+            }
+        })
+        
+        count += 1
+        scoreLabel.text = "\(count)"
+    }
+    
+    private func endGame() {
+        if let createBotTimer = enemyBotCreationTimer {
+            createBotTimer.invalidate()
+        }
+        
+        for eachTimer in enemyBotMovementTimers {
+            eachTimer.invalidate()
+        }
+
+        // Show game over view controller
+        let gameOverViewController = Util.getViewControllerWith(identifier: gameOverVC)  as! GameOverViewController
+        gameOverViewController.view.backgroundColor = .clear
+        gameOverViewController.modalPresentationStyle = .overCurrentContext
+        
+        playViewController.present(gameOverViewController, animated: true, completion: nil)
+    }
+
     /* Utility function to add enemy bots to scene and start their animation */
     func addEnemyBot() -> Void {
         botCount += 1
@@ -112,15 +151,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.addChild(bot);
         
         // Bot movement
-        _ = Timer.scheduledTimer(timeInterval: 0.5, target: bot, selector: #selector(bot.moveBot), userInfo: bot, repeats: true);
+        let timer = Timer.scheduledTimer(timeInterval: 0.5, target: bot, selector: #selector(bot.moveBot), userInfo: bot, repeats: true);
+        enemyBotMovementTimers.append(timer)
     }
     
-    
-    /* Helper function to return coordinates of screens center */
-    func setToScreenCenter(_ screen: GameScene) -> CGPoint {
-        return CGPoint(x: screen.frame.midX, y: screen.frame.midY);
-    }
-
     func movePlayerUp(){
         if (playerPosition.last! == 1) { // player is at last spot
             return;

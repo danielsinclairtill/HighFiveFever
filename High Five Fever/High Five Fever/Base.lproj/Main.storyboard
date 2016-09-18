@@ -107,7 +107,7 @@
         <!--Play View Controller-->
         <scene sceneID="xJJ-CZ-TrY">
             <objects>
-                <viewController id="PSt-k6-eOw" customClass="PlayViewController" customModule="High_Five_Fever" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PlayVC" id="PSt-k6-eOw" customClass="PlayViewController" customModule="High_Five_Fever" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="tXD-aK-GSg"/>
                         <viewControllerLayoutGuide type="bottom" id="hFA-a0-Lzm"/>
@@ -132,6 +132,64 @@
                 <exit id="iym-GP-4LQ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1686" y="-195"/>
+        </scene>
+        <!--Game Over View Controller-->
+        <scene sceneID="Yon-6I-Smg">
+            <objects>
+                <viewController storyboardIdentifier="GameOverVC" id="m3P-38-XIx" customClass="GameOverViewController" customModule="High_Five_Fever" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="YjZ-96-gYY"/>
+                        <viewControllerLayoutGuide type="bottom" id="MEM-D5-29k"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="BTl-9U-CWt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X4f-FD-gnx">
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Over" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jnW-rM-Veq">
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="RG2-wb-VW7">
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cWS-iX-VGJ">
+                                                <state key="normal" title="Restart"/>
+                                                <connections>
+                                                    <action selector="restartGame:" destination="m3P-38-XIx" eventType="touchUpInside" id="aVV-6x-jIm"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iAM-aI-TAr">
+                                                <state key="normal" title="Main Menu"/>
+                                                <connections>
+                                                    <action selector="backToMainMenu:" destination="m3P-38-XIx" eventType="touchUpInside" id="1Hg-DY-nT0"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.40000000600000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="jnW-rM-Veq" firstAttribute="top" secondItem="X4f-FD-gnx" secondAttribute="topMargin" constant="10" id="Cv2-DS-Kmg"/>
+                                    <constraint firstItem="RG2-wb-VW7" firstAttribute="top" secondItem="jnW-rM-Veq" secondAttribute="bottom" constant="40.5" id="JZ5-ex-9MI"/>
+                                    <constraint firstItem="jnW-rM-Veq" firstAttribute="centerX" secondItem="X4f-FD-gnx" secondAttribute="centerX" id="OkT-pE-MdA"/>
+                                    <constraint firstItem="RG2-wb-VW7" firstAttribute="centerX" secondItem="X4f-FD-gnx" secondAttribute="centerX" id="v12-3u-zVA"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="X4f-FD-gnx" firstAttribute="centerX" secondItem="BTl-9U-CWt" secondAttribute="centerX" id="7Ve-XE-i3t"/>
+                            <constraint firstItem="X4f-FD-gnx" firstAttribute="centerY" secondItem="BTl-9U-CWt" secondAttribute="centerY" id="GVh-8o-31l"/>
+                            <constraint firstItem="X4f-FD-gnx" firstAttribute="leading" secondItem="BTl-9U-CWt" secondAttribute="leadingMargin" constant="40" id="X4g-vz-Auc"/>
+                            <constraint firstItem="X4f-FD-gnx" firstAttribute="top" secondItem="YjZ-96-gYY" secondAttribute="bottom" constant="240" id="dmT-KK-t0e"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Ux-o1-Nok" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2466.4000000000001" y="-195.6521739130435"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="oPA-ER-0nf">
