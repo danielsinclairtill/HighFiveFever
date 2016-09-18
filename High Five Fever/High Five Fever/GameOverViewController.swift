@@ -10,14 +10,6 @@ import UIKit
 import SpriteKit
 
 class GameOverViewController: UIViewController {
-
-    @IBAction func restartGame(_ sender: UIButton) {
-        self.present(Util.getViewControllerWith(identifier: "PlayVC")!, animated: true, completion: nil)
-    }
-    
-    @IBAction func backToMainMenu(_ sender: UIButton) {
-        self.present(Util.getViewControllerWith(identifier: "mainMenu")!, animated: true, completion: nil)
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

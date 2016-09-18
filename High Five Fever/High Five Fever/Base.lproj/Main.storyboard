@@ -157,13 +157,13 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cWS-iX-VGJ">
                                                 <state key="normal" title="Restart"/>
                                                 <connections>
-                                                    <action selector="restartGame:" destination="m3P-38-XIx" eventType="touchUpInside" id="aVV-6x-jIm"/>
+                                                    <segue destination="lRj-qv-HYR" kind="unwind" unwindAction="prepareForUnwindFromGameScene:" id="Zda-bg-2xe"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iAM-aI-TAr">
                                                 <state key="normal" title="Main Menu"/>
                                                 <connections>
-                                                    <action selector="backToMainMenu:" destination="m3P-38-XIx" eventType="touchUpInside" id="1Hg-DY-nT0"/>
+                                                    <segue destination="lRj-qv-HYR" kind="unwind" unwindAction="prepareForUnwind:" id="FiM-yA-44J"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -188,6 +188,7 @@
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Ux-o1-Nok" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="lRj-qv-HYR" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2466.4000000000001" y="-195.6521739130435"/>
         </scene>
@@ -213,7 +214,7 @@
                                 </constraints>
                                 <state key="normal" image="BackButton.png"/>
                                 <connections>
-                                    <segue destination="iOb-gd-Ica" kind="unwind" unwindAction="unwindFromSettingsOrAbout:" id="FRY-Bo-yL7"/>
+                                    <segue destination="iOb-gd-Ica" kind="unwind" unwindAction="prepareForUnwind:" id="mCO-hc-Ji3"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="settingsButton.png" translatesAutoresizingMaskIntoConstraints="NO" id="A23-ev-Z9h">
@@ -300,7 +301,7 @@
                                 </constraints>
                                 <state key="normal" image="BackButton.png"/>
                                 <connections>
-                                    <segue destination="G53-3O-NVd" kind="unwind" unwindAction="unwindFromSettingsOrAbout:" id="OtK-8r-owr"/>
+                                    <segue destination="G53-3O-NVd" kind="unwind" unwindAction="prepareForUnwind:" id="rUu-zM-f1Z"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="aboutButton.png" translatesAutoresizingMaskIntoConstraints="NO" id="6x5-65-ulM">

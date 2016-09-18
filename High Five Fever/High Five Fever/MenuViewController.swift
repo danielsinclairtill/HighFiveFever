@@ -34,19 +34,18 @@ class MenuViewController: UIViewController {
     
     @IBAction func prepareForUnwind(_ segue: UIStoryboardSegue) {
         
-            if (segue.source is PlayViewController) {
-                AudioManager.sharedInstance.stopMusic();
-                AudioManager.sharedInstance.enteredFromPlayView = true;
+        if (segue.source is PlayViewController) {
+            AudioManager.sharedInstance.stopMusic();
+            AudioManager.sharedInstance.enteredFromPlayView = true;
                 
-                if(UserDefaults.standard.object(forKey: "isMenuMusicSet") as! Bool){
-                    AudioManager.sharedInstance.setUpPlayer(AudioManager.sharedInstance.menuSongName)
-                    AudioManager.sharedInstance.playMusic();
-                    AudioManager.sharedInstance.lastPlayedWasMenuSong = true;
-                }
-                
+            if(UserDefaults.standard.object(forKey: "isMenuMusicSet") as! Bool){
+                AudioManager.sharedInstance.setUpPlayer(AudioManager.sharedInstance.menuSongName)
+                AudioManager.sharedInstance.playMusic();
+                AudioManager.sharedInstance.lastPlayedWasMenuSong = true;
             }
-    }
-    @IBAction func unwindFromSettingsOrAbout(_ segue: UIStoryboardSegue) {
-        return;
+                
+        }
+        
+        return
     }
 }
