@@ -47,7 +47,7 @@ class SceneFactory {
         case .left:
             position = CGPoint(x: 0, y: 0)
         case .right:
-            position = CGPoint(x: scene.frame.width - 300, y: 0)
+            position = CGPoint(x: scene.frame.width - 280, y: 0)
         }
 
         wall.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 1, height: scene.frame.height))

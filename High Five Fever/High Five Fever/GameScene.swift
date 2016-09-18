@@ -38,8 +38,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
     var scoreLabel = SKLabelNode()
     
-    var playerPosition = [0,1,0,0];
-
+    var playerPosition = [0,1,0,0]
+    
+    let zPositionValues: [CGFloat] = [4.0, 3.0, 2.0, 1.0]
+    
     var currentIndex = 1;
     
     var botCount = 0
@@ -102,6 +104,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // Add player bot to scene
         player = botFactory.createPlayerBotWith(normalFilename: FILE_NAME_PLAYER_N, highFiveFilename: FILE_NAME_PLAYER_HF, position: CGPoint(x: 650, y: 200), textureScaledBy: 0.45, physicsBodyScaledBy: 0.25)
+        player?.zPosition = zPositionValues[1]
         self.addChild(player!)
     }
     
@@ -148,6 +151,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let positionIndex = Int(arc4random() % 4);
         let bot = botFactory.createEnemyBotWith(normalFilename: FILE_NAME_ENEMY_BOT_N, highFiveFilename: FILE_NAME_ENEMY_BOT_HF, position: botPosition[positionIndex], textureScaledBy: 0.45, physicsBodyScaledBy: 0.3)
         bot.name = "enemy bot \(botCount)"
+        bot.zPosition = zPositionValues[positionIndex]
         self.addChild(bot);
         
         // Bot movement
@@ -164,6 +168,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         playerPosition[currentIndex] = 0;
         currentIndex += 1;
         playerPosition[currentIndex] = 1;
+        player?.zPosition = zPositionValues[currentIndex]
     }
     
     func movePlayerDown() {
@@ -175,5 +180,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         playerPosition[currentIndex] = 0;
         currentIndex -= 1;
         playerPosition[currentIndex] = 1;
+        player?.zPosition = zPositionValues[currentIndex]
     }
 }
