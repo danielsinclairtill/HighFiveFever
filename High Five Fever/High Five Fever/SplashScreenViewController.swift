@@ -31,7 +31,7 @@ class SplashScreenViewController: UIViewController {
         }
         
         frameCount -= 1;
-        splashImageView.image = UIImage(named: "c\(frameCount).png");
+        splashImageView.image = UIImage(named: "c/(frameCount).png");
     
     }
 
