@@ -10,7 +10,25 @@ import UIKit
 
 class MenuViewController: UIViewController {
     
+    @IBOutlet weak var playButton: UIButton!
+    @IBOutlet weak var settingsButton: UIButton!
+    @IBOutlet weak var aboutButton: UIButton!
+    @IBOutlet weak var backButton: UIButton!
+    
+    
     override func viewDidLoad() {
+        
+        self.backButton.isHidden = true
+        self.backButton.frame.origin.x = self.backButton.frame.origin.x + self.view.frame.size.width
+        self.backButton.setImage(#imageLiteral(resourceName: "BackButton"), for: .normal)
+        self.backButton.setImage(#imageLiteral(resourceName: "BackButtonPress"), for: .highlighted)
+        self.playButton.setImage(#imageLiteral(resourceName: "PlayButton"), for: .normal)
+        self.playButton.setImage(#imageLiteral(resourceName: "PlayButtonPress"), for: .highlighted)
+        self.settingsButton.setImage(#imageLiteral(resourceName: "SettingsButton.png"), for: .normal)
+        self.settingsButton.setImage(#imageLiteral(resourceName: "SettingsButtonPress.png"), for: .highlighted)
+        self.aboutButton.setImage(#imageLiteral(resourceName: "AboutButton"), for: .normal)
+        self.aboutButton.setImage(#imageLiteral(resourceName: "AboutButtonPress.png"), for: .highlighted)
+        
         super.viewDidLoad();
         if(AudioManager.sharedInstance.enteredFromPlayView){
             AudioManager.sharedInstance.setUpPlayer(AudioManager.sharedInstance.menuSongName);
@@ -48,4 +66,61 @@ class MenuViewController: UIViewController {
         
         return
     }
+
+    @IBAction func backButtonClicked(_ sender: UIButton) {
+        moveButtonsBack()
+    }
+
+    @IBAction func settingsButtonClicked(_ sender: UIButton) {
+        moveButtons()
+    }
+
+    @IBAction func aboutButtonClicked(_ sender: UIButton) {
+        moveButtons()
+    }
+    
+    
+    func moveButtons (){
+        
+        
+        UIView.animate(withDuration: 0.1, delay: 0.0, options: [.curveEaseInOut], animations: {
+            self.playButton.frame.origin.x = self.playButton.frame.origin.x + 50
+            self.settingsButton.frame.origin.x = self.settingsButton.frame.origin.x + 50
+            self.aboutButton.frame.origin.x = self.aboutButton.frame.origin.x + 50
+            }, completion: { _ in
+                UIView.animate(withDuration: 0.2, delay: 0.0, options: [.curveEaseInOut], animations: {
+                    self.backButton.isHidden = false
+                    
+                    self.backButton.frame.origin.x = self.backButton.frame.origin.x - self.view.frame.size.width
+                    self.playButton.frame.origin.x = self.playButton.frame.origin.x - self.view.frame.size.width
+                    self.settingsButton.frame.origin.x = self.settingsButton.frame.origin.x - self.view.frame.size.width
+                    self.aboutButton.frame.origin.x = self.aboutButton.frame.origin.x - self.view.frame.size.width
+                })
+        })
+    }
+    
+    func moveButtonsBack (){
+        
+        UIView.animate(withDuration: 0.2, delay: 0.0, options: [.curveEaseInOut], animations: {
+                self.backButton.frame.origin.x = self.backButton.frame.origin.x + self.view.frame.size.width
+                self.playButton.frame.origin.x = self.playButton.frame.origin.x + self.view.frame.size.width
+                self.settingsButton.frame.origin.x = self.settingsButton.frame.origin.x + self.view.frame.size.width
+                self.aboutButton.frame.origin.x = self.aboutButton.frame.origin.x + self.view.frame.size.width
+            
+            }, completion: { _ in
+                UIView.animate(withDuration: 0.1, delay: 0.0, options: [.curveEaseInOut], animations: {
+                    self.backButton.isHidden = true
+                    
+                    self.playButton.frame.origin.x = self.playButton.frame.origin.x - 50
+                    self.settingsButton.frame.origin.x = self.settingsButton.frame.origin.x - 50
+                    self.aboutButton.frame.origin.x = self.aboutButton.frame.origin.x - 50
+                })
+                
+                
+        })
+    }
+    
+    
+    
+    
 }
