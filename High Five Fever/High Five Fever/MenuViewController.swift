@@ -20,6 +20,14 @@ class MenuViewController: UIViewController {
         
         self.backButton.isHidden = true
         self.backButton.frame.origin.x = self.backButton.frame.origin.x + self.view.frame.size.width
+        self.backButton.setImage(#imageLiteral(resourceName: "BackButton"), for: .normal)
+        self.backButton.setImage(#imageLiteral(resourceName: "BackButtonPress"), for: .highlighted)
+        self.playButton.setImage(#imageLiteral(resourceName: "PlayButton"), for: .normal)
+        self.playButton.setImage(#imageLiteral(resourceName: "PlayButtonPress"), for: .highlighted)
+        self.settingsButton.setImage(#imageLiteral(resourceName: "SettingsButton.png"), for: .normal)
+        self.settingsButton.setImage(#imageLiteral(resourceName: "SettingsButtonPress.png"), for: .highlighted)
+        self.aboutButton.setImage(#imageLiteral(resourceName: "AboutButton"), for: .normal)
+        self.aboutButton.setImage(#imageLiteral(resourceName: "AboutButtonPress.png"), for: .highlighted)
         
         super.viewDidLoad();
         if(AudioManager.sharedInstance.enteredFromPlayView){
@@ -73,6 +81,7 @@ class MenuViewController: UIViewController {
     
     
     func moveButtons (){
+        
         
         UIView.animate(withDuration: 0.1, delay: 0.0, options: [.curveEaseInOut], animations: {
             self.playButton.frame.origin.x = self.playButton.frame.origin.x + 50
