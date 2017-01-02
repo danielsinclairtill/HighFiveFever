@@ -57,7 +57,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x8D-Mm-1BQ">
-                                <rect key="frame" x="63" y="201" width="249" height="85"/>
+                                <rect key="frame" x="63" y="198" width="249" height="85"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="85" id="KHx-cb-Kw8"/>
                                     <constraint firstAttribute="width" constant="249" id="lhT-7X-Jmn"/>
@@ -68,7 +68,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tW7-Hq-obv">
-                                <rect key="frame" x="63" y="302" width="249" height="85"/>
+                                <rect key="frame" x="63" y="291" width="249" height="85"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="249" id="qpI-GJ-A7G"/>
                                     <constraint firstAttribute="height" constant="85" id="sri-XH-WZS"/>
@@ -78,8 +78,16 @@
                                     <action selector="settingsButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ce8-pf-hnN"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lu7-8o-aGP">
+                                <rect key="frame" x="63" y="291" width="249" height="85"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="settingsMusicOn"/>
+                                <connections>
+                                    <action selector="settingsMusicButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lAS-S0-MG4"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="osL-aG-1DN">
-                                <rect key="frame" x="63" y="403" width="249" height="85"/>
+                                <rect key="frame" x="63" y="384" width="249" height="85"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="85" id="Le3-Zu-C1p"/>
                                     <constraint firstAttribute="width" constant="249" id="lbd-a2-xoK"/>
@@ -104,17 +112,25 @@
                                     <constraint firstAttribute="height" constant="173" id="aa4-1e-zQL"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5zM-X1-CAy">
+                                <rect key="frame" x="63" y="384" width="249" height="85"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="settingsMusicOn"/>
+                                <connections>
+                                    <action selector="settingsMusicButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VjR-df-gpL"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.96078431369999995" green="0.75686274509999996" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="x8D-Mm-1BQ" firstAttribute="top" secondItem="Px8-h0-zpZ" secondAttribute="bottom" constant="28" id="1HX-Kd-W5i"/>
-                            <constraint firstItem="osL-aG-1DN" firstAttribute="top" secondItem="tW7-Hq-obv" secondAttribute="bottom" constant="16" id="4s6-Rd-40L"/>
                             <constraint firstItem="Px8-h0-zpZ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="SkD-QK-9cs"/>
                             <constraint firstItem="osL-aG-1DN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="UWE-pr-PSc"/>
+                            <constraint firstItem="tW7-Hq-obv" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="ctG-4F-foi"/>
                             <constraint firstItem="Px8-h0-zpZ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="erR-YX-RVW"/>
-                            <constraint firstItem="tW7-Hq-obv" firstAttribute="top" secondItem="x8D-Mm-1BQ" secondAttribute="bottom" constant="16" id="opK-Vp-kMf"/>
+                            <constraint firstItem="osL-aG-1DN" firstAttribute="top" secondItem="tW7-Hq-obv" secondAttribute="bottom" constant="8" id="fM9-Ik-WWM"/>
                             <constraint firstItem="x8D-Mm-1BQ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tkr-sJ-gPO"/>
                             <constraint firstItem="tW7-Hq-obv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="v7G-D1-nth"/>
+                            <constraint firstItem="tW7-Hq-obv" firstAttribute="top" secondItem="x8D-Mm-1BQ" secondAttribute="bottom" constant="8" id="ym1-oN-gKs"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="B4E-N1-USJ"/>
@@ -123,6 +139,8 @@
                         <outlet property="backButton" destination="5fm-KN-FSf" id="7it-Et-xFl"/>
                         <outlet property="playButton" destination="x8D-Mm-1BQ" id="emf-nI-fhw"/>
                         <outlet property="settingsButton" destination="tW7-Hq-obv" id="cmy-jK-NvW"/>
+                        <outlet property="settingsMusicButton" destination="Lu7-8o-aGP" id="McB-Qa-3zq"/>
+                        <outlet property="settingsSoundEffectsButton" destination="5zM-X1-CAy" id="Y9Z-wj-an4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -230,5 +248,6 @@
         <image name="SettingsButton" width="512" height="192"/>
         <image name="Title" width="640" height="240"/>
         <image name="c33.png" width="500" height="500"/>
+        <image name="settingsMusicOn" width="512" height="192"/>
     </resources>
 </document>
