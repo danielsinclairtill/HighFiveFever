@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		68516F8D1D385AA800B30174 /* Zackery Wilson - SELECT Tech Samba [Chrono Trigger]_169740465_soundcloud.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 68516F8C1D385AA800B30174 /* Zackery Wilson - SELECT Tech Samba [Chrono Trigger]_169740465_soundcloud.mp3 */; };
 		6861DDA71D1C8E4600E8E4D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6861DDA61D1C8E4600E8E4D8 /* AppDelegate.swift */; };
-		6861DDAC1D1C8E4600E8E4D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6861DDAA1D1C8E4600E8E4D8 /* Main.storyboard */; };
 		6861DDAE1D1C8E4600E8E4D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6861DDAD1D1C8E4600E8E4D8 /* Assets.xcassets */; };
 		6861DDB11D1C8E4700E8E4D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6861DDAF1D1C8E4700E8E4D8 /* LaunchScreen.storyboard */; };
 		6861DDB91D1C8EC600E8E4D8 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6861DDB81D1C8EC600E8E4D8 /* MenuViewController.swift */; };
@@ -58,6 +57,7 @@
 		686CC0501D1CBD7400872043 /* c32.png in Resources */ = {isa = PBXBuildFile; fileRef = 686CC02F1D1CBD7400872043 /* c32.png */; };
 		686CC0511D1CBD7400872043 /* c33.png in Resources */ = {isa = PBXBuildFile; fileRef = 686CC0301D1CBD7400872043 /* c33.png */; };
 		8B7901EB1D3AE714009F0B23 /* PlayerNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B7901EA1D3AE714009F0B23 /* PlayerNormal.png */; };
+		8B85D7001E1AF2DE00ACA4A0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B85D6FF1E1AF2DE00ACA4A0 /* Main.storyboard */; };
 		8BA1269C1D24A8410018945E /* BackButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BA1269B1D24A8410018945E /* BackButton.png */; };
 		8BF607241D2838FC00058600 /* FinalBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 8BF607231D2838FC00058600 /* FinalBackground.png */; };
 		8BF607261D283B1E00058600 /* Zackery Wilson - RIGHT Off The Bat(tle) [Final Fantasy IV]_165634314_soundcloud.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8BF607251D283B1E00058600 /* Zackery Wilson - RIGHT Off The Bat(tle) [Final Fantasy IV]_165634314_soundcloud.mp3 */; };
@@ -86,7 +86,6 @@
 		68516F8C1D385AA800B30174 /* Zackery Wilson - SELECT Tech Samba [Chrono Trigger]_169740465_soundcloud.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Zackery Wilson - SELECT Tech Samba [Chrono Trigger]_169740465_soundcloud.mp3"; sourceTree = "<group>"; };
 		6861DDA31D1C8E4600E8E4D8 /* High Five Fever.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "High Five Fever.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6861DDA61D1C8E4600E8E4D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		6861DDAB1D1C8E4600E8E4D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6861DDAD1D1C8E4600E8E4D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6861DDB01D1C8E4700E8E4D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6861DDB21D1C8E4700E8E4D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -136,6 +135,7 @@
 		686CC02F1D1CBD7400872043 /* c32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = c32.png; sourceTree = "<group>"; };
 		686CC0301D1CBD7400872043 /* c33.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = c33.png; sourceTree = "<group>"; };
 		8B7901EA1D3AE714009F0B23 /* PlayerNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PlayerNormal.png; sourceTree = "<group>"; };
+		8B85D6FF1E1AF2DE00ACA4A0 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		8BA1269B1D24A8410018945E /* BackButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BackButton.png; sourceTree = "<group>"; };
 		8BF607231D2838FC00058600 /* FinalBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FinalBackground.png; sourceTree = "<group>"; };
 		8BF607251D283B1E00058600 /* Zackery Wilson - RIGHT Off The Bat(tle) [Final Fantasy IV]_165634314_soundcloud.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Zackery Wilson - RIGHT Off The Bat(tle) [Final Fantasy IV]_165634314_soundcloud.mp3"; sourceTree = "<group>"; };
@@ -195,7 +195,7 @@
 				A01E14951D8E47D400838B18 /* Controller */,
 				A0F2D7191D31B93F00B59CCE /* GameScene.swift */,
 				A0F2D71D1D31BBEC00B59CCE /* GameScene.sks */,
-				6861DDAA1D1C8E4600E8E4D8 /* Main.storyboard */,
+				8B85D6FF1E1AF2DE00ACA4A0 /* Main.storyboard */,
 				6861DDAD1D1C8E4600E8E4D8 /* Assets.xcassets */,
 				A02417951D26F0E50023F4A8 /* Audio */,
 				686CC00F1D1CBD5400872043 /* Images */,
@@ -394,7 +394,6 @@
 				A09A496C1D236E3B002E8E4A /* settingsButton.png in Resources */,
 				6861DDAE1D1C8E4600E8E4D8 /* Assets.xcassets in Resources */,
 				8B7901EB1D3AE714009F0B23 /* PlayerNormal.png in Resources */,
-				6861DDAC1D1C8E4600E8E4D8 /* Main.storyboard in Resources */,
 				686CC0331D1CBD7400872043 /* c3.png in Resources */,
 				686CC00D1D1CBD4D00872043 /* Title.png in Resources */,
 				A038C2691D459ABE00A4C5D8 /* Bot1Normal.png in Resources */,
@@ -422,6 +421,7 @@
 				686CC0431D1CBD7400872043 /* c19.png in Resources */,
 				686CC0391D1CBD7400872043 /* c9.png in Resources */,
 				686CC00B1D1CBD4D00872043 /* Play.png in Resources */,
+				8B85D7001E1AF2DE00ACA4A0 /* Main.storyboard in Resources */,
 				686CC0321D1CBD7400872043 /* c2.png in Resources */,
 				686CC0461D1CBD7400872043 /* c22.png in Resources */,
 				A038C2681D459ABE00A4C5D8 /* Bot1HF.png in Resources */,
@@ -457,14 +457,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		6861DDAA1D1C8E4600E8E4D8 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				6861DDAB1D1C8E4600E8E4D8 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		6861DDAF1D1C8E4700E8E4D8 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
