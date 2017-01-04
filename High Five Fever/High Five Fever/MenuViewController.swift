@@ -15,11 +15,24 @@ class MenuViewController: UIViewController {
     @IBOutlet weak var aboutButton: UIButton!
     @IBOutlet weak var backButton: UIButton!
     
+    var music = true
+    @IBOutlet weak var settingsMusicButton: UIButton!
+    @IBOutlet weak var settingsSoundEffectsButton: UIButton!
     
     override func viewDidLoad() {
         
+        super.viewDidLoad();
+
         self.backButton.isHidden = true
         self.backButton.frame.origin.x = self.backButton.frame.origin.x + self.view.frame.size.width
+        
+        // Settings Button
+        self.settingsMusicButton.isHidden = true
+        self.settingsMusicButton.frame.origin.x = self.settingsMusicButton.frame.origin.x + self.view.frame.size.width
+        
+        self.settingsSoundEffectsButton.isHidden = true
+        self.settingsSoundEffectsButton.frame.origin.x = self.settingsSoundEffectsButton.frame.origin.x + self.view.frame.size.width
+        
         self.backButton.setImage(#imageLiteral(resourceName: "BackButton"), for: .normal)
         self.backButton.setImage(#imageLiteral(resourceName: "BackButtonPress"), for: .highlighted)
         self.playButton.setImage(#imageLiteral(resourceName: "PlayButton"), for: .normal)
@@ -29,7 +42,9 @@ class MenuViewController: UIViewController {
         self.aboutButton.setImage(#imageLiteral(resourceName: "AboutButton"), for: .normal)
         self.aboutButton.setImage(#imageLiteral(resourceName: "AboutButtonPress.png"), for: .highlighted)
         
-        super.viewDidLoad();
+        self.settingsMusicButton.setImage(#imageLiteral(resourceName: "settingsMusicOn"), for: .normal)
+        self.settingsMusicButton.setImage(#imageLiteral(resourceName: "settingsMusicOnPress"), for: .highlighted)
+
         if(AudioManager.sharedInstance.enteredFromPlayView){
             AudioManager.sharedInstance.setUpPlayer(AudioManager.sharedInstance.menuSongName);
             
@@ -66,6 +81,8 @@ class MenuViewController: UIViewController {
         
         return
     }
+    
+    // Main Menu Buttons
 
     @IBAction func backButtonClicked(_ sender: UIButton) {
         moveButtonsBack()
@@ -79,6 +96,23 @@ class MenuViewController: UIViewController {
         moveButtons()
     }
     
+    // Setting Buttons
+    
+    @IBAction func settingsMusicButtonClicked(_ sender: UIButton) {
+        if(music){
+            music = false
+            self.settingsMusicButton.setImage(#imageLiteral(resourceName: "settingsMusicOff"), for: .normal)
+            self.settingsMusicButton.setImage(#imageLiteral(resourceName: "settingsMusicOffPress"), for: .highlighted)
+        }
+        else{
+            music = true
+            self.settingsMusicButton.setImage(#imageLiteral(resourceName: "settingsMusicOn"), for: .normal)
+            self.settingsMusicButton.setImage(#imageLiteral(resourceName: "settingsMusicOnPress"), for: .highlighted)
+        }
+    }
+    
+    
+    
     
     func moveButtons (){
         
@@ -90,8 +124,16 @@ class MenuViewController: UIViewController {
             }, completion: { _ in
                 UIView.animate(withDuration: 0.2, delay: 0.0, options: [.curveEaseInOut], animations: {
                     self.backButton.isHidden = false
-                    
                     self.backButton.frame.origin.x = self.backButton.frame.origin.x - self.view.frame.size.width
+                    
+                    // Settings Buttons
+                    self.settingsMusicButton.isHidden = false
+                    self.settingsMusicButton.frame.origin.x = self.settingsMusicButton.frame.origin.x - self.view.frame.size.width
+                    
+                    self.settingsSoundEffectsButton.isHidden = false
+                    self.settingsSoundEffectsButton.frame.origin.x = self.settingsSoundEffectsButton.frame.origin.x - self.view.frame.size.width
+                    
+                    // Main Buttons
                     self.playButton.frame.origin.x = self.playButton.frame.origin.x - self.view.frame.size.width
                     self.settingsButton.frame.origin.x = self.settingsButton.frame.origin.x - self.view.frame.size.width
                     self.aboutButton.frame.origin.x = self.aboutButton.frame.origin.x - self.view.frame.size.width
@@ -103,6 +145,11 @@ class MenuViewController: UIViewController {
         
         UIView.animate(withDuration: 0.2, delay: 0.0, options: [.curveEaseInOut], animations: {
                 self.backButton.frame.origin.x = self.backButton.frame.origin.x + self.view.frame.size.width
+            
+                // Settings Buttons
+                self.settingsMusicButton.frame.origin.x = self.settingsMusicButton.frame.origin.x + self.view.frame.size.width
+                self.settingsSoundEffectsButton.frame.origin.x = self.settingsSoundEffectsButton.frame.origin.x + self.view.frame.size.width
+            
                 self.playButton.frame.origin.x = self.playButton.frame.origin.x + self.view.frame.size.width
                 self.settingsButton.frame.origin.x = self.settingsButton.frame.origin.x + self.view.frame.size.width
                 self.aboutButton.frame.origin.x = self.aboutButton.frame.origin.x + self.view.frame.size.width
@@ -110,6 +157,10 @@ class MenuViewController: UIViewController {
             }, completion: { _ in
                 UIView.animate(withDuration: 0.1, delay: 0.0, options: [.curveEaseInOut], animations: {
                     self.backButton.isHidden = true
+                    
+                    // Settings Buttons
+                    self.settingsMusicButton.isHidden = true
+                    self.settingsSoundEffectsButton.isHidden = true
                     
                     self.playButton.frame.origin.x = self.playButton.frame.origin.x - 50
                     self.settingsButton.frame.origin.x = self.settingsButton.frame.origin.x - 50
