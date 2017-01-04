@@ -10,48 +10,54 @@
 import Foundation
 import SpriteKit
 
-enum ColliderType: UInt32 {
-    case playerBot = 1;
-    case enemyBot = 2;
-    case wall = 4;
-}
-
 class BotFactory {
     
-    func createPlayerBotWith(normalFilename: String, highFiveFilename: String, position: CGPoint, textureScaledBy: CGFloat, physicsBodyScaledBy: CGFloat) -> PlayerBot {
-        let movement: CGPoint = CGPoint(x: 0, y: 70)
-        let playerBot: PlayerBot = PlayerBot(normalFilename: normalFilename, highFiveFilename: highFiveFilename, delta: movement)
+    func createPlayerBotWith(_ normalFilename: String, and highFiveFilename: String, position: CGPoint, textureScaledBy: CGFloat, physicsBodyScaledBy scaleFactor: CGFloat) -> PlayerBot {
+        
+        let playerBot: PlayerBot = PlayerBot(normalFilename: normalFilename, highFiveFilename: highFiveFilename)
+        
+        let movementDelta: CGPoint = CGPoint(x: 0, y: 70)
+        playerBot.setMoveActionsBy(movementDelta)
         
         playerBot.position = position
         playerBot.setScale(textureScaledBy)
-        initializePhysicsBody(spriteNode: playerBot, physicsBodyScaledBy: physicsBodyScaledBy, categoryBitMask: ColliderType.playerBot, contactBitMask: ColliderType.enemyBot)
+        
+        initializePhysicsBodyOf(playerBot, isPlayer: true, categoryBitMask: .playerBot, contactBitMask: .enemyBot)
         
         
         return playerBot
     }
     
-    func createEnemyBotWith(normalFilename: String, highFiveFilename: String, position: CGPoint, textureScaledBy: CGFloat, physicsBodyScaledBy: CGFloat) -> EnemyBot {
-        let movement: CGPoint = CGPoint(x: 50, y: 0)
-        let enemyBot: EnemyBot = EnemyBot(normalFilename: normalFilename, highFiveFilename: highFiveFilename, delta: movement)
+    func createEnemyBotWith(_ normalFilename: String, and highFiveFilename: String, position: CGPoint, textureScaledBy: CGFloat, physicsBodyScaledBy scaleFactor: CGFloat) -> EnemyBot {
+        
+        let enemyBot: EnemyBot = EnemyBot(normalFilename: normalFilename, highFiveFilename: highFiveFilename)
+        
+        let movementDelta: CGPoint = CGPoint(x: 50, y: 0)
+        enemyBot.setMoveActionBy(movementDelta, delayedBy: 0.3)
         
         enemyBot.position = position
         enemyBot.setScale(textureScaledBy)
-        initializePhysicsBody(spriteNode: enemyBot, physicsBodyScaledBy: physicsBodyScaledBy, categoryBitMask: ColliderType.enemyBot, contactBitMask: ColliderType.playerBot)
+        
+        initializePhysicsBodyOf(enemyBot, isPlayer: false, categoryBitMask: .enemyBot, contactBitMask: .noContact)
         
         return enemyBot
     }
     
-    private func calculateScaledSize(spriteNode: SKSpriteNode, scaledBy: CGFloat) -> CGSize {
-        let scaledWidth: CGFloat = spriteNode.size.width * scaledBy
-        let scaledHeight: CGFloat = spriteNode.size.height * scaledBy
-        
-        return CGSize(width: scaledWidth, height: scaledHeight)
-    }
     
-    private func initializePhysicsBody(spriteNode: SKSpriteNode, physicsBodyScaledBy: CGFloat, categoryBitMask: ColliderType, contactBitMask: ColliderType) -> Void {
-        let scaledSize: CGSize = calculateScaledSize(spriteNode: spriteNode, scaledBy: physicsBodyScaledBy)
+    private func initializePhysicsBodyOf(_ spriteNode: SKSpriteNode, isPlayer: Bool, categoryBitMask: ColliderType, contactBitMask: ColliderType) -> Void {
         
-        spriteNode.physicsBody = SKPhysicsBody(rectangleOf: scaledSize)
+        let width = spriteNode.size.width / 4.5
+        let height = spriteNode.size.height / 10.0
+        let size = CGSize(width: width, height: height)
+        
+        var centerShift: CGPoint
+        if isPlayer {
+            centerShift = CGPoint(x: -28.5, y: 0.0)
+        } else {
+            centerShift = CGPoint(x: 20.0, y: 0.0)
+        }
+        spriteNode.physicsBody = SKPhysicsBody(rectangleOf: size, center: centerShift)
+        
         spriteNode.physicsBody?.affectedByGravity = false
         spriteNode.physicsBody?.usesPreciseCollisionDetection = true
         spriteNode.physicsBody?.categoryBitMask = categoryBitMask.rawValue

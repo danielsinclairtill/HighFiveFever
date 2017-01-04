@@ -6,38 +6,33 @@
 //  Copyright © 2016 Lunet Apps. All rights reserved.
 //
 
-import Foundation
 import SpriteKit
 
-class PlayerBot: SKSpriteNode {
-    let highFiveAction: SKAction?
-    let moveUpwardsAction: SKAction?
-    let moveDownwardsAction: SKAction?
+class PlayerBot: SKSpriteNode, Bot, VerticalMover {
+    var highFiveAction: SKAction?
+    var moveUpwardsAction: SKAction?
+    var moveDownwardsAction: SKAction?
     
-    required init(normalFilename: String, highFiveFilename: String, delta: CGPoint) {
+    required init(normalFilename: String, highFiveFilename: String) {
         let normalTexture = SKTexture(imageNamed: normalFilename)
         let highFiveTexture = SKTexture(imageNamed: highFiveFilename)
         
         self.highFiveAction = SKAction.animate(with: [highFiveTexture, normalTexture], timePerFrame: 0.1)
-        self.moveUpwardsAction = SKAction.moveBy(x: delta.x, y: delta.y, duration: 0)
-        self.moveDownwardsAction = SKAction.moveBy(x: delta.x, y: -delta.y, duration: 0)
-        
+
         super.init(texture: normalTexture, color: UIColor.clear, size: normalTexture.size())
+    }
+    
+    fileprivate func setUpwardAction(action: SKAction) {
+        self.moveUpwardsAction = action
+    }
+    
+    fileprivate func setDownwardAction(action: SKAction) {
+        self.moveDownwardsAction = action
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func highFive() -> Void {
-        self.run(self.highFiveAction!)
-    }
-    
-    func moveUpwards() -> Void {
-        self.run(moveUpwardsAction!)
-    }
-    
-    func moveDownwards() -> Void {
-        self.run(moveDownwardsAction!)
-    }
 }
+

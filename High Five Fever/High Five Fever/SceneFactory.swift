@@ -21,6 +21,7 @@ class SceneFactory {
         background.position = position
         background.size = size
         background.zPosition = -1
+        background.blendMode = .replace
         
         return background
     }

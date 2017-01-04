@@ -7,48 +7,43 @@
 //
 
 import SpriteKit
+import GameplayKit
 
+// TODO: - SKNodes for each scene component
+// TODO: - Get rid of timers
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
+    var playerBotNormalFilename: String?
+    var playerBotHighFiveFilename: String?
+    var enemyBotNormalFilename: String?
+    var enemyBotHighFiveFilename: String?
+    
     weak var playViewController: PlayViewController!
-    var count = 0
-    
-    let FILE_NAME_BACKGROUND = "FinalBackground.png"
-    let FILE_NAME_PLAYER_N = "PlayerNormal.png"
-    let FILE_NAME_PLAYER_HF = "PlayerHF.png"
-    let FILE_NAME_ENEMY_BOT_N = "Bot1Normal.png"
-    let FILE_NAME_ENEMY_BOT_HF = "Bot1HF.png"
-    let gameOverVC = "GameOverVC"
-    
-    // hardcoded values determined experimentally
-    let X_COORD_SCORE_LABEL: CGFloat = 549.67
-    let Y_COORD_SCORE_LABEL: CGFloat = 570.786
-    let WIDTH_BACKGROUND: CGFloat = 430
-    let HEIGHT_BACKGROUND: CGFloat = 766.226
-    
-    let botPosition: [CGPoint] = [CGPoint(x: 350, y: 130), CGPoint(x: 350, y: 200), CGPoint(x: 350, y: 270), CGPoint(x: 350, y: 340)];
     
     // Factories
     let botFactory: BotFactory = BotFactory()
-    
     let sceneFactory: SceneFactory = SceneFactory()
     
-    // Global Variables
-    var player: PlayerBot?
-
+    // Scene Components
+    let nonMovableNodes = SKNode()
+    let playerContainer = SKNode()
+    let enemyBots = SKNode()
     var scoreLabel = SKLabelNode()
+    var player: PlayerBot?
     
-    var playerPosition = [0,1,0,0]
-    
-    let zPositionValues: [CGFloat] = [4.0, 3.0, 2.0, 1.0]
-    
-    var currentIndex = 1;
-    
+    // Counter variables
+    var score = 0 {
+        didSet {
+            scoreLabel.text = "\(score)"
+        }
+    }
     var botCount = 0
     
-    var enemyBotCreationTimer: Timer?
+    // Global Variables
+    var playerPosition = [0,1,0,0]
+    var currentPositionIndex = 1;
     
-    var enemyBotMovementTimers = [Timer]()
+    var enemyBotCreationTimer: Timer?
     
     /* Scene starting point */
     override func didMove(to view: SKView) {
@@ -89,23 +84,37 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.view?.addGestureRecognizer(swipeUp)
         self.view?.addGestureRecognizer(swipeDown)
         
+        self.addChild(nonMovableNodes)
         // Add background to scene
-        let backgroundSize = CGSize(width: WIDTH_BACKGROUND, height: HEIGHT_BACKGROUND)
-        let background = sceneFactory.createBackground(filename: FILE_NAME_BACKGROUND, position: setToScreenCenter(self), size: backgroundSize)
-        self.addChild(background);
+        let backgroundSize = CGSize(width: Constants.backgroundWidth, height: Constants.backgroundHeight)
+        let background = sceneFactory.createBackground(filename: Constants.backgroundFilename, position: setToScreenCenter(self), size: backgroundSize)
+        nonMovableNodes.addChild(background);
         
         // Set score label
-        scoreLabel = sceneFactory.createScoreLabel(position: CGPoint(x: X_COORD_SCORE_LABEL, y: Y_COORD_SCORE_LABEL))
-        self.addChild(scoreLabel);
+        scoreLabel = sceneFactory.createScoreLabel(position: CGPoint(x: Constants.scoreLabelX, y: Constants.scoreLabelY))
+        nonMovableNodes.addChild(scoreLabel);
         
         // Set up wall
         let wall: SKNode = sceneFactory.createWallOn(edge: WallEdge.right, of: self)!
-        self.addChild(wall)
+        nonMovableNodes.addChild(wall)
         
+        var normalFilename: String
+        var highFiveFilename: String
         // Add player bot to scene
-        player = botFactory.createPlayerBotWith(normalFilename: FILE_NAME_PLAYER_N, highFiveFilename: FILE_NAME_PLAYER_HF, position: CGPoint(x: 650, y: 200), textureScaledBy: 0.45, physicsBodyScaledBy: 0.25)
-        player?.zPosition = zPositionValues[1]
-        self.addChild(player!)
+        if let normal = playerBotNormalFilename, let highFive = playerBotHighFiveFilename {
+            normalFilename = normal
+            highFiveFilename = highFive
+        } else { // Default
+            normalFilename = Constants.playerNormalFilename
+            highFiveFilename = Constants.playerHighFiveFilename
+        }
+        
+        player = botFactory.createPlayerBotWith(normalFilename, and: highFiveFilename, position: CGPoint(x: 650, y: 200), textureScaledBy: 0.45, physicsBodyScaledBy: 0.3)
+        player?.zPosition = Constants.zPositionValues[1]
+        self.addChild(playerContainer)
+        playerContainer.addChild(player!)
+        
+        self.addChild(enemyBots)
     }
     
     /* Helper function to return coordinates of screens center */
@@ -113,62 +122,42 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         return CGPoint(x: screen.frame.midX, y: screen.frame.midY);
     }
     
-    private func scoreAndRemove(enemyBot: SKPhysicsBody) {
-        player?.highFive()
-        
-        // Find the bot that made contact with player
-        self.enumerateChildNodes(withName: (enemyBot.node?.name)!, using: { (node, stop) in
-            if let bot = node as? EnemyBot {
-                bot.highFive()
-                _ = Timer.scheduledTimer(timeInterval: 0.3, target: bot, selector: #selector(bot.removeFromParent), userInfo: nil, repeats: false)
-            }
-        })
-        
-        count += 1
-        scoreLabel.text = "\(count)"
-    }
-    
-    private func endGame() {
-        if let createBotTimer = enemyBotCreationTimer {
-            createBotTimer.invalidate()
-        }
-        
-        for eachTimer in enemyBotMovementTimers {
-            eachTimer.invalidate()
-        }
-
-        // Show game over view controller
-        let gameOverViewController = Util.getViewControllerWith(identifier: gameOverVC)  as! GameOverViewController
-        gameOverViewController.view.backgroundColor = .clear
-        gameOverViewController.modalPresentationStyle = .overCurrentContext
-        
-        playViewController.present(gameOverViewController, animated: true, completion: nil)
-    }
-
     /* Utility function to add enemy bots to scene and start their animation */
     func addEnemyBot() -> Void {
         botCount += 1
-        let positionIndex = Int(arc4random() % 4);
-        let bot = botFactory.createEnemyBotWith(normalFilename: FILE_NAME_ENEMY_BOT_N, highFiveFilename: FILE_NAME_ENEMY_BOT_HF, position: botPosition[positionIndex], textureScaledBy: 0.45, physicsBodyScaledBy: 0.3)
-        bot.name = "enemy bot \(botCount)"
-        bot.zPosition = zPositionValues[positionIndex]
-        self.addChild(bot);
+        let randomSource = GKRandomSource.sharedRandom()
         
-        // Bot movement
-        let timer = Timer.scheduledTimer(timeInterval: 0.5, target: bot, selector: #selector(bot.moveBot), userInfo: bot, repeats: true);
-        enemyBotMovementTimers.append(timer)
+        let positionIndex = randomSource.nextInt(upperBound: 4)
+        
+        var normalFilename: String
+        var highFiveFilename: String
+        if let normal = enemyBotNormalFilename, let highFive = enemyBotHighFiveFilename {
+            normalFilename = normal
+            highFiveFilename = highFive
+        } else {
+            normalFilename = Constants.defaultBotNormalFilename
+            highFiveFilename = Constants.defaultBotHighFiveFilename
+        }
+        
+        let bot = botFactory.createEnemyBotWith(normalFilename, and: highFiveFilename, position: Constants.botPosition[positionIndex], textureScaledBy: 0.45, physicsBodyScaledBy: 0.3)
+        
+        bot.name = "enemy bot \(botCount)"
+        bot.zPosition = Constants.zPositionValues[positionIndex]
+        enemyBots.addChild(bot);
+        
+        bot.move()
     }
     
     func movePlayerUp(){
         if (playerPosition.last! == 1) { // player is at last spot
             return;
         }
-
+        
         player?.moveUpwards()
-        playerPosition[currentIndex] = 0;
-        currentIndex += 1;
-        playerPosition[currentIndex] = 1;
-        player?.zPosition = zPositionValues[currentIndex]
+        playerPosition[currentPositionIndex] = 0;
+        currentPositionIndex += 1;
+        playerPosition[currentPositionIndex] = 1;
+        player?.zPosition = Constants.zPositionValues[currentPositionIndex]
     }
     
     func movePlayerDown() {
@@ -177,9 +166,44 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         
         player?.moveDownwards()
-        playerPosition[currentIndex] = 0;
-        currentIndex -= 1;
-        playerPosition[currentIndex] = 1;
-        player?.zPosition = zPositionValues[currentIndex]
+        playerPosition[currentPositionIndex] = 0;
+        currentPositionIndex -= 1;
+        playerPosition[currentPositionIndex] = 1;
+        player?.zPosition = Constants.zPositionValues[currentPositionIndex]
+    }
+    
+    private func scoreAndRemove(enemyBot: SKPhysicsBody) {
+        player?.highFive()
+        
+        // Find the bot that made contact with player
+        enemyBots.enumerateChildNodes(withName: (enemyBot.node?.name)!) { (node, stop) in
+            if let bot = node as? EnemyBot {
+                bot.highFive()
+            }
+        }
+        enemyBots.enumerateChildNodes(withName: (enemyBot.node?.name)!, using: { (node, stop) in
+            if let bot = node as? EnemyBot {
+                bot.highFive()
+                bot.die()
+            }
+        })
+        
+        score += 1
+    }
+    
+    private func endGame() {
+        if let createBotTimer = enemyBotCreationTimer {
+            createBotTimer.invalidate()
+        }
+        
+        enemyBots.speed = 0
+        playerContainer.speed = 0
+        
+        // Show game over view controller
+        let gameOverViewController = Util.getViewControllerWith(identifier: Constants.gameOverVCIdentifier)  as! GameOverViewController
+        gameOverViewController.view.backgroundColor = .clear
+        gameOverViewController.modalPresentationStyle = .overCurrentContext
+        
+        playViewController.present(gameOverViewController, animated: true, completion: nil)
     }
 }
