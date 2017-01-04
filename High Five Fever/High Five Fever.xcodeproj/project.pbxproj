@@ -18,6 +18,8 @@
 		A01E14931D8E47B200838B18 /* GameOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01E14921D8E47B200838B18 /* GameOverViewController.swift */; };
 		A01E14971D8E4CE500838B18 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01E14961D8E4CE500838B18 /* Util.swift */; };
 		A02417921D26F0280023F4A8 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02417911D26F0280023F4A8 /* AudioManager.swift */; };
+		A08FAD1A1E1CB461003A8BA8 /* BotProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08FAD191E1CB461003A8BA8 /* BotProtocols.swift */; };
+		A08FAD1C1E1CB46B003A8BA8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08FAD1B1E1CB46B003A8BA8 /* Constants.swift */; };
 		A09D55261D1F9A3A002064A3 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09D55231D1F9A3A002064A3 /* AboutViewController.swift */; };
 		A09D55271D1F9A3A002064A3 /* PlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09D55241D1F9A3A002064A3 /* PlayViewController.swift */; };
 		A09D55281D1F9A3A002064A3 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A09D55251D1F9A3A002064A3 /* SettingsViewController.swift */; };
@@ -44,6 +46,8 @@
 		A01E14921D8E47B200838B18 /* GameOverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverViewController.swift; sourceTree = "<group>"; };
 		A01E14961D8E4CE500838B18 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		A02417911D26F0280023F4A8 /* AudioManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
+		A08FAD191E1CB461003A8BA8 /* BotProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BotProtocols.swift; sourceTree = "<group>"; };
+		A08FAD1B1E1CB46B003A8BA8 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A09D55231D1F9A3A002064A3 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		A09D55241D1F9A3A002064A3 /* PlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayViewController.swift; sourceTree = "<group>"; };
 		A09D55251D1F9A3A002064A3 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -104,6 +108,8 @@
 		A01E14941D8E47C800838B18 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A08FAD1B1E1CB46B003A8BA8 /* Constants.swift */,
+				A08FAD191E1CB461003A8BA8 /* BotProtocols.swift */,
 				A0DB90C41D8B733800A83C78 /* BotFactory.swift */,
 				A0DB90CA1D8B82CE00A83C78 /* SceneFactory.swift */,
 				A0DB90C61D8B74B800A83C78 /* PlayerBot.swift */,
@@ -218,7 +224,9 @@
 				A0DB90C71D8B74B800A83C78 /* PlayerBot.swift in Sources */,
 				A0F2D71A1D31B93F00B59CCE /* GameScene.swift in Sources */,
 				A0B09E601D270FE8009AD37E /* SplashScreenViewController.swift in Sources */,
+				A08FAD1A1E1CB461003A8BA8 /* BotProtocols.swift in Sources */,
 				A0DB90C51D8B733800A83C78 /* BotFactory.swift in Sources */,
+				A08FAD1C1E1CB46B003A8BA8 /* Constants.swift in Sources */,
 				A09D55261D1F9A3A002064A3 /* AboutViewController.swift in Sources */,
 				A0DB90CB1D8B82CE00A83C78 /* SceneFactory.swift in Sources */,
 				A0DB90C91D8B74C200A83C78 /* EnemyBot.swift in Sources */,
