@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // set up music player
         AudioManager.sharedInstance.setUpPlayer(AudioManager.sharedInstance.menuSongName);
-        AudioManager.sharedInstance.playMusic();
+        //AudioManager.sharedInstance.playMusic();
         
         // set up cache
         UserDefaults.standard.set(true, forKey: "isMenuMusicSet");
