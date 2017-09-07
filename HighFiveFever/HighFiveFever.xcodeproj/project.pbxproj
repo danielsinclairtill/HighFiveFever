@@ -92,6 +92,7 @@
 		6861DDA51D1C8E4600E8E4D8 /* HighFiveFever */ = {
 			isa = PBXGroup;
 			children = (
+				8B6EEFF31F61BC1600F46996 /* Menu */,
 				A01E14941D8E47C800838B18 /* Model */,
 				6861DDA61D1C8E4600E8E4D8 /* AppDelegate.swift */,
 				A01E14951D8E47D400838B18 /* Controller */,
@@ -105,6 +106,33 @@
 				6861DDB21D1C8E4700E8E4D8 /* Info.plist */,
 			);
 			path = HighFiveFever;
+			sourceTree = "<group>";
+		};
+		8B6EEFF31F61BC1600F46996 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				8B6EEFF51F61BC6E00F46996 /* Controllers */,
+				8B6EEFF41F61BC6100F46996 /* Views */,
+			);
+			name = Menu;
+			sourceTree = "<group>";
+		};
+		8B6EEFF41F61BC6100F46996 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8B6EEFF11F61AEA700F46996 /* SettingsMenuView.swift */,
+				8BC05F161F606D9600CDC5D1 /* MainMenuView.swift */,
+				8BC05F141F60638100CDC5D1 /* BaseMenuView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		8B6EEFF51F61BC6E00F46996 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				6861DDB81D1C8EC600E8E4D8 /* MenuViewController.swift */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 		A01E14941D8E47C800838B18 /* Model */ = {
@@ -122,16 +150,12 @@
 			isa = PBXGroup;
 			children = (
 				A02417911D26F0280023F4A8 /* AudioManager.swift */,
-				8B6EEFF11F61AEA700F46996 /* SettingsMenuView.swift */,
-				6861DDB81D1C8EC600E8E4D8 /* MenuViewController.swift */,
-				8BC05F161F606D9600CDC5D1 /* MainMenuView.swift */,
-				8BC05F141F60638100CDC5D1 /* BaseMenuView.swift */,
 				A09D55231D1F9A3A002064A3 /* AboutViewController.swift */,
 				A01E14921D8E47B200838B18 /* GameOverViewController.swift */,
 				A01E14961D8E4CE500838B18 /* Util.swift */,
 				A09D55241D1F9A3A002064A3 /* PlayViewController.swift */,
-				A09D55251D1F9A3A002064A3 /* SettingsViewController.swift */,
 				A0B09E5F1D270FE8009AD37E /* SplashScreenViewController.swift */,
+				A09D55251D1F9A3A002064A3 /* SettingsViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";

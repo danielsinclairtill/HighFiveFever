@@ -138,29 +138,4 @@ class MenuViewController: UIViewController, MainMenuViewDelegate, SettingsMenuVi
             })
         })
     }
-//
-//    func moveButtonsBack (){
-//        UIView.animate(withDuration: 0.2, delay: 0.0, options: [.curveEaseInOut], animations: {
-//                self.backButton.frame.origin.x = self.backButton.frame.origin.x + self.view.frame.size.width
-//            
-//                // Settings Buttons
-//                self.settingsSoundButton.frame.origin.x = self.settingsSoundButton.frame.origin.x + self.view.frame.size.width
-//            
-//                self.playButton.frame.origin.x = self.playButton.frame.origin.x + self.view.frame.size.width
-//                self.settingsButton.frame.origin.x = self.settingsButton.frame.origin.x + self.view.frame.size.width
-//                self.aboutButton.frame.origin.x = self.aboutButton.frame.origin.x + self.view.frame.size.width
-//            
-//            }, completion: { _ in
-//                UIView.animate(withDuration: 0.1, delay: 0.0, options: [.curveEaseInOut], animations: {
-//                    self.backButton.isHidden = true
-//                    
-//                    // Settings Buttons
-//                    self.settingsSoundButton.isHidden = true
-//                    
-//                    self.playButton.frame.origin.x = self.playButton.frame.origin.x - 50
-//                    self.settingsButton.frame.origin.x = self.settingsButton.frame.origin.x - 50
-//                    self.aboutButton.frame.origin.x = self.aboutButton.frame.origin.x - 50
-//                })
-//        })
-//    }
 }
