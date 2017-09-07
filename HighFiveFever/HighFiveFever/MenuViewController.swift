@@ -8,13 +8,24 @@
 
 import UIKit
 
-class MenuViewController: UIViewController {
+class MenuViewController: UIViewController, MainMenuViewDelegate, SettingsMenuViewDelegate {
     
     var music = true
     private let topBaseMenuPadding: CGFloat = 180.0
     private let baseMenuView = BaseMenuView()
-    private let mainMenuView = MainMenuView()
+    private lazy var mainMenuView: MainMenuView = {
+        let view = MainMenuView()
+        view.delegate = self
+        return view
+    }()
     
+    private lazy var settingsMenuView: SettingsMenuView = {
+        let view = SettingsMenuView()
+        view.delegate = self
+        view.isHidden = true
+        return view
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpFrames()
@@ -33,23 +44,27 @@ class MenuViewController: UIViewController {
     
     private func setUpFrames() {
         var frame: CGRect = CGRect.zero
-
+        
+        // baseMenuView
         baseMenuView.frame = view.frame
         
+        // mainMenuView
         frame.size = CGSize(width: view.frame.width, height: view.frame.height - topBaseMenuPadding)
         frame.origin.x = view.frame.origin.x
         frame.origin.y = view.frame.origin.y + topBaseMenuPadding
         mainMenuView.frame = frame
+        
+        // settingsMenuView
+        frame.size = CGSize(width: view.frame.width, height: view.frame.height - topBaseMenuPadding)
+        frame.origin.x = 1.5 * view.bounds.width - frame.width / 2
+        frame.origin.y = view.frame.origin.y + topBaseMenuPadding
+        settingsMenuView.frame = frame
     }
     
     private func addViews() {
         view.addSubview(baseMenuView)
         view.addSubview(mainMenuView)
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        view.addSubview(settingsMenuView)
     }
     
     override var preferredStatusBarStyle : UIStatusBarStyle {
@@ -73,28 +88,57 @@ class MenuViewController: UIViewController {
         return
     }
     
-//    func moveButtons (){
-//        UIView.animate(withDuration: 0.1, delay: 0.0, options: [.curveEaseInOut], animations: {
-//            self.playButton.frame.origin.x = self.playButton.frame.origin.x + 50
-//            self.settingsButton.frame.origin.x = self.settingsButton.frame.origin.x + 50
-//            self.aboutButton.frame.origin.x = self.aboutButton.frame.origin.x + 50
-//            }, completion: { _ in
-//                UIView.animate(withDuration: 0.2, delay: 0.0, options: [.curveEaseInOut], animations: {
-//                    self.backButton.isHidden = false
-//                    self.backButton.frame.origin.x = self.backButton.frame.origin.x - self.view.frame.size.width
-//                    
-//                    // Settings Buttons
-//                    self.settingsSoundButton.isHidden = false
-//                    self.settingsSoundButton.frame.origin.x -= self.screenWidth
-//                    
-//                    // Main Buttons
-//                    self.playButton.frame.origin.x = self.playButton.frame.origin.x - self.view.frame.size.width
-//                    self.settingsButton.frame.origin.x = self.settingsButton.frame.origin.x - self.view.frame.size.width
-//                    self.aboutButton.frame.origin.x = self.aboutButton.frame.origin.x - self.view.frame.size.width
-//                })
-//        })
-//    }
-//    
+    // MARK: MainMenuViewDelegate
+    
+    func mainMenuPlayDidTap() {
+    }
+    
+    func mainMenuSettingsDidTap() {
+        slideIn(fromView: mainMenuView, toView: settingsMenuView)
+    }
+    
+    func mainMenuAboutDidTap() {
+    }
+    
+    // MARK: SettingsMenuDelegate
+    
+    func settingsMenuBackDidTap() {
+        slideOut(fromView: settingsMenuView, toView: mainMenuView)
+    }
+    
+    func settingsMenuSoundDidTap() {
+    }
+    
+    func slideIn(fromView: UIView, toView:UIView){
+        UIView.animate(withDuration: 0.1, delay: 0.0, options: [.curveEaseInOut], animations: {
+            fromView.frame.origin.x = fromView.frame.origin.x + 50.0
+        }, completion: { _ in
+                UIView.animate(withDuration: 0.2, delay: 0.0, options: [.curveEaseInOut], animations: {
+                    toView.isHidden = false
+                    toView.frame.origin.x = toView.frame.origin.x - self.view.bounds.width
+                    
+                    fromView.frame.origin.x = fromView.frame.origin.x - self.view.bounds.width - 50.0
+                }, completion: { _ in
+                        fromView.isHidden = true
+                    })
+        })
+    }
+    
+    func slideOut(fromView: UIView, toView:UIView){
+        UIView.animate(withDuration: 0.2, delay: 0.0, options: [.curveEaseInOut], animations: {
+            toView.isHidden = false
+            toView.frame.origin.x = toView.frame.origin.x + self.view.bounds.width + 50.0
+            
+            fromView.frame.origin.x = fromView.frame.origin.x + self.view.bounds.width
+        }, completion: { _ in
+            UIView.animate(withDuration: 0.1, delay: 0.0, options: [.curveEaseInOut], animations: {
+                toView.frame.origin.x = toView.frame.origin.x - 50.0
+            }, completion: { _ in
+                fromView.isHidden = true
+            })
+        })
+    }
+//
 //    func moveButtonsBack (){
 //        UIView.animate(withDuration: 0.2, delay: 0.0, options: [.curveEaseInOut], animations: {
 //                self.backButton.frame.origin.x = self.backButton.frame.origin.x + self.view.frame.size.width

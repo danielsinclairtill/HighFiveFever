@@ -8,13 +8,21 @@
 
 import UIKit
 
+protocol MainMenuViewDelegate {
+    func mainMenuPlayDidTap()
+    func mainMenuSettingsDidTap()
+    func mainMenuAboutDidTap()
+}
+
 class MainMenuView: UIView {
 
+    var delegate: MainMenuViewDelegate?
     private let buttonPadding: CGFloat = 10.0
     private let playButton: UIButton = {
         let button = UIButton(type: .custom)
         button.setImage(#imageLiteral(resourceName: "PlayButton"), for: .normal)
         button.setImage(#imageLiteral(resourceName: "PlayButtonPress"), for: .highlighted)
+        button.addTarget(self, action: #selector(playDidTap), for: .touchUpInside)
         return button
     }()
     
@@ -22,6 +30,7 @@ class MainMenuView: UIView {
         let button = UIButton(type: .custom)
         button.setImage(#imageLiteral(resourceName: "SettingsButton.png"), for: .normal)
         button.setImage(#imageLiteral(resourceName: "SettingsButtonPress.png"), for: .highlighted)
+        button.addTarget(self, action: #selector(settingsDidTap), for: .touchUpInside)
         return button
     }()
     
@@ -29,6 +38,7 @@ class MainMenuView: UIView {
         let button = UIButton(type: .custom)
         button.setImage(#imageLiteral(resourceName: "AboutButton"), for: .normal)
         button.setImage(#imageLiteral(resourceName: "AboutButtonPress.png"), for: .highlighted)
+        button.addTarget(self, action: #selector(aboutDidTap), for: .touchUpInside)
         return button
     }()
     
@@ -69,5 +79,17 @@ class MainMenuView: UIView {
         frame.origin.x = bounds.width / 2 - frame.width / 2
         frame.origin.y = settingsButton.frame.maxY + buttonPadding
         aboutButton.frame = frame
+    }
+    
+    @objc private func playDidTap() {
+        delegate?.mainMenuPlayDidTap()
+    }
+    
+    @objc private func settingsDidTap() {
+        delegate?.mainMenuSettingsDidTap()
+    }
+    
+    @objc private func aboutDidTap() {
+        delegate?.mainMenuAboutDidTap()
     }
 }
