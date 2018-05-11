@@ -3,8 +3,8 @@
 
 *.xcscheme
 
-High Five Fever/High Five Fever.xcodeproj/xcuserdata/*
+HighFiveFever/HighFiveFever.xcodeproj/xcuserdata/*
 
 *.xcuserstate
 
-High Five Fever/.DS_Store
+HighFiveFever/.DS_Store

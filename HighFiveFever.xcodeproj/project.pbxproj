@@ -13,19 +13,26 @@
 		8B1970E520A63FF500B4ECB1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1970E420A63FF500B4ECB1 /* Constants.swift */; };
 		8B1970E820A64E7200B4ECB1 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1970E620A64E7200B4ECB1 /* AudioManager.swift */; };
 		8B1970E920A64E7200B4ECB1 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1970E720A64E7200B4ECB1 /* Util.swift */; };
-		8B1970EE20A64E8200B4ECB1 /* SceneFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1970EA20A64E8100B4ECB1 /* SceneFactory.swift */; };
-		8B1970EF20A64E8200B4ECB1 /* PlayerBot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1970EB20A64E8100B4ECB1 /* PlayerBot.swift */; };
-		8B1970F020A64E8200B4ECB1 /* BotFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1970EC20A64E8100B4ECB1 /* BotFactory.swift */; };
-		8B1970F120A64E8200B4ECB1 /* EnemyBot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1970ED20A64E8100B4ECB1 /* EnemyBot.swift */; };
-		8B1970F720A64E8C00B4ECB1 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1970F220A64E8C00B4ECB1 /* SettingsViewController.swift */; };
 		8B1970F820A64E8C00B4ECB1 /* GameOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1970F320A64E8C00B4ECB1 /* GameOverViewController.swift */; };
 		8B1970F920A64E8C00B4ECB1 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1970F420A64E8C00B4ECB1 /* AboutViewController.swift */; };
 		8B1970FA20A64E8C00B4ECB1 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1970F520A64E8C00B4ECB1 /* MenuViewController.swift */; };
 		8B1970FB20A64E8C00B4ECB1 /* PlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1970F620A64E8C00B4ECB1 /* PlayViewController.swift */; };
 		8B1970FE20A64E9800B4ECB1 /* Zackery Wilson - RIGHT Off The Bat(tle) [Final Fantasy IV]_165634314_soundcloud.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8B1970FC20A64E9800B4ECB1 /* Zackery Wilson - RIGHT Off The Bat(tle) [Final Fantasy IV]_165634314_soundcloud.mp3 */; };
 		8B1970FF20A64E9800B4ECB1 /* Zackery Wilson - SELECT Tech Samba [Chrono Trigger]_169740465_soundcloud.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8B1970FD20A64E9800B4ECB1 /* Zackery Wilson - SELECT Tech Samba [Chrono Trigger]_169740465_soundcloud.mp3 */; };
+		8B19710120A64FA300B4ECB1 /* HomeMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B19710020A64FA300B4ECB1 /* HomeMenuViewController.swift */; };
+		8B19710620A6510200B4ECB1 /* BotFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B19710220A6510200B4ECB1 /* BotFactory.swift */; };
+		8B19710720A6510200B4ECB1 /* EnemyBot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B19710320A6510200B4ECB1 /* EnemyBot.swift */; };
+		8B19710820A6510200B4ECB1 /* PlayerBot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B19710420A6510200B4ECB1 /* PlayerBot.swift */; };
+		8B19710920A6510200B4ECB1 /* SceneFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B19710520A6510200B4ECB1 /* SceneFactory.swift */; };
 		8B3B95F61E1AFF4800F3C827 /* Pictures in Resources */ = {isa = PBXBuildFile; fileRef = 8B3B95F51E1AFF4800F3C827 /* Pictures */; };
 		8B85D7001E1AF2DE00ACA4A0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B85D6FF1E1AF2DE00ACA4A0 /* Main.storyboard */; };
+		8BB73A9620AA1AD200F8A0DD /* SettingsPlayerSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB73A9220AA1AD100F8A0DD /* SettingsPlayerSelectViewController.swift */; };
+		8BB73A9720AA1AD200F8A0DD /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB73A9320AA1AD100F8A0DD /* SettingsTableViewController.swift */; };
+		8BB73A9820AA1AD200F8A0DD /* SettingsTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB73A9420AA1AD100F8A0DD /* SettingsTableViewDelegate.swift */; };
+		8BB73A9920AA1AD200F8A0DD /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB73A9520AA1AD100F8A0DD /* SettingsViewController.swift */; };
+		8BB73A9B20AA1D2400F8A0DD /* PlayerSelectCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB73A9A20AA1D2400F8A0DD /* PlayerSelectCollectionViewCell.swift */; };
+		8BB73A9D20AA1F1A00F8A0DD /* PlayerSelectObects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB73A9C20AA1F1A00F8A0DD /* PlayerSelectObects.swift */; };
+		8BDB103520A7713300B136CF /* SlideAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDB103420A7713300B136CF /* SlideAnimation.swift */; };
 		A0B09E601D270FE8009AD37E /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B09E5F1D270FE8009AD37E /* SplashScreenViewController.swift */; };
 		A0F2D71A1D31B93F00B59CCE /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F2D7191D31B93F00B59CCE /* GameScene.swift */; };
 		A0F2D71E1D31BBEC00B59CCE /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = A0F2D71D1D31BBEC00B59CCE /* GameScene.sks */; };
@@ -40,19 +47,26 @@
 		8B1970E420A63FF500B4ECB1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8B1970E620A64E7200B4ECB1 /* AudioManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
 		8B1970E720A64E7200B4ECB1 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
-		8B1970EA20A64E8100B4ECB1 /* SceneFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneFactory.swift; sourceTree = "<group>"; };
-		8B1970EB20A64E8100B4ECB1 /* PlayerBot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerBot.swift; sourceTree = "<group>"; };
-		8B1970EC20A64E8100B4ECB1 /* BotFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BotFactory.swift; sourceTree = "<group>"; };
-		8B1970ED20A64E8100B4ECB1 /* EnemyBot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnemyBot.swift; sourceTree = "<group>"; };
-		8B1970F220A64E8C00B4ECB1 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = Controllers/SettingsViewController.swift; sourceTree = "<group>"; };
 		8B1970F320A64E8C00B4ECB1 /* GameOverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameOverViewController.swift; path = Controllers/GameOverViewController.swift; sourceTree = "<group>"; };
 		8B1970F420A64E8C00B4ECB1 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AboutViewController.swift; path = Controllers/AboutViewController.swift; sourceTree = "<group>"; };
 		8B1970F520A64E8C00B4ECB1 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuViewController.swift; path = Controllers/MenuViewController.swift; sourceTree = "<group>"; };
 		8B1970F620A64E8C00B4ECB1 /* PlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayViewController.swift; path = Controllers/PlayViewController.swift; sourceTree = "<group>"; };
 		8B1970FC20A64E9800B4ECB1 /* Zackery Wilson - RIGHT Off The Bat(tle) [Final Fantasy IV]_165634314_soundcloud.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Zackery Wilson - RIGHT Off The Bat(tle) [Final Fantasy IV]_165634314_soundcloud.mp3"; path = "Audio/Zackery Wilson - RIGHT Off The Bat(tle) [Final Fantasy IV]_165634314_soundcloud.mp3"; sourceTree = "<group>"; };
 		8B1970FD20A64E9800B4ECB1 /* Zackery Wilson - SELECT Tech Samba [Chrono Trigger]_169740465_soundcloud.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Zackery Wilson - SELECT Tech Samba [Chrono Trigger]_169740465_soundcloud.mp3"; path = "Audio/Zackery Wilson - SELECT Tech Samba [Chrono Trigger]_169740465_soundcloud.mp3"; sourceTree = "<group>"; };
+		8B19710020A64FA300B4ECB1 /* HomeMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeMenuViewController.swift; path = Controllers/HomeMenuViewController.swift; sourceTree = "<group>"; };
+		8B19710220A6510200B4ECB1 /* BotFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BotFactory.swift; path = Game/BotFactory.swift; sourceTree = "<group>"; };
+		8B19710320A6510200B4ECB1 /* EnemyBot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EnemyBot.swift; path = Game/EnemyBot.swift; sourceTree = "<group>"; };
+		8B19710420A6510200B4ECB1 /* PlayerBot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerBot.swift; path = Game/PlayerBot.swift; sourceTree = "<group>"; };
+		8B19710520A6510200B4ECB1 /* SceneFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SceneFactory.swift; path = Game/SceneFactory.swift; sourceTree = "<group>"; };
 		8B3B95F51E1AFF4800F3C827 /* Pictures */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Pictures; sourceTree = "<group>"; };
 		8B85D6FF1E1AF2DE00ACA4A0 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		8BB73A9220AA1AD100F8A0DD /* SettingsPlayerSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsPlayerSelectViewController.swift; sourceTree = "<group>"; };
+		8BB73A9320AA1AD100F8A0DD /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		8BB73A9420AA1AD100F8A0DD /* SettingsTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewDelegate.swift; sourceTree = "<group>"; };
+		8BB73A9520AA1AD100F8A0DD /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		8BB73A9A20AA1D2400F8A0DD /* PlayerSelectCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerSelectCollectionViewCell.swift; sourceTree = "<group>"; };
+		8BB73A9C20AA1F1A00F8A0DD /* PlayerSelectObects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerSelectObects.swift; sourceTree = "<group>"; };
+		8BDB103420A7713300B136CF /* SlideAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideAnimation.swift; sourceTree = "<group>"; };
 		A0B09E5F1D270FE8009AD37E /* SplashScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
 		A0F2D7191D31B93F00B59CCE /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		A0F2D71D1D31BBEC00B59CCE /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -119,17 +133,32 @@
 				8B1970E420A63FF500B4ECB1 /* Constants.swift */,
 				8B1970E620A64E7200B4ECB1 /* AudioManager.swift */,
 				8B1970E720A64E7200B4ECB1 /* Util.swift */,
+				8BDB103420A7713300B136CF /* SlideAnimation.swift */,
 			);
 			path = Helper;
+			sourceTree = "<group>";
+		};
+		8BB73A9120AA1AD100F8A0DD /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				8BB73A9220AA1AD100F8A0DD /* SettingsPlayerSelectViewController.swift */,
+				8BB73A9320AA1AD100F8A0DD /* SettingsTableViewController.swift */,
+				8BB73A9420AA1AD100F8A0DD /* SettingsTableViewDelegate.swift */,
+				8BB73A9520AA1AD100F8A0DD /* SettingsViewController.swift */,
+				8BB73A9A20AA1D2400F8A0DD /* PlayerSelectCollectionViewCell.swift */,
+				8BB73A9C20AA1F1A00F8A0DD /* PlayerSelectObects.swift */,
+			);
+			name = Settings;
+			path = Controllers/Settings;
 			sourceTree = "<group>";
 		};
 		A01E14941D8E47C800838B18 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				8B1970EC20A64E8100B4ECB1 /* BotFactory.swift */,
-				8B1970ED20A64E8100B4ECB1 /* EnemyBot.swift */,
-				8B1970EB20A64E8100B4ECB1 /* PlayerBot.swift */,
-				8B1970EA20A64E8100B4ECB1 /* SceneFactory.swift */,
+				8B19710220A6510200B4ECB1 /* BotFactory.swift */,
+				8B19710320A6510200B4ECB1 /* EnemyBot.swift */,
+				8B19710420A6510200B4ECB1 /* PlayerBot.swift */,
+				8B19710520A6510200B4ECB1 /* SceneFactory.swift */,
 			);
 			name = Model;
 			path = ..;
@@ -138,11 +167,12 @@
 		A01E14951D8E47D400838B18 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				8BB73A9120AA1AD100F8A0DD /* Settings */,
 				8B1970F420A64E8C00B4ECB1 /* AboutViewController.swift */,
 				8B1970F320A64E8C00B4ECB1 /* GameOverViewController.swift */,
 				8B1970F520A64E8C00B4ECB1 /* MenuViewController.swift */,
 				8B1970F620A64E8C00B4ECB1 /* PlayViewController.swift */,
-				8B1970F220A64E8C00B4ECB1 /* SettingsViewController.swift */,
+				8B19710020A64FA300B4ECB1 /* HomeMenuViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -188,7 +218,7 @@
 				TargetAttributes = {
 					6861DDA21D1C8E4600E8E4D8 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = M64S8VZKPQ;
+						DevelopmentTeam = N44M43CWH5;
 						LastSwiftMigration = 0800;
 					};
 				};
@@ -236,17 +266,24 @@
 				A0F2D71A1D31B93F00B59CCE /* GameScene.swift in Sources */,
 				8B1970FB20A64E8C00B4ECB1 /* PlayViewController.swift in Sources */,
 				8B1970E920A64E7200B4ECB1 /* Util.swift in Sources */,
-				8B1970F720A64E8C00B4ECB1 /* SettingsViewController.swift in Sources */,
+				8BB73A9920AA1AD200F8A0DD /* SettingsViewController.swift in Sources */,
+				8BDB103520A7713300B136CF /* SlideAnimation.swift in Sources */,
+				8B19710920A6510200B4ECB1 /* SceneFactory.swift in Sources */,
+				8B19710120A64FA300B4ECB1 /* HomeMenuViewController.swift in Sources */,
 				8B1970FA20A64E8C00B4ECB1 /* MenuViewController.swift in Sources */,
-				8B1970F120A64E8200B4ECB1 /* EnemyBot.swift in Sources */,
-				8B1970EE20A64E8200B4ECB1 /* SceneFactory.swift in Sources */,
+				8B19710620A6510200B4ECB1 /* BotFactory.swift in Sources */,
+				8BB73A9720AA1AD200F8A0DD /* SettingsTableViewController.swift in Sources */,
+				8B19710820A6510200B4ECB1 /* PlayerBot.swift in Sources */,
 				A0B09E601D270FE8009AD37E /* SplashScreenViewController.swift in Sources */,
-				8B1970F020A64E8200B4ECB1 /* BotFactory.swift in Sources */,
-				8B1970EF20A64E8200B4ECB1 /* PlayerBot.swift in Sources */,
+				8BB73A9820AA1AD200F8A0DD /* SettingsTableViewDelegate.swift in Sources */,
+				8B19710720A6510200B4ECB1 /* EnemyBot.swift in Sources */,
 				8B1970F820A64E8C00B4ECB1 /* GameOverViewController.swift in Sources */,
+				8BB73A9620AA1AD200F8A0DD /* SettingsPlayerSelectViewController.swift in Sources */,
+				8BB73A9B20AA1D2400F8A0DD /* PlayerSelectCollectionViewCell.swift in Sources */,
 				8B1970E520A63FF500B4ECB1 /* Constants.swift in Sources */,
 				8B1970E820A64E7200B4ECB1 /* AudioManager.swift in Sources */,
 				8B1970F920A64E8C00B4ECB1 /* AboutViewController.swift in Sources */,
+				8BB73A9D20AA1F1A00F8A0DD /* PlayerSelectObects.swift in Sources */,
 				6861DDA71D1C8E4600E8E4D8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -359,10 +396,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = N44M43CWH5;
 				INFOPLIST_FILE = HighFiveFever/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.lunetapps.High-Five-Fever";
+				PRODUCT_BUNDLE_IDENTIFIER = com.PerfectFifth.HighFiveFever;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_VERSION = 4.0;
@@ -375,10 +413,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = N44M43CWH5;
 				INFOPLIST_FILE = HighFiveFever/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.lunetapps.High-Five-Fever";
+				PRODUCT_BUNDLE_IDENTIFIER = com.PerfectFifth.HighFiveFever;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_VERSION = 4.0;

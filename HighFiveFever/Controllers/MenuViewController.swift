@@ -14,7 +14,7 @@ class MenuViewController: UIViewController {
         super.viewDidLoad()
         
         guard let storyboard = self.storyboard else { return }
-        let viewController = storyboard.instantiateViewController(withIdentifier: Storyboard.HomeViewController)
+        let viewController = storyboard.instantiateViewController(withIdentifier: Storyboard.RootViewController)
         self.addChildViewController(viewController)
         self.view.addSubview(viewController.view)
         viewController.didMove(toParentViewController: self)

@@ -9,15 +9,12 @@
 import UIKit
 
 struct UserDefaultsKeys {
-    static let settingsMotionSensitivityKey = "settingsMotionSensitivityKey"
     static let settingsMusicKey = "settingsMusicKey"
-    static let settingsVolumeKey = "settingsVolumeKey"
-    static let settingsPongSpeedKey = "settingsPongSpeedKey"
-    static let settingsAbsementSamplingKey = "settingsAbsementSamplingKey"
-    static let settingsSamplingRateKey = "settingsSamplingRateKey"
-    static let filteredWorkoutKey = "filteredWorkoutKey"
+    static let settingsSoundFXKey = "settingsSoundFXKey"
 }
 
 struct Storyboard {
+    static let RootViewController = "RootViewController"
     static let HomeViewController = "HomeViewController"
+    static let PlayerSelectViewController = "PlayerSelectViewController"
 }
