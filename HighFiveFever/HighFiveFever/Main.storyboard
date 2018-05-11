@@ -14,7 +14,7 @@
         <!--Splash Screen View Controller-->
         <scene sceneID="R3x-Z0-MnQ">
             <objects>
-                <viewController id="HCn-D4-bOr" customClass="SplashScreenViewController" customModule="High_Five_Fever" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="HCn-D4-bOr" customClass="SplashScreenViewController" customModule="HighFiveFever" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="c6z-oA-ad4"/>
                         <viewControllerLayoutGuide type="bottom" id="wP0-Vk-2Vs"/>
@@ -48,7 +48,7 @@
         <!--Menu View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="mainMenu" id="BYZ-38-t0r" customClass="MenuViewController" customModule="High_Five_Fever" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mainMenu" id="BYZ-38-t0r" customClass="MenuViewController" customModule="HighFiveFever" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -107,6 +107,9 @@
                                     <constraint firstAttribute="width" constant="272" id="JtC-LZ-iSO"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="PlayButton.png"/>
+                                <connections>
+                                    <segue destination="PSt-k6-eOw" kind="show" id="x5z-ZS-Isn"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qtu-ZB-ho4">
                                 <rect key="frame" x="51" y="329" width="272" height="92"/>
@@ -145,7 +148,7 @@
         <!--Play View Controller-->
         <scene sceneID="xJJ-CZ-TrY">
             <objects>
-                <viewController storyboardIdentifier="PlayVC" id="PSt-k6-eOw" customClass="PlayViewController" customModule="High_Five_Fever" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PlayVC" id="PSt-k6-eOw" customClass="PlayViewController" customModule="HighFiveFever" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="tXD-aK-GSg"/>
                         <viewControllerLayoutGuide type="bottom" id="hFA-a0-Lzm"/>
@@ -174,7 +177,7 @@
         <!--Game Over View Controller-->
         <scene sceneID="Yon-6I-Smg">
             <objects>
-                <viewController storyboardIdentifier="GameOverVC" id="m3P-38-XIx" customClass="GameOverViewController" customModule="High_Five_Fever" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GameOverVC" id="m3P-38-XIx" customClass="GameOverViewController" customModule="HighFiveFever" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YjZ-96-gYY"/>
                         <viewControllerLayoutGuide type="bottom" id="MEM-D5-29k"/>
@@ -238,14 +241,18 @@
         <!--View Controller-->
         <scene sceneID="iLe-yk-l3x">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iSF-lo-Ya8" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="m5s-Kq-LLB" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XKx-Cg-xFt"/>
+                        <viewControllerLayoutGuide type="bottom" id="P9D-Rq-ST8"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="GRK-Rd-4T1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="497"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iSF-lo-Ya8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="633" y="1361"/>
         </scene>

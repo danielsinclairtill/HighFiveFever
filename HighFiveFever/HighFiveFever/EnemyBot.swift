@@ -33,7 +33,7 @@ class EnemyBot: SKSpriteNode {
         self.run(self.highFiveAction!)
     }
     
-    func moveBot() {
+    @objc func moveBot() {
         self.run(self.moveBotAction!)
     }
 }

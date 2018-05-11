@@ -34,7 +34,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let sceneFactory: SceneFactory = SceneFactory()
     
     // Global Variables
-    var player: PlayerBot?
+    @objc var player: PlayerBot?
 
     var scoreLabel = SKLabelNode()
     
@@ -146,7 +146,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
 
     /* Utility function to add enemy bots to scene and start their animation */
-    func addEnemyBot() -> Void {
+    @objc func addEnemyBot() -> Void {
         botCount += 1
         let positionIndex = Int(arc4random() % 4);
         let bot = botFactory.createEnemyBotWith(normalFilename: FILE_NAME_ENEMY_BOT_N, highFiveFilename: FILE_NAME_ENEMY_BOT_HF, position: botPosition[positionIndex], textureScaledBy: 0.45, physicsBodyScaledBy: 0.3)
@@ -159,7 +159,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         enemyBotMovementTimers.append(timer)
     }
     
-    func movePlayerUp(){
+    @objc func movePlayerUp(){
         if (playerPosition.last! == 1) { // player is at last spot
             return;
         }
@@ -171,7 +171,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         player?.zPosition = zPositionValues[currentIndex]
     }
     
-    func movePlayerDown() {
+    @objc func movePlayerDown() {
         if (playerPosition.first! == 1){
             return;
         }

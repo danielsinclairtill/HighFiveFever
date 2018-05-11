@@ -21,7 +21,7 @@ class SplashScreenViewController: UIViewController {
         
     }
     
-    func animateSplashView(){
+    @objc func animateSplashView(){
         if (frameCount == 0){
             // segue to main menu
             let menuViewController = (self.storyboard?.instantiateViewController(withIdentifier: "mainMenu"))! as UIViewController;
