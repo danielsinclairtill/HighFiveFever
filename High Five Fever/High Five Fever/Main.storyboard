@@ -1,11 +1,12 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="HCn-D4-bOr">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="HCn-D4-bOr">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -42,7 +43,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1KZ-Jt-eQQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-332" y="609"/>
+            <point key="canvasLocation" x="-298" y="657"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -56,55 +57,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x8D-Mm-1BQ">
-                                <rect key="frame" x="63" y="198" width="249" height="85"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="85" id="KHx-cb-Kw8"/>
-                                    <constraint firstAttribute="width" constant="249" id="lhT-7X-Jmn"/>
-                                </constraints>
-                                <state key="normal" image="PlayButton"/>
-                                <connections>
-                                    <segue destination="PSt-k6-eOw" kind="show" id="FP9-Ob-kCb"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tW7-Hq-obv">
-                                <rect key="frame" x="63" y="291" width="249" height="85"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="249" id="qpI-GJ-A7G"/>
-                                    <constraint firstAttribute="height" constant="85" id="sri-XH-WZS"/>
-                                </constraints>
-                                <state key="normal" image="SettingsButton"/>
-                                <connections>
-                                    <action selector="settingsButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ce8-pf-hnN"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lu7-8o-aGP">
-                                <rect key="frame" x="63" y="291" width="249" height="85"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="settingsMusicOn"/>
-                                <connections>
-                                    <action selector="settingsMusicButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lAS-S0-MG4"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="osL-aG-1DN">
-                                <rect key="frame" x="63" y="384" width="249" height="85"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="85" id="Le3-Zu-C1p"/>
-                                    <constraint firstAttribute="width" constant="249" id="lbd-a2-xoK"/>
-                                </constraints>
-                                <state key="normal" image="AboutButton"/>
-                                <connections>
-                                    <action selector="aboutButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="waV-Ej-ebO"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5fm-KN-FSf">
-                                <rect key="frame" x="16" y="170" width="61" height="61"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="BackButton"/>
-                                <connections>
-                                    <action selector="backButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Chp-Ok-SXL"/>
-                                </connections>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Title" translatesAutoresizingMaskIntoConstraints="NO" id="Px8-h0-zpZ">
                                 <rect key="frame" x="-7" y="0.0" width="388" height="162"/>
                                 <constraints>
@@ -112,40 +64,83 @@
                                     <constraint firstAttribute="height" constant="162" id="aa4-1e-zQL"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5zM-X1-CAy">
-                                <rect key="frame" x="63" y="384" width="249" height="85"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="settingsMusicOn"/>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Kn-Nh-5r0">
+                                <rect key="frame" x="0.0" y="170" width="375" height="497"/>
+                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
-                                    <action selector="settingsMusicButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VjR-df-gpL"/>
+                                    <segue destination="m5s-Kq-LLB" kind="embed" id="D9G-7j-gXD"/>
                                 </connections>
-                            </button>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" red="0.96078431369999995" green="0.75686274509999996" blue="0.76078431369999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="3Kn-Nh-5r0" secondAttribute="trailing" id="3ei-jn-PHZ"/>
                             <constraint firstItem="Px8-h0-zpZ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="SkD-QK-9cs"/>
-                            <constraint firstItem="osL-aG-1DN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="UWE-pr-PSc"/>
-                            <constraint firstItem="tW7-Hq-obv" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="ctG-4F-foi"/>
                             <constraint firstItem="Px8-h0-zpZ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="erR-YX-RVW"/>
-                            <constraint firstItem="osL-aG-1DN" firstAttribute="top" secondItem="tW7-Hq-obv" secondAttribute="bottom" constant="8" id="fM9-Ik-WWM"/>
-                            <constraint firstItem="x8D-Mm-1BQ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tkr-sJ-gPO"/>
-                            <constraint firstItem="tW7-Hq-obv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="v7G-D1-nth"/>
-                            <constraint firstItem="tW7-Hq-obv" firstAttribute="top" secondItem="x8D-Mm-1BQ" secondAttribute="bottom" constant="8" id="ym1-oN-gKs"/>
+                            <constraint firstItem="3Kn-Nh-5r0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="mIc-Ev-cGV"/>
+                            <constraint firstItem="3Kn-Nh-5r0" firstAttribute="top" secondItem="Px8-h0-zpZ" secondAttribute="bottom" constant="8" id="mf6-QR-ab4"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="3Kn-Nh-5r0" secondAttribute="bottom" id="uuf-52-WkT"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="B4E-N1-USJ"/>
-                    <connections>
-                        <outlet property="aboutButton" destination="osL-aG-1DN" id="juO-Yo-MPL"/>
-                        <outlet property="backButton" destination="5fm-KN-FSf" id="7it-Et-xFl"/>
-                        <outlet property="playButton" destination="x8D-Mm-1BQ" id="emf-nI-fhw"/>
-                        <outlet property="settingsButton" destination="tW7-Hq-obv" id="cmy-jK-NvW"/>
-                        <outlet property="settingsMusicButton" destination="Lu7-8o-aGP" id="McB-Qa-3zq"/>
-                        <outlet property="settingsSoundEffectsButton" destination="5zM-X1-CAy" id="Y9Z-wj-an4"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="632.79999999999995" y="659.82008995502258"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="fhg-yw-0p7">
+            <objects>
+                <viewController storyboardIdentifier="HomeViewController" id="rmA-aZ-B71" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ulQ-Pv-W8z"/>
+                        <viewControllerLayoutGuide type="bottom" id="YMh-FU-3VE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zo1-Ig-dMI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oDe-M1-adn">
+                                <rect key="frame" x="51" y="217" width="272" height="92"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="oDe-M1-adn" secondAttribute="height" multiplier="68:23" id="DRq-QA-y6A"/>
+                                    <constraint firstAttribute="width" constant="272" id="JtC-LZ-iSO"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="PlayButton.png"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qtu-ZB-ho4">
+                                <rect key="frame" x="51" y="329" width="272" height="92"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="272" id="Yer-IJ-lIn"/>
+                                    <constraint firstAttribute="width" secondItem="qtu-ZB-ho4" secondAttribute="height" multiplier="68:23" id="w38-lk-26V"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="SettingsButton.png"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nB7-Sd-Ilj">
+                                <rect key="frame" x="51" y="441" width="272" height="92"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="272" id="UZm-iy-3vE"/>
+                                    <constraint firstAttribute="width" secondItem="nB7-Sd-Ilj" secondAttribute="height" multiplier="68:23" id="zkD-kA-rZz"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="AboutButton.png"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="qtu-ZB-ho4" firstAttribute="top" secondItem="oDe-M1-adn" secondAttribute="bottom" constant="20" id="2Pc-8Q-KiW"/>
+                            <constraint firstItem="nB7-Sd-Ilj" firstAttribute="centerX" secondItem="zo1-Ig-dMI" secondAttribute="centerX" id="EET-Bc-DNW"/>
+                            <constraint firstItem="qtu-ZB-ho4" firstAttribute="top" secondItem="oDe-M1-adn" secondAttribute="bottom" constant="20" id="G8F-Ku-Wlf"/>
+                            <constraint firstItem="oDe-M1-adn" firstAttribute="centerX" secondItem="zo1-Ig-dMI" secondAttribute="centerX" id="Iy1-W3-dpU"/>
+                            <constraint firstItem="nB7-Sd-Ilj" firstAttribute="top" secondItem="qtu-ZB-ho4" secondAttribute="bottom" constant="20" id="OP0-di-jm0"/>
+                            <constraint firstItem="qtu-ZB-ho4" firstAttribute="centerX" secondItem="zo1-Ig-dMI" secondAttribute="centerX" id="cYI-I1-ZBv"/>
+                            <constraint firstItem="nB7-Sd-Ilj" firstAttribute="top" secondItem="qtu-ZB-ho4" secondAttribute="bottom" constant="20" id="d4O-it-m5c"/>
+                            <constraint firstItem="YMh-FU-3VE" firstAttribute="top" secondItem="nB7-Sd-Ilj" secondAttribute="bottom" constant="134" id="ken-fZ-Hkp"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hso-7g-MUB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1353" y="660"/>
         </scene>
         <!--Play View Controller-->
         <scene sceneID="xJJ-CZ-TrY">
@@ -174,7 +169,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tsz-B8-hRN" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="iym-GP-4LQ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1686" y="-195"/>
+            <point key="canvasLocation" x="1308" y="-168"/>
         </scene>
         <!--Game Over View Controller-->
         <scene sceneID="Yon-6I-Smg">
@@ -238,16 +233,28 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Ux-o1-Nok" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="lRj-qv-HYR" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2466.4000000000001" y="-195.6521739130435"/>
+            <point key="canvasLocation" x="1983" y="-169"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="iLe-yk-l3x">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iSF-lo-Ya8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="m5s-Kq-LLB" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GRK-Rd-4T1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="497"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="633" y="1361"/>
         </scene>
     </scenes>
     <resources>
-        <image name="AboutButton" width="512" height="192"/>
-        <image name="BackButton" width="288" height="288"/>
-        <image name="PlayButton" width="512" height="192"/>
-        <image name="SettingsButton" width="512" height="192"/>
+        <image name="AboutButton.png" width="512" height="192"/>
+        <image name="PlayButton.png" width="512" height="192"/>
+        <image name="SettingsButton.png" width="512" height="192"/>
         <image name="Title" width="640" height="240"/>
         <image name="c33.png" width="500" height="500"/>
-        <image name="settingsMusicOn" width="512" height="192"/>
     </resources>
 </document>

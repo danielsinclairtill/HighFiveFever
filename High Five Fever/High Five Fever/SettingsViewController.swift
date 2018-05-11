@@ -27,6 +27,7 @@ class SettingsViewController: UIViewController {
     @IBAction func gameMusicSwitched(_ sender: UISwitch) {
         UserDefaults.standard.set(sender.isOn, forKey: "isGameMusicSet");
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

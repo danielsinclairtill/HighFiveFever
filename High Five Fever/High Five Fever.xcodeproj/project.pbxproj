@@ -12,6 +12,7 @@
 		6861DDAE1D1C8E4600E8E4D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6861DDAD1D1C8E4600E8E4D8 /* Assets.xcassets */; };
 		6861DDB11D1C8E4700E8E4D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6861DDAF1D1C8E4700E8E4D8 /* LaunchScreen.storyboard */; };
 		6861DDB91D1C8EC600E8E4D8 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6861DDB81D1C8EC600E8E4D8 /* MenuViewController.swift */; };
+		8B1970E520A63FF500B4ECB1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1970E420A63FF500B4ECB1 /* Constants.swift */; };
 		8B3B95F61E1AFF4800F3C827 /* Pictures in Resources */ = {isa = PBXBuildFile; fileRef = 8B3B95F51E1AFF4800F3C827 /* Pictures */; };
 		8B85D7001E1AF2DE00ACA4A0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B85D6FF1E1AF2DE00ACA4A0 /* Main.storyboard */; };
 		8BF607261D283B1E00058600 /* Zackery Wilson - RIGHT Off The Bat(tle) [Final Fantasy IV]_165634314_soundcloud.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8BF607251D283B1E00058600 /* Zackery Wilson - RIGHT Off The Bat(tle) [Final Fantasy IV]_165634314_soundcloud.mp3 */; };
@@ -38,6 +39,7 @@
 		6861DDB01D1C8E4700E8E4D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6861DDB21D1C8E4700E8E4D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6861DDB81D1C8EC600E8E4D8 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		8B1970E420A63FF500B4ECB1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8B3B95F51E1AFF4800F3C827 /* Pictures */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Pictures; sourceTree = "<group>"; };
 		8B85D6FF1E1AF2DE00ACA4A0 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		8BF607251D283B1E00058600 /* Zackery Wilson - RIGHT Off The Bat(tle) [Final Fantasy IV]_165634314_soundcloud.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Zackery Wilson - RIGHT Off The Bat(tle) [Final Fantasy IV]_165634314_soundcloud.mp3"; sourceTree = "<group>"; };
@@ -86,11 +88,10 @@
 		6861DDA51D1C8E4600E8E4D8 /* High Five Fever */ = {
 			isa = PBXGroup;
 			children = (
-				A01E14941D8E47C800838B18 /* Model */,
+				8B1970E320A63FE400B4ECB1 /* Helper */,
+				8B1970E220A63FA600B4ECB1 /* Game */,
 				6861DDA61D1C8E4600E8E4D8 /* AppDelegate.swift */,
 				A01E14951D8E47D400838B18 /* Controller */,
-				A0F2D7191D31B93F00B59CCE /* GameScene.swift */,
-				A0F2D71D1D31BBEC00B59CCE /* GameScene.sks */,
 				8B85D6FF1E1AF2DE00ACA4A0 /* Main.storyboard */,
 				6861DDAD1D1C8E4600E8E4D8 /* Assets.xcassets */,
 				8B3B95F51E1AFF4800F3C827 /* Pictures */,
@@ -99,6 +100,24 @@
 				6861DDB21D1C8E4700E8E4D8 /* Info.plist */,
 			);
 			path = "High Five Fever";
+			sourceTree = "<group>";
+		};
+		8B1970E220A63FA600B4ECB1 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				A01E14941D8E47C800838B18 /* Model */,
+				A0F2D71D1D31BBEC00B59CCE /* GameScene.sks */,
+				A0F2D7191D31B93F00B59CCE /* GameScene.swift */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		8B1970E320A63FE400B4ECB1 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				8B1970E420A63FF500B4ECB1 /* Constants.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		A01E14941D8E47C800838B18 /* Model */ = {
@@ -110,6 +129,7 @@
 				A0DB90C81D8B74C200A83C78 /* EnemyBot.swift */,
 			);
 			name = Model;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		A01E14951D8E47D400838B18 /* Controller */ = {
@@ -218,6 +238,7 @@
 				A0DB90C71D8B74B800A83C78 /* PlayerBot.swift in Sources */,
 				A0F2D71A1D31B93F00B59CCE /* GameScene.swift in Sources */,
 				A0B09E601D270FE8009AD37E /* SplashScreenViewController.swift in Sources */,
+				8B1970E520A63FF500B4ECB1 /* Constants.swift in Sources */,
 				A0DB90C51D8B733800A83C78 /* BotFactory.swift in Sources */,
 				A09D55261D1F9A3A002064A3 /* AboutViewController.swift in Sources */,
 				A0DB90CB1D8B82CE00A83C78 /* SceneFactory.swift in Sources */,
