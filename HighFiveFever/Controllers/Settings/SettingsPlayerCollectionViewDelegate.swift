@@ -8,8 +8,6 @@
 
 import Foundation
 
-import Foundation
-
 protocol SettingsPlayerCollectionViewDelegate: NSObjectProtocol {
     func playerSelected(playerIndex: Int)
 }
