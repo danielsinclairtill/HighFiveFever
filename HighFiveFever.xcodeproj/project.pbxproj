@@ -24,6 +24,7 @@
 		8B19710720A6510200B4ECB1 /* EnemyBot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B19710320A6510200B4ECB1 /* EnemyBot.swift */; };
 		8B19710820A6510200B4ECB1 /* PlayerBot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B19710420A6510200B4ECB1 /* PlayerBot.swift */; };
 		8B19710920A6510200B4ECB1 /* SceneFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B19710520A6510200B4ECB1 /* SceneFactory.swift */; };
+		8B294DA520ACDE12003C0AD1 /* SettingsPlayerCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B294DA420ACDE12003C0AD1 /* SettingsPlayerCollectionViewDelegate.swift */; };
 		8B3B95F61E1AFF4800F3C827 /* Pictures in Resources */ = {isa = PBXBuildFile; fileRef = 8B3B95F51E1AFF4800F3C827 /* Pictures */; };
 		8B85D7001E1AF2DE00ACA4A0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B85D6FF1E1AF2DE00ACA4A0 /* Main.storyboard */; };
 		8BB73A9620AA1AD200F8A0DD /* SettingsPlayerSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB73A9220AA1AD100F8A0DD /* SettingsPlayerSelectViewController.swift */; };
@@ -58,6 +59,7 @@
 		8B19710320A6510200B4ECB1 /* EnemyBot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EnemyBot.swift; path = Game/EnemyBot.swift; sourceTree = "<group>"; };
 		8B19710420A6510200B4ECB1 /* PlayerBot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerBot.swift; path = Game/PlayerBot.swift; sourceTree = "<group>"; };
 		8B19710520A6510200B4ECB1 /* SceneFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SceneFactory.swift; path = Game/SceneFactory.swift; sourceTree = "<group>"; };
+		8B294DA420ACDE12003C0AD1 /* SettingsPlayerCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPlayerCollectionViewDelegate.swift; sourceTree = "<group>"; };
 		8B3B95F51E1AFF4800F3C827 /* Pictures */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Pictures; sourceTree = "<group>"; };
 		8B85D6FF1E1AF2DE00ACA4A0 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		8BB73A9220AA1AD100F8A0DD /* SettingsPlayerSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsPlayerSelectViewController.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 				8BB73A9520AA1AD100F8A0DD /* SettingsViewController.swift */,
 				8BB73A9A20AA1D2400F8A0DD /* PlayerSelectCollectionViewCell.swift */,
 				8BB73A9C20AA1F1A00F8A0DD /* PlayerSelectObects.swift */,
+				8B294DA420ACDE12003C0AD1 /* SettingsPlayerCollectionViewDelegate.swift */,
 			);
 			name = Settings;
 			path = Controllers/Settings;
@@ -270,6 +273,7 @@
 				8BDB103520A7713300B136CF /* SlideAnimation.swift in Sources */,
 				8B19710920A6510200B4ECB1 /* SceneFactory.swift in Sources */,
 				8B19710120A64FA300B4ECB1 /* HomeMenuViewController.swift in Sources */,
+				8B294DA520ACDE12003C0AD1 /* SettingsPlayerCollectionViewDelegate.swift in Sources */,
 				8B1970FA20A64E8C00B4ECB1 /* MenuViewController.swift in Sources */,
 				8B19710620A6510200B4ECB1 /* BotFactory.swift in Sources */,
 				8BB73A9720AA1AD200F8A0DD /* SettingsTableViewController.swift in Sources */,

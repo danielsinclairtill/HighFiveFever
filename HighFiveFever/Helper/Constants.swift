@@ -11,6 +11,7 @@ import UIKit
 struct UserDefaultsKeys {
     static let settingsMusicKey = "settingsMusicKey"
     static let settingsSoundFXKey = "settingsSoundFXKey"
+    static let settingsPlayerIndex = "settingsPlayerIndex"
 }
 
 struct Storyboard {

@@ -50,10 +50,17 @@ extension SettingsViewController: SettingsTableViewDelegate {
     
     func preparePlayerSelection() {
         guard let storyboard = self.storyboard else { return }
-        let viewController = storyboard.instantiateViewController(withIdentifier: Storyboard.PlayerSelectViewController)
+        let viewController = storyboard.instantiateViewController(withIdentifier: Storyboard.PlayerSelectViewController) as! SettingsPlayerSelectViewController
+        viewController.settingsPlayerCollectionViewDelegate = self
         
         fowardAnimation = true
         self.navigationController?.pushViewController(viewController, animated: true)
         fowardAnimation = false
+    }
+}
+
+extension SettingsViewController: SettingsPlayerCollectionViewDelegate {
+    func playerSelected(playerIndex: Int) {
+        userDefaults.set(playerIndex, forKey: UserDefaultsKeys.settingsPlayerIndex)
     }
 }

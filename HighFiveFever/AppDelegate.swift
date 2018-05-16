@@ -20,7 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // set up settings
         UserDefaults.standard.register(defaults: [
             UserDefaultsKeys.settingsMusicKey : true,
-            UserDefaultsKeys.settingsSoundFXKey : true
+            UserDefaultsKeys.settingsSoundFXKey : true,
+            UserDefaultsKeys.settingsPlayerIndex : 0,
             ])
         
         // set up music player
