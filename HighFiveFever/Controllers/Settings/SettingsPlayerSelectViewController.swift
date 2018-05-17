@@ -13,6 +13,7 @@ class SettingsPlayerSelectViewController: UIViewController, UICollectionViewDele
     private let userDefaults: UserDefaults = UserDefaults.standard
     weak var settingsPlayerCollectionViewDelegate: SettingsPlayerCollectionViewDelegate?
 
+    @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var playerSelectCollectionView: UICollectionView!
     private let playerSelectObects = PlayerSelectObjects()
     private let sectionInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 0.0)
@@ -21,7 +22,9 @@ class SettingsPlayerSelectViewController: UIViewController, UICollectionViewDele
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view, typically from a nib.
+        self.backButton.setImage(#imageLiteral(resourceName: "BackButton"), for: .normal)
+        self.backButton.setImage(#imageLiteral(resourceName: "BackButtonPress"), for: .highlighted)
+        
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         
         let padding = sectionInsets.left * (itemsPerRow + 1)
@@ -60,6 +63,7 @@ class SettingsPlayerSelectViewController: UIViewController, UICollectionViewDele
         let cell = playerSelectCollectionView.cellForItem(at: indexPath) as! PlayerSelectCollectionViewCell
         selectCell(cell)
         settingsPlayerCollectionViewDelegate?.playerSelected(playerIndex: indexPath.row)
+        self.navigationController?.popViewController(animated: true)
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {

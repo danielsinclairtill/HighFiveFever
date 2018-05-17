@@ -12,36 +12,48 @@ import AVFoundation
 class AudioManager: NSObject {
     
     static let sharedInstance = AudioManager();
-    
-    fileprivate var musicPlayer: AVAudioPlayer = AVAudioPlayer();
-    
+    fileprivate var musicPlayer: AVAudioPlayer?
     fileprivate var musicPlaying: Bool = false;
     
-    var enteredFromPlayView: Bool = false;
-    
-    var lastPlayedWasMenuSong: Bool?;
-    
-    let menuSongName = "Zackery Wilson - SELECT Tech Samba [Chrono Trigger]_169740465_soundcloud";
-    let gameSongName = "Zackery Wilson - RIGHT Off The Bat(tle) [Final Fantasy IV]_165634314_soundcloud";
+    fileprivate let menuSongName = "Zackery Wilson - SELECT Tech Samba [Chrono Trigger]_169740465_soundcloud";
+    fileprivate let gameSongName = "Zackery Wilson - RIGHT Off The Bat(tle) [Final Fantasy IV]_165634314_soundcloud";
     fileprivate let mp3 = "mp3";
     
-    fileprivate override init() {
-        
+    func startGameMusic() {
+        musicPlaying = false
+        setUpPlayer(gameSongName)
+        playMusic()
     }
     
+    func startMenuMusic() {
+        musicPlaying = false
+        setUpPlayer(menuSongName)
+        playMusic()
+    }
+
     func setUpPlayer(_ songName: String) {
         let song = Bundle.main.path(forResource: songName, ofType: mp3);
         
         do {
             let songUrl = URL(fileURLWithPath: song!);
             try musicPlayer = AVAudioPlayer(contentsOf: songUrl);
+            musicPlayer?.numberOfLoops = -1
+            musicPlayer?.prepareToPlay()
             
         } catch {
-            print ("Error setting up music player");
+            print ("Error setting up music player...");
         }
     }
     
+    func removeMusic() {
+        if let musicPlayer = musicPlayer {
+            musicPlayer.stop()
+        }
+        musicPlayer = nil
+    }
+    
     func playMusic() {
+        guard let musicPlayer = musicPlayer else{ return }
         if (!musicPlaying){
             musicPlayer.play();
             musicPlaying = true;
@@ -49,6 +61,7 @@ class AudioManager: NSObject {
     }
     
     func stopMusic() {
+        guard let musicPlayer = musicPlayer else{ return }
         if (musicPlaying){
             musicPlayer.stop();
             musicPlaying = false;

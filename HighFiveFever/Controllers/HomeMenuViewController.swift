@@ -30,12 +30,6 @@ class HomeMenuViewController: UIViewController, UINavigationControllerDelegate {
     @IBAction func playButtonTouched(_ sender: UIButton) {
     }
     
-    @IBAction func settingsButtonTouched(_ sender: UIButton) {
-    }
-    
-    @IBAction func aboutButtonTouched(_ sender: UIButton) {
-    }
-    
     func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return SlideAnimation(forward: true)
     }

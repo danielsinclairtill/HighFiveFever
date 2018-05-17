@@ -13,7 +13,6 @@
 		8B1970E520A63FF500B4ECB1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1970E420A63FF500B4ECB1 /* Constants.swift */; };
 		8B1970E820A64E7200B4ECB1 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1970E620A64E7200B4ECB1 /* AudioManager.swift */; };
 		8B1970E920A64E7200B4ECB1 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1970E720A64E7200B4ECB1 /* Util.swift */; };
-		8B1970F820A64E8C00B4ECB1 /* GameOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1970F320A64E8C00B4ECB1 /* GameOverViewController.swift */; };
 		8B1970F920A64E8C00B4ECB1 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1970F420A64E8C00B4ECB1 /* AboutViewController.swift */; };
 		8B1970FA20A64E8C00B4ECB1 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1970F520A64E8C00B4ECB1 /* MenuViewController.swift */; };
 		8B1970FB20A64E8C00B4ECB1 /* PlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1970F620A64E8C00B4ECB1 /* PlayViewController.swift */; };
@@ -25,6 +24,12 @@
 		8B19710820A6510200B4ECB1 /* PlayerBot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B19710420A6510200B4ECB1 /* PlayerBot.swift */; };
 		8B19710920A6510200B4ECB1 /* SceneFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B19710520A6510200B4ECB1 /* SceneFactory.swift */; };
 		8B294DA520ACDE12003C0AD1 /* SettingsPlayerCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B294DA420ACDE12003C0AD1 /* SettingsPlayerCollectionViewDelegate.swift */; };
+		8B294DB320ACFF82003C0AD1 /* PopUpPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B294DB020ACFF82003C0AD1 /* PopUpPresentationController.swift */; };
+		8B294DB420ACFF82003C0AD1 /* PopUpViewAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B294DB120ACFF82003C0AD1 /* PopUpViewAnimation.swift */; };
+		8B294DB520ACFF82003C0AD1 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B294DB220ACFF82003C0AD1 /* PopUpViewController.swift */; };
+		8B294DB720AD0018003C0AD1 /* GameOverView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B294DB620AD0018003C0AD1 /* GameOverView.xib */; };
+		8B294DBA20AD01C1003C0AD1 /* GameOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B294DB920AD01C1003C0AD1 /* GameOverView.swift */; };
+		8B294DBC20AD02AD003C0AD1 /* GameOverViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B294DBB20AD02AD003C0AD1 /* GameOverViewDelegate.swift */; };
 		8B3B95F61E1AFF4800F3C827 /* Pictures in Resources */ = {isa = PBXBuildFile; fileRef = 8B3B95F51E1AFF4800F3C827 /* Pictures */; };
 		8B85D7001E1AF2DE00ACA4A0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B85D6FF1E1AF2DE00ACA4A0 /* Main.storyboard */; };
 		8BB73A9620AA1AD200F8A0DD /* SettingsPlayerSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB73A9220AA1AD100F8A0DD /* SettingsPlayerSelectViewController.swift */; };
@@ -48,7 +53,6 @@
 		8B1970E420A63FF500B4ECB1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8B1970E620A64E7200B4ECB1 /* AudioManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
 		8B1970E720A64E7200B4ECB1 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
-		8B1970F320A64E8C00B4ECB1 /* GameOverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameOverViewController.swift; path = Controllers/GameOverViewController.swift; sourceTree = "<group>"; };
 		8B1970F420A64E8C00B4ECB1 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AboutViewController.swift; path = Controllers/AboutViewController.swift; sourceTree = "<group>"; };
 		8B1970F520A64E8C00B4ECB1 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuViewController.swift; path = Controllers/MenuViewController.swift; sourceTree = "<group>"; };
 		8B1970F620A64E8C00B4ECB1 /* PlayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayViewController.swift; path = Controllers/PlayViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +64,12 @@
 		8B19710420A6510200B4ECB1 /* PlayerBot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerBot.swift; path = Game/PlayerBot.swift; sourceTree = "<group>"; };
 		8B19710520A6510200B4ECB1 /* SceneFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SceneFactory.swift; path = Game/SceneFactory.swift; sourceTree = "<group>"; };
 		8B294DA420ACDE12003C0AD1 /* SettingsPlayerCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPlayerCollectionViewDelegate.swift; sourceTree = "<group>"; };
+		8B294DB020ACFF82003C0AD1 /* PopUpPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpPresentationController.swift; sourceTree = "<group>"; };
+		8B294DB120ACFF82003C0AD1 /* PopUpViewAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpViewAnimation.swift; sourceTree = "<group>"; };
+		8B294DB220ACFF82003C0AD1 /* PopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
+		8B294DB620AD0018003C0AD1 /* GameOverView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameOverView.xib; sourceTree = "<group>"; };
+		8B294DB920AD01C1003C0AD1 /* GameOverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverView.swift; sourceTree = "<group>"; };
+		8B294DBB20AD02AD003C0AD1 /* GameOverViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverViewDelegate.swift; sourceTree = "<group>"; };
 		8B3B95F51E1AFF4800F3C827 /* Pictures */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Pictures; sourceTree = "<group>"; };
 		8B85D6FF1E1AF2DE00ACA4A0 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		8BB73A9220AA1AD100F8A0DD /* SettingsPlayerSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsPlayerSelectViewController.swift; sourceTree = "<group>"; };
@@ -122,6 +132,9 @@
 		8B1970E220A63FA600B4ECB1 /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				8B294DB920AD01C1003C0AD1 /* GameOverView.swift */,
+				8B294DBB20AD02AD003C0AD1 /* GameOverViewDelegate.swift */,
+				8B294DB620AD0018003C0AD1 /* GameOverView.xib */,
 				A01E14941D8E47C800838B18 /* Model */,
 				A0F2D71D1D31BBEC00B59CCE /* GameScene.sks */,
 				A0F2D7191D31B93F00B59CCE /* GameScene.swift */,
@@ -132,12 +145,23 @@
 		8B1970E320A63FE400B4ECB1 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				8B294DAF20ACFF82003C0AD1 /* PopUp */,
 				8B1970E420A63FF500B4ECB1 /* Constants.swift */,
 				8B1970E620A64E7200B4ECB1 /* AudioManager.swift */,
 				8B1970E720A64E7200B4ECB1 /* Util.swift */,
 				8BDB103420A7713300B136CF /* SlideAnimation.swift */,
 			);
 			path = Helper;
+			sourceTree = "<group>";
+		};
+		8B294DAF20ACFF82003C0AD1 /* PopUp */ = {
+			isa = PBXGroup;
+			children = (
+				8B294DB020ACFF82003C0AD1 /* PopUpPresentationController.swift */,
+				8B294DB120ACFF82003C0AD1 /* PopUpViewAnimation.swift */,
+				8B294DB220ACFF82003C0AD1 /* PopUpViewController.swift */,
+			);
+			path = PopUp;
 			sourceTree = "<group>";
 		};
 		8BB73A9120AA1AD100F8A0DD /* Settings */ = {
@@ -172,7 +196,6 @@
 			children = (
 				8BB73A9120AA1AD100F8A0DD /* Settings */,
 				8B1970F420A64E8C00B4ECB1 /* AboutViewController.swift */,
-				8B1970F320A64E8C00B4ECB1 /* GameOverViewController.swift */,
 				8B1970F520A64E8C00B4ECB1 /* MenuViewController.swift */,
 				8B1970F620A64E8C00B4ECB1 /* PlayViewController.swift */,
 				8B19710020A64FA300B4ECB1 /* HomeMenuViewController.swift */,
@@ -251,6 +274,7 @@
 			files = (
 				8B3B95F61E1AFF4800F3C827 /* Pictures in Resources */,
 				A0F2D71E1D31BBEC00B59CCE /* GameScene.sks in Resources */,
+				8B294DB720AD0018003C0AD1 /* GameOverView.xib in Resources */,
 				8B1970FE20A64E9800B4ECB1 /* Zackery Wilson - RIGHT Off The Bat(tle) [Final Fantasy IV]_165634314_soundcloud.mp3 in Resources */,
 				6861DDB11D1C8E4700E8E4D8 /* LaunchScreen.storyboard in Resources */,
 				6861DDAE1D1C8E4600E8E4D8 /* Assets.xcassets in Resources */,
@@ -268,6 +292,7 @@
 			files = (
 				A0F2D71A1D31B93F00B59CCE /* GameScene.swift in Sources */,
 				8B1970FB20A64E8C00B4ECB1 /* PlayViewController.swift in Sources */,
+				8B294DB420ACFF82003C0AD1 /* PopUpViewAnimation.swift in Sources */,
 				8B1970E920A64E7200B4ECB1 /* Util.swift in Sources */,
 				8BB73A9920AA1AD200F8A0DD /* SettingsViewController.swift in Sources */,
 				8BDB103520A7713300B136CF /* SlideAnimation.swift in Sources */,
@@ -275,19 +300,22 @@
 				8B19710120A64FA300B4ECB1 /* HomeMenuViewController.swift in Sources */,
 				8B294DA520ACDE12003C0AD1 /* SettingsPlayerCollectionViewDelegate.swift in Sources */,
 				8B1970FA20A64E8C00B4ECB1 /* MenuViewController.swift in Sources */,
+				8B294DB520ACFF82003C0AD1 /* PopUpViewController.swift in Sources */,
 				8B19710620A6510200B4ECB1 /* BotFactory.swift in Sources */,
+				8B294DB320ACFF82003C0AD1 /* PopUpPresentationController.swift in Sources */,
+				8B294DBC20AD02AD003C0AD1 /* GameOverViewDelegate.swift in Sources */,
 				8BB73A9720AA1AD200F8A0DD /* SettingsTableViewController.swift in Sources */,
 				8B19710820A6510200B4ECB1 /* PlayerBot.swift in Sources */,
 				A0B09E601D270FE8009AD37E /* SplashScreenViewController.swift in Sources */,
 				8BB73A9820AA1AD200F8A0DD /* SettingsTableViewDelegate.swift in Sources */,
 				8B19710720A6510200B4ECB1 /* EnemyBot.swift in Sources */,
-				8B1970F820A64E8C00B4ECB1 /* GameOverViewController.swift in Sources */,
 				8BB73A9620AA1AD200F8A0DD /* SettingsPlayerSelectViewController.swift in Sources */,
 				8BB73A9B20AA1D2400F8A0DD /* PlayerSelectCollectionViewCell.swift in Sources */,
 				8B1970E520A63FF500B4ECB1 /* Constants.swift in Sources */,
 				8B1970E820A64E7200B4ECB1 /* AudioManager.swift in Sources */,
 				8B1970F920A64E8C00B4ECB1 /* AboutViewController.swift in Sources */,
 				8BB73A9D20AA1F1A00F8A0DD /* PlayerSelectObects.swift in Sources */,
+				8B294DBA20AD01C1003C0AD1 /* GameOverView.swift in Sources */,
 				6861DDA71D1C8E4600E8E4D8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

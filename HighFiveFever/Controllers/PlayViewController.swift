@@ -11,58 +11,59 @@ import SpriteKit
 
 class PlayViewController: UIViewController {
     
-    var currentGame: GameScene!;
+    private let userDefaults: UserDefaults = UserDefaults.standard
+    private var scene: GameScene?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         loadScene()
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    override var prefersStatusBarHidden : Bool {
-        return true
-    }
-    
-    @IBAction func prepareForUnwindFromGameScene(_ segue: UIStoryboardSegue) {
-        if segue.source is GameOverViewController {
-            self.loadScene()
-        }
-        
-        return
-    }
-    
     private func loadScene() {
-        // turn menu music off
-        AudioManager.sharedInstance.stopMusic();
-        AudioManager.sharedInstance.enteredFromPlayView = false;
         
-        // turn game music on
-        // check if user has game music muted
-        if(UserDefaults.standard.object(forKey: "isGameMusicSet") as! Bool){
-            AudioManager.sharedInstance.setUpPlayer(AudioManager.sharedInstance.gameSongName);
-            AudioManager.sharedInstance.playMusic();
-            AudioManager.sharedInstance.lastPlayedWasMenuSong = false;
+        // set up game music
+        if (userDefaults.bool(forKey: UserDefaultsKeys.settingsMusicKey)) {
+            AudioManager.sharedInstance.startGameMusic()
         }
         
-        if let scene = GameScene(fileNamed:"GameScene") {
-            // Configure the view.
-            let skView = self.view as! SKView
-            skView.showsFPS = true
-            skView.showsNodeCount = true
-            
-            /* Sprite Kit applies additional optimizations to improve rendering performance */
-            skView.ignoresSiblingOrder = true
-            
-            /* Set the scale mode to scale to fit the window */
-            scene.scaleMode = .aspectFill
-            
-            skView.presentScene(scene)
-            currentGame = scene;
-            scene.playViewController = self;
+        self.scene = GameScene(fileNamed:"GameScene")
+        
+        // Configure the view.
+        let skView = self.view as! SKView
+        skView.showsFPS = true
+        skView.showsNodeCount = true
+        skView.ignoresSiblingOrder = true
+        scene?.scaleMode = .aspectFill
+        scene?.size = view.bounds.size
+        scene?.playViewController = self;
+        skView.presentScene(scene)
+    }
+    
+    @IBAction func menuButtonTouched(_ sender: UIButton) {
+        guard let scene = self.scene else { return }
+        scene.endGame()
+        
+        let view = GameOverView()
+        view.gameOverViewDelegate = self
+        let popup = PopUpViewController(view: view, dismissible: false)
+        self.present(popup, animated: true, completion: nil)
+    }
+}
+
+extension PlayViewController: GameOverViewDelegate {
+    func restartGameTouched() {
+        // dismiss popup game over view
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func mainMenuTouched() {
+        // dismiss popup game over view
+        self.dismiss(animated: true, completion: nil)
+        
+        if (userDefaults.bool(forKey: UserDefaultsKeys.settingsMusicKey)) {
+            AudioManager.sharedInstance.startMenuMusic()
         }
+        
+        self.navigationController?.popViewController(animated: true)
     }
 }

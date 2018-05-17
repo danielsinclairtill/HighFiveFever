@@ -29,14 +29,6 @@ class SettingsTableViewController: UITableViewController {
         self.soundFXSwitch.isOn = self.soundFX
     }
     
-    override var prefersStatusBarHidden: Bool {
-        return false
-    }
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
-    
     @IBAction func playerSelectButtonTouched(_ sender: UIButton) {
         settingsTableViewDelegate?.preparePlayerSelection()
     }

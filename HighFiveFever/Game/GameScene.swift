@@ -18,36 +18,25 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let FILE_NAME_PLAYER_HF = "PlayerHF.png"
     let FILE_NAME_ENEMY_BOT_N = "Bot1Normal.png"
     let FILE_NAME_ENEMY_BOT_HF = "Bot1HF.png"
-    let gameOverVC = "GameOverVC"
     
     // hardcoded values determined experimentally
     let X_COORD_SCORE_LABEL: CGFloat = 549.67
     let Y_COORD_SCORE_LABEL: CGFloat = 570.786
-    let WIDTH_BACKGROUND: CGFloat = 430
-    let HEIGHT_BACKGROUND: CGFloat = 766.226
     
     let botPosition: [CGPoint] = [CGPoint(x: 350, y: 130), CGPoint(x: 350, y: 200), CGPoint(x: 350, y: 270), CGPoint(x: 350, y: 340)];
     
     // Factories
     let botFactory: BotFactory = BotFactory()
-    
     let sceneFactory: SceneFactory = SceneFactory()
     
     // Global Variables
     @objc var player: PlayerBot?
-
     var scoreLabel = SKLabelNode()
-    
     var playerPosition = [0,1,0,0]
-    
     let zPositionValues: [CGFloat] = [4.0, 3.0, 2.0, 1.0]
-    
     var currentIndex = 1;
-    
     var botCount = 0
-    
     var enemyBotCreationTimer: Timer?
-    
     var enemyBotMovementTimers = [Timer]()
     
     /* Scene starting point */
@@ -90,7 +79,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.view?.addGestureRecognizer(swipeDown)
         
         // Add background to scene
-        let backgroundSize = CGSize(width: WIDTH_BACKGROUND, height: HEIGHT_BACKGROUND)
+        let backgroundSize = self.frame.size
         let background = sceneFactory.createBackground(filename: FILE_NAME_BACKGROUND, position: setToScreenCenter(self), size: backgroundSize)
         self.addChild(background);
         
@@ -128,7 +117,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         scoreLabel.text = "\(count)"
     }
     
-    private func endGame() {
+    func endGame() {
         if let createBotTimer = enemyBotCreationTimer {
             createBotTimer.invalidate()
         }
@@ -136,13 +125,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         for eachTimer in enemyBotMovementTimers {
             eachTimer.invalidate()
         }
-
-        // Show game over view controller
-        let gameOverViewController = Util.getViewControllerWith(identifier: gameOverVC)  as! GameOverViewController
-        gameOverViewController.view.backgroundColor = .clear
-        gameOverViewController.modalPresentationStyle = .overCurrentContext
-        
-        playViewController.present(gameOverViewController, animated: true, completion: nil)
     }
 
     /* Utility function to add enemy bots to scene and start their animation */
