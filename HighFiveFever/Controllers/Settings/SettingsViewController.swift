@@ -42,6 +42,7 @@ class SettingsViewController: UIViewController, UINavigationControllerDelegate {
 extension SettingsViewController: SettingsTableViewDelegate {
     func musicSettingChanged(musicOn: Bool) {
         userDefaults.set(musicOn, forKey: UserDefaultsKeys.settingsMusicKey)
+        musicOn ? AudioManager.sharedInstance.startMenuMusic() : AudioManager.sharedInstance.removeMusic()
     }
     
     func soundFXSettingChanged(soundFXOn: Bool) {

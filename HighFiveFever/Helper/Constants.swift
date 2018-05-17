@@ -18,4 +18,6 @@ struct Storyboard {
     static let RootViewController = "RootViewController"
     static let HomeViewController = "HomeViewController"
     static let PlayerSelectViewController = "PlayerSelectViewController"
+    static let GameOverViewController = "GameOverViewController"
+    static let GameOverViewXIB = "GameOverView"
 }
