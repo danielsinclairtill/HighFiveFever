@@ -14,10 +14,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private var count = 0
     
     private let FILE_NAME_BACKGROUND = "FinalBackground.png"
-    private let FILE_NAME_PLAYER_N = "PlayerNormal.png"
-    private let FILE_NAME_PLAYER_HF = "PlayerHF.png"
-    private let FILE_NAME_ENEMY_BOT_N = "Bot1Normal.png"
-    private let FILE_NAME_ENEMY_BOT_HF = "Bot1HF.png"
+    private let FILE_NAME_PLAYER_N = "Player1Normal.png"
+    private let FILE_NAME_PLAYER_HF = "Player1HF.png"
+    
+    private let botNormalFileNames: [String] = {
+        var list: [String] = []
+        for i in 1...GameOptionsKeys.numberOfBots {
+            list.append(String(format: "Bot%dNormal.png", i))
+        }
+        return list
+    }()
+    
+    private let botHFFileNames: [String] = {
+        var list: [String] = []
+        for i in 1...GameOptionsKeys.numberOfBots {
+            list.append(String(format: "Bot%dHF.png", i))
+        }
+        return list
+    }()
     
     // hardcoded values determined by screen size
     private let X_COORD_SCORE_LABEL: CGFloat = 230.0
@@ -27,10 +41,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private let deltaPlayer: CGPoint = CGPoint(x: 0.0, y: 55.0)
     
     // delta movement bot
-    private let deltaBot: CGPoint = CGPoint(x: 30.0, y: 0.0)
+    private let deltaBot: CGPoint = CGPoint(x: 1.0, y: 0.0)
 
     // row positions
-    private let rowPositions: [CGFloat] = [135, 190, 245, 300]
+    private let rowPositions: [CGFloat] = [50, 105, 160, 215]
     
     // bot positions
     private lazy var botPosition: [CGPoint] = {
@@ -64,7 +78,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         initiateScene();
         
         // Create enemy bots
-        enemyBotCreationTimer = Timer.scheduledTimer(timeInterval: 0.8, target: self, selector: #selector(addEnemyBot), userInfo: nil, repeats: true);
+        enemyBotCreationTimer = Timer.scheduledTimer(timeInterval: 1.5, target: self, selector: #selector(addEnemyBot), userInfo: nil, repeats: true);
     }
     
     /* Contact between objects occurred */
@@ -79,6 +93,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // Score
         if bodyA.categoryBitMask == ColliderType.playerBot.rawValue && bodyB.categoryBitMask == ColliderType.enemyBot.rawValue {
+            // normal collision disregard zPosition, we need player and bot to be in same zPosition
             if bodyB.node?.zPosition == bodyA.node?.zPosition {
                 scoreAndRemove(enemyBot: bodyB)
             }
@@ -112,7 +127,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.addChild(wall)
         
         // Add player bot to scene
-        player.position = CGPoint(x: self.frame.size.width - player.size.width, y: rowPositions[1])
+        player.position = CGPoint(x: self.frame.size.width - player.size.width, y: rowPositions[1] + player.size.height / 2)
         player.zPosition = zPositionValues[1]
         self.addChild(player)
     }
@@ -151,17 +166,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     @objc func addEnemyBot() -> Void {
         botCount += 1
         let positionIndex = Int(arc4random() % 4);
-        let bot = botFactory.createEnemyBotWith(normalFilename: FILE_NAME_ENEMY_BOT_N,
-                                                highFiveFilename: FILE_NAME_ENEMY_BOT_HF,
+        let botIndex = Int(arc4random() % 9);
+        let bot = botFactory.createEnemyBotWith(normalFilename: botNormalFileNames[botIndex],
+                                                highFiveFilename: botHFFileNames[botIndex],
                                                 textureScaledBy: 0.45,
                                                 delta: deltaBot)
         bot.name = "enemy bot \(botCount)"
-        bot.position = CGPoint(x: 0.0, y: rowPositions[positionIndex])
+        bot.position = CGPoint(x: 0.0, y: rowPositions[positionIndex] + bot.size.height / 2)
         bot.zPosition = zPositionValues[positionIndex]
         self.addChild(bot);
         
         // Bot movement
-        let timer = Timer.scheduledTimer(timeInterval: 0.5, target: bot, selector: #selector(bot.moveBot), userInfo: bot, repeats: true);
+        let timer = Timer.scheduledTimer(timeInterval: 0.01, target: bot, selector: #selector(bot.moveBot), userInfo: bot, repeats: true);
         enemyBotMovementTimers.append(timer)
     }
     

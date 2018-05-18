@@ -33,9 +33,10 @@ class PlayViewController: UIViewController {
         skView.showsFPS = true
         skView.showsNodeCount = true
         skView.ignoresSiblingOrder = true
+        skView.showsPhysics = true
         scene?.scaleMode = .aspectFill
         scene?.size = view.bounds.size
-        scene?.playViewController = self;
+        scene?.playViewController = self
         skView.presentScene(scene)
     }
     

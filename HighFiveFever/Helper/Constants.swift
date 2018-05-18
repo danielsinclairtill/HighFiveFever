@@ -8,6 +8,10 @@
 
 import UIKit
 
+struct GameOptionsKeys {
+    static let numberOfBots = 9
+}
+
 struct UserDefaultsKeys {
     static let settingsMusicKey = "settingsMusicKey"
     static let settingsSoundFXKey = "settingsSoundFXKey"

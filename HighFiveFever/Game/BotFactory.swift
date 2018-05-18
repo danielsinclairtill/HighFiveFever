@@ -35,7 +35,7 @@ class BotFactory {
     private func initializePhysicsBody(spriteNode: SKSpriteNode, categoryBitMask: ColliderType, contactBitMask: ColliderType) -> Void {
         guard let texture = spriteNode.texture else { return }
         
-        spriteNode.physicsBody = SKPhysicsBody(texture: texture, size: texture.size())
+        spriteNode.physicsBody = SKPhysicsBody(rectangleOf: texture.size())
         spriteNode.physicsBody?.affectedByGravity = false
         spriteNode.physicsBody?.usesPreciseCollisionDetection = true
         spriteNode.physicsBody?.categoryBitMask = categoryBitMask.rawValue
