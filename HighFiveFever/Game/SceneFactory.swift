@@ -39,7 +39,6 @@ class SceneFactory {
     
     func createWallOn(edge: WallEdge, of scene: GameScene) -> SKNode? {
         let wall = SKNode()
-        
    
         let position: CGPoint?
         
@@ -47,7 +46,7 @@ class SceneFactory {
         case .left:
             position = CGPoint(x: 0, y: 0)
         case .right:
-            position = CGPoint(x: scene.frame.width - 280, y: 0)
+            position = CGPoint(x: scene.frame.width, y: 0)
         }
 
         wall.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 1, height: scene.frame.height))

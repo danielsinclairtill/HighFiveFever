@@ -18,45 +18,29 @@ enum ColliderType: UInt32 {
 
 class BotFactory {
     
-    func createPlayerBotWith(normalFilename: String, highFiveFilename: String, position: CGPoint, textureScaledBy: CGFloat, physicsBodyScaledBy: CGFloat) -> PlayerBot {
-        let movement: CGPoint = CGPoint(x: 0, y: 70)
-        let playerBot: PlayerBot = PlayerBot(normalFilename: normalFilename, highFiveFilename: highFiveFilename, delta: movement)
-        
-        playerBot.position = position
+    func createPlayerBotWith(normalFilename: String, highFiveFilename: String, textureScaledBy: CGFloat, delta: CGPoint) -> PlayerBot {
+        let playerBot: PlayerBot = PlayerBot(normalFilename: normalFilename, highFiveFilename: highFiveFilename, delta: delta)
+        initializePhysicsBody(spriteNode: playerBot, categoryBitMask: ColliderType.playerBot, contactBitMask: ColliderType.enemyBot)
         playerBot.setScale(textureScaledBy)
-        initializePhysicsBody(spriteNode: playerBot, physicsBodyScaledBy: physicsBodyScaledBy, categoryBitMask: ColliderType.playerBot, contactBitMask: ColliderType.enemyBot)
-        
-        
         return playerBot
     }
     
-    func createEnemyBotWith(normalFilename: String, highFiveFilename: String, position: CGPoint, textureScaledBy: CGFloat, physicsBodyScaledBy: CGFloat) -> EnemyBot {
-        let movement: CGPoint = CGPoint(x: 50, y: 0)
-        let enemyBot: EnemyBot = EnemyBot(normalFilename: normalFilename, highFiveFilename: highFiveFilename, delta: movement)
-        
-        enemyBot.position = position
+    func createEnemyBotWith(normalFilename: String, highFiveFilename: String, textureScaledBy: CGFloat, delta: CGPoint) -> EnemyBot {
+        let enemyBot: EnemyBot = EnemyBot(normalFilename: normalFilename, highFiveFilename: highFiveFilename, delta: delta)
+        initializePhysicsBody(spriteNode: enemyBot, categoryBitMask: ColliderType.enemyBot, contactBitMask: ColliderType.playerBot)
         enemyBot.setScale(textureScaledBy)
-        initializePhysicsBody(spriteNode: enemyBot, physicsBodyScaledBy: physicsBodyScaledBy, categoryBitMask: ColliderType.enemyBot, contactBitMask: ColliderType.playerBot)
-        
         return enemyBot
     }
     
-    private func calculateScaledSize(spriteNode: SKSpriteNode, scaledBy: CGFloat) -> CGSize {
-        let scaledWidth: CGFloat = spriteNode.size.width * scaledBy
-        let scaledHeight: CGFloat = spriteNode.size.height * scaledBy
+    private func initializePhysicsBody(spriteNode: SKSpriteNode, categoryBitMask: ColliderType, contactBitMask: ColliderType) -> Void {
+        guard let texture = spriteNode.texture else { return }
         
-        return CGSize(width: scaledWidth, height: scaledHeight)
-    }
-    
-    private func initializePhysicsBody(spriteNode: SKSpriteNode, physicsBodyScaledBy: CGFloat, categoryBitMask: ColliderType, contactBitMask: ColliderType) -> Void {
-        let scaledSize: CGSize = calculateScaledSize(spriteNode: spriteNode, scaledBy: physicsBodyScaledBy)
-        
-        spriteNode.physicsBody = SKPhysicsBody(rectangleOf: scaledSize)
+        spriteNode.physicsBody = SKPhysicsBody(rectangleOf: texture.size())
         spriteNode.physicsBody?.affectedByGravity = false
+        spriteNode.physicsBody?.linearDamping = 0
         spriteNode.physicsBody?.usesPreciseCollisionDetection = true
         spriteNode.physicsBody?.categoryBitMask = categoryBitMask.rawValue
         spriteNode.physicsBody?.contactTestBitMask = contactBitMask.rawValue
         spriteNode.physicsBody?.collisionBitMask = 0
-        
     }
 }
