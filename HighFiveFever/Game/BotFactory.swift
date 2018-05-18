@@ -37,10 +37,10 @@ class BotFactory {
         
         spriteNode.physicsBody = SKPhysicsBody(rectangleOf: texture.size())
         spriteNode.physicsBody?.affectedByGravity = false
+        spriteNode.physicsBody?.linearDamping = 0
         spriteNode.physicsBody?.usesPreciseCollisionDetection = true
         spriteNode.physicsBody?.categoryBitMask = categoryBitMask.rawValue
         spriteNode.physicsBody?.contactTestBitMask = contactBitMask.rawValue
         spriteNode.physicsBody?.collisionBitMask = 0
-        
     }
 }

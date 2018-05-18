@@ -10,7 +10,7 @@ import SpriteKit
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
-    weak var playViewController: PlayViewController!
+    weak var playViewController: PlayViewController?
     private var count = 0
     
     private let FILE_NAME_BACKGROUND = "FinalBackground.png"
@@ -69,40 +69,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private var currentIndex = 1;
     private var botCount = 0
     private var enemyBotCreationTimer: Timer?
-    private var enemyBotMovementTimers = [Timer]()
     
     /* Scene starting point */
     override func didMove(to view: SKView) {
         self.physicsWorld.contactDelegate = self;
         
-        initiateScene();
-        
-        // Create enemy bots
-        enemyBotCreationTimer = Timer.scheduledTimer(timeInterval: 1.5, target: self, selector: #selector(addEnemyBot), userInfo: nil, repeats: true);
-    }
-    
-    /* Contact between objects occurred */
-    func didBegin(_ contact: SKPhysicsContact) {
-        let bodyA = contact.bodyA
-        let bodyB = contact.bodyB
-
-        // Game over
-        if bodyA.categoryBitMask == ColliderType.wall.rawValue || bodyB.categoryBitMask == ColliderType.wall.rawValue {
-            endGame()
-        }
-        
-        // Score
-        if bodyA.categoryBitMask == ColliderType.playerBot.rawValue && bodyB.categoryBitMask == ColliderType.enemyBot.rawValue {
-            // normal collision disregard zPosition, we need player and bot to be in same zPosition
-            if bodyB.node?.zPosition == bodyA.node?.zPosition {
-                scoreAndRemove(enemyBot: bodyB)
-            }
-        }
-        
-    }
-
-    /* Utility function to create scene with initial components */
-    private func initiateScene() {
         // Set up Swipe gesture recognizer
         let swipeUp: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(movePlayerUp))
         swipeUp.direction = .up
@@ -126,10 +97,49 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let wall: SKNode = sceneFactory.createWallOn(edge: WallEdge.right, of: self)!
         self.addChild(wall)
         
+        initiateScene();
+    }
+    
+    /* Contact between objects occurred */
+    func didBegin(_ contact: SKPhysicsContact) {
+        let bodyA = contact.bodyA
+        let bodyB = contact.bodyB
+
+        // Game over
+        if bodyA.categoryBitMask == ColliderType.wall.rawValue || bodyB.categoryBitMask == ColliderType.wall.rawValue {
+            endGame()
+        }
+        
+        // Handle contact between bot and player
+        // two cases: bot is bodyA or bodyB
+        if bodyA.categoryBitMask == ColliderType.playerBot.rawValue && bodyB.categoryBitMask == ColliderType.enemyBot.rawValue {
+            // normal collision disregard zPosition, we need player and bot to be in same zPosition
+            if bodyB.node?.zPosition == bodyA.node?.zPosition {
+                bodyB.velocity = CGVector(dx: 0, dy: 0)
+                scoreAndRemove(enemyBot: bodyB)
+            }
+        }
+        
+        if bodyA.categoryBitMask == ColliderType.enemyBot.rawValue && bodyB.categoryBitMask == ColliderType.playerBot.rawValue {
+            // normal collision disregard zPosition, we need player and bot to be in same zPosition
+            if bodyB.node?.zPosition == bodyA.node?.zPosition {
+                bodyA.velocity = CGVector(dx: 0, dy: 0)
+                scoreAndRemove(enemyBot: bodyA)
+            }
+        }
+        
+    }
+
+    /* Utility function to create scene with initial components */
+    private func initiateScene() {
+        
         // Add player bot to scene
         player.position = CGPoint(x: self.frame.size.width - player.size.width, y: rowPositions[1] + player.size.height / 2)
         player.zPosition = zPositionValues[1]
         self.addChild(player)
+        
+        // Create enemy bots
+        enemyBotCreationTimer = Timer.scheduledTimer(timeInterval: 0.6, target: self, selector: #selector(addEnemyBot), userInfo: nil, repeats: true);
     }
     
     /* Helper function to return coordinates of screens center */
@@ -152,14 +162,34 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         scoreLabel.text = "\(count)"
     }
     
+    func restart() {
+        //remove player
+        player.removeFromParent()
+        
+        // remove bots
+        for child in children {
+            // if the name of the node includes "bot", we know it's a bot to remove from parent
+            if child.name?.range(of: "enemyBot") != nil {
+                child.removeFromParent()
+            }
+        }
+        
+        count = 0
+        scoreLabel.text = "\(count)"
+        botCount = 0
+        playerPosition = [0,1,0,0]
+        currentIndex = 1
+        initiateScene()
+        self.view?.isPaused = false
+    }
+    
     func endGame() {
         if let createBotTimer = enemyBotCreationTimer {
             createBotTimer.invalidate()
         }
         
-        for eachTimer in enemyBotMovementTimers {
-            eachTimer.invalidate()
-        }
+        self.view?.isPaused = true
+        playViewController?.presentGameOver()
     }
 
     /* Utility function to add enemy bots to scene and start their animation */
@@ -171,14 +201,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                                                 highFiveFilename: botHFFileNames[botIndex],
                                                 textureScaledBy: 0.45,
                                                 delta: deltaBot)
-        bot.name = "enemy bot \(botCount)"
-        bot.position = CGPoint(x: 0.0, y: rowPositions[positionIndex] + bot.size.height / 2)
+        bot.name = "enemyBot\(botCount)"
+        bot.position = CGPoint(x: -bot.size.width / 2, y: rowPositions[positionIndex] + bot.size.height / 2)
         bot.zPosition = zPositionValues[positionIndex]
         self.addChild(bot);
         
         // Bot movement
-        let timer = Timer.scheduledTimer(timeInterval: 0.01, target: bot, selector: #selector(bot.moveBot), userInfo: bot, repeats: true);
-        enemyBotMovementTimers.append(timer)
+        bot.physicsBody?.velocity = CGVector(dx: 100, dy: 0)
     }
     
     @objc func movePlayerUp(){

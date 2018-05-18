@@ -33,21 +33,24 @@ class PlayViewController: UIViewController {
         skView.showsFPS = true
         skView.showsNodeCount = true
         skView.ignoresSiblingOrder = true
-        skView.showsPhysics = true
+        //skView.showsPhysics = true
         scene?.scaleMode = .aspectFill
         scene?.size = view.bounds.size
         scene?.playViewController = self
         skView.presentScene(scene)
     }
     
-    @IBAction func menuButtonTouched(_ sender: UIButton) {
-        guard let scene = self.scene else { return }
-        scene.endGame()
-        
+    func presentGameOver() {
         let view = GameOverView()
         view.gameOverViewDelegate = self
         let popup = PopUpViewController(view: view, dismissible: false)
         self.present(popup, animated: true, completion: nil)
+    }
+    
+    @IBAction func menuButtonTouched(_ sender: UIButton) {
+        guard let scene = self.scene else { return }
+        scene.endGame()
+        presentGameOver()
     }
 }
 
@@ -55,6 +58,8 @@ extension PlayViewController: GameOverViewDelegate {
     func restartGameTouched() {
         // dismiss popup game over view
         self.dismiss(animated: true, completion: nil)
+        guard let scene = self.scene else { return }
+        scene.restart()
     }
     
     func mainMenuTouched() {
