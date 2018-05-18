@@ -11,33 +11,51 @@ import SpriteKit
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
     weak var playViewController: PlayViewController!
-    var count = 0
+    private var count = 0
     
-    let FILE_NAME_BACKGROUND = "FinalBackground.png"
-    let FILE_NAME_PLAYER_N = "PlayerNormal.png"
-    let FILE_NAME_PLAYER_HF = "PlayerHF.png"
-    let FILE_NAME_ENEMY_BOT_N = "Bot1Normal.png"
-    let FILE_NAME_ENEMY_BOT_HF = "Bot1HF.png"
+    private let FILE_NAME_BACKGROUND = "FinalBackground.png"
+    private let FILE_NAME_PLAYER_N = "PlayerNormal.png"
+    private let FILE_NAME_PLAYER_HF = "PlayerHF.png"
+    private let FILE_NAME_ENEMY_BOT_N = "Bot1Normal.png"
+    private let FILE_NAME_ENEMY_BOT_HF = "Bot1HF.png"
     
-    // hardcoded values determined experimentally
-    let X_COORD_SCORE_LABEL: CGFloat = 549.67
-    let Y_COORD_SCORE_LABEL: CGFloat = 570.786
+    // hardcoded values determined by screen size
+    private let X_COORD_SCORE_LABEL: CGFloat = 230.0
+    private let Y_COORD_SCORE_LABEL: CGFloat = 495.0
     
-    let botPosition: [CGPoint] = [CGPoint(x: 350, y: 130), CGPoint(x: 350, y: 200), CGPoint(x: 350, y: 270), CGPoint(x: 350, y: 340)];
+    // delta movement player
+    private let deltaPlayer: CGPoint = CGPoint(x: 0.0, y: 55.0)
+    
+    // delta movement bot
+    private let deltaBot: CGPoint = CGPoint(x: 30.0, y: 0.0)
+
+    // row positions
+    private let rowPositions: [CGFloat] = [135, 190, 245, 300]
+    
+    // bot positions
+    private lazy var botPosition: [CGPoint] = {
+        return [CGPoint(x: 0, y: rowPositions[0]), CGPoint(x: 0, y: rowPositions[1]), CGPoint(x:0, y: rowPositions[2]), CGPoint(x: 0, y: rowPositions[3])]
+    }()
     
     // Factories
     let botFactory: BotFactory = BotFactory()
     let sceneFactory: SceneFactory = SceneFactory()
     
     // Global Variables
-    @objc var player: PlayerBot?
-    var scoreLabel = SKLabelNode()
-    var playerPosition = [0,1,0,0]
-    let zPositionValues: [CGFloat] = [4.0, 3.0, 2.0, 1.0]
-    var currentIndex = 1;
-    var botCount = 0
-    var enemyBotCreationTimer: Timer?
-    var enemyBotMovementTimers = [Timer]()
+    @objc private lazy var player: PlayerBot = {
+        return botFactory.createPlayerBotWith(normalFilename: FILE_NAME_PLAYER_N,
+                                              highFiveFilename: FILE_NAME_PLAYER_HF,
+                                              textureScaledBy: 0.45,
+                                              delta: deltaPlayer)
+    }()
+    
+    private var scoreLabel = SKLabelNode()
+    private var playerPosition = [0,1,0,0]
+    private let zPositionValues: [CGFloat] = [4.0, 3.0, 2.0, 1.0]
+    private var currentIndex = 1;
+    private var botCount = 0
+    private var enemyBotCreationTimer: Timer?
+    private var enemyBotMovementTimers = [Timer]()
     
     /* Scene starting point */
     override func didMove(to view: SKView) {
@@ -61,7 +79,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // Score
         if bodyA.categoryBitMask == ColliderType.playerBot.rawValue && bodyB.categoryBitMask == ColliderType.enemyBot.rawValue {
-            scoreAndRemove(enemyBot: bodyB)
+            if bodyB.node?.zPosition == bodyA.node?.zPosition {
+                scoreAndRemove(enemyBot: bodyB)
+            }
         }
         
     }
@@ -92,9 +112,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.addChild(wall)
         
         // Add player bot to scene
-        player = botFactory.createPlayerBotWith(normalFilename: FILE_NAME_PLAYER_N, highFiveFilename: FILE_NAME_PLAYER_HF, position: CGPoint(x: 650, y: 200), textureScaledBy: 0.45, physicsBodyScaledBy: 0.25)
-        player?.zPosition = zPositionValues[1]
-        self.addChild(player!)
+        player.position = CGPoint(x: self.frame.size.width - player.size.width, y: rowPositions[1])
+        player.zPosition = zPositionValues[1]
+        self.addChild(player)
     }
     
     /* Helper function to return coordinates of screens center */
@@ -103,7 +123,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     private func scoreAndRemove(enemyBot: SKPhysicsBody) {
-        player?.highFive()
+        player.highFive()
         
         // Find the bot that made contact with player
         self.enumerateChildNodes(withName: (enemyBot.node?.name)!, using: { (node, stop) in
@@ -131,8 +151,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     @objc func addEnemyBot() -> Void {
         botCount += 1
         let positionIndex = Int(arc4random() % 4);
-        let bot = botFactory.createEnemyBotWith(normalFilename: FILE_NAME_ENEMY_BOT_N, highFiveFilename: FILE_NAME_ENEMY_BOT_HF, position: botPosition[positionIndex], textureScaledBy: 0.45, physicsBodyScaledBy: 0.3)
+        let bot = botFactory.createEnemyBotWith(normalFilename: FILE_NAME_ENEMY_BOT_N,
+                                                highFiveFilename: FILE_NAME_ENEMY_BOT_HF,
+                                                textureScaledBy: 0.45,
+                                                delta: deltaBot)
         bot.name = "enemy bot \(botCount)"
+        bot.position = CGPoint(x: 0.0, y: rowPositions[positionIndex])
         bot.zPosition = zPositionValues[positionIndex]
         self.addChild(bot);
         
@@ -146,11 +170,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             return;
         }
 
-        player?.moveUpwards()
+        player.moveUpwards()
         playerPosition[currentIndex] = 0;
         currentIndex += 1;
         playerPosition[currentIndex] = 1;
-        player?.zPosition = zPositionValues[currentIndex]
+        player.zPosition = zPositionValues[currentIndex]
     }
     
     @objc func movePlayerDown() {
@@ -158,10 +182,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             return;
         }
         
-        player?.moveDownwards()
+        player.moveDownwards()
         playerPosition[currentIndex] = 0;
         currentIndex -= 1;
         playerPosition[currentIndex] = 1;
-        player?.zPosition = zPositionValues[currentIndex]
+        player.zPosition = zPositionValues[currentIndex]
     }
 }
