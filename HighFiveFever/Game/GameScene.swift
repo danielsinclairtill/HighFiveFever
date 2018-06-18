@@ -51,6 +51,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         return [CGPoint(x: 0, y: rowPositions[0]), CGPoint(x: 0, y: rowPositions[1]), CGPoint(x:0, y: rowPositions[2]), CGPoint(x: 0, y: rowPositions[3])]
     }()
     
+    private let botSpeed: CGFloat = 150.0
+    private let botSpawnRate: TimeInterval = 0.8
+    private let botTextureScale: CGFloat = 0.40
+    
     // Factories
     let botFactory: BotFactory = BotFactory()
     let sceneFactory: SceneFactory = SceneFactory()
@@ -59,7 +63,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     @objc private lazy var player: PlayerBot = {
         return botFactory.createPlayerBotWith(normalFilename: FILE_NAME_PLAYER_N,
                                               highFiveFilename: FILE_NAME_PLAYER_HF,
-                                              textureScaledBy: 0.45,
+                                              textureScaledBy: botTextureScale,
                                               delta: deltaPlayer)
     }()
     
@@ -139,7 +143,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.addChild(player)
         
         // Create enemy bots
-        enemyBotCreationTimer = Timer.scheduledTimer(timeInterval: 0.6, target: self, selector: #selector(addEnemyBot), userInfo: nil, repeats: true);
+        enemyBotCreationTimer = Timer.scheduledTimer(timeInterval: botSpawnRate, target: self, selector: #selector(addEnemyBot), userInfo: nil, repeats: true);
     }
     
     /* Helper function to return coordinates of screens center */
@@ -199,7 +203,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let botIndex = Int(arc4random() % 9);
         let bot = botFactory.createEnemyBotWith(normalFilename: botNormalFileNames[botIndex],
                                                 highFiveFilename: botHFFileNames[botIndex],
-                                                textureScaledBy: 0.45,
+                                                textureScaledBy: botTextureScale,
                                                 delta: deltaBot)
         bot.name = "enemyBot\(botCount)"
         bot.position = CGPoint(x: -bot.size.width / 2, y: rowPositions[positionIndex] + bot.size.height / 2)
@@ -207,7 +211,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.addChild(bot);
         
         // Bot movement
-        bot.physicsBody?.velocity = CGVector(dx: 100, dy: 0)
+        bot.physicsBody?.velocity = CGVector(dx: botSpeed, dy: 0)
     }
     
     @objc func movePlayerUp(){
