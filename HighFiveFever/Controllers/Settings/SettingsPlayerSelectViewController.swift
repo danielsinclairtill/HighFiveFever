@@ -47,7 +47,7 @@ class SettingsPlayerSelectViewController: UIViewController, UICollectionViewDele
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = playerSelectCollectionView.dequeueReusableCell(withReuseIdentifier: "playerSelectCell", for: indexPath) as! PlayerSelectCollectionViewCell
-        let cellImageName = playerSelectObects.players[indexPath.row].imageName
+        let cellImageName = playerSelectObects.players[indexPath.row].selectImageName
         cell.displayContent(imageName: cellImageName)
         
         // apply selection to cell from saved setting

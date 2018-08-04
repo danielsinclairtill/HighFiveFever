@@ -10,6 +10,7 @@
 		6861DDA71D1C8E4600E8E4D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6861DDA61D1C8E4600E8E4D8 /* AppDelegate.swift */; };
 		6861DDAE1D1C8E4600E8E4D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6861DDAD1D1C8E4600E8E4D8 /* Assets.xcassets */; };
 		6861DDB11D1C8E4700E8E4D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6861DDAF1D1C8E4700E8E4D8 /* LaunchScreen.storyboard */; };
+		8B096FB82115705700A8CA61 /* ClapSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8B096FB72115705700A8CA61 /* ClapSound.mp3 */; };
 		8B1970E520A63FF500B4ECB1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1970E420A63FF500B4ECB1 /* Constants.swift */; };
 		8B1970E820A64E7200B4ECB1 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1970E620A64E7200B4ECB1 /* AudioManager.swift */; };
 		8B1970E920A64E7200B4ECB1 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1970E720A64E7200B4ECB1 /* Util.swift */; };
@@ -50,6 +51,7 @@
 		6861DDAD1D1C8E4600E8E4D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6861DDB01D1C8E4700E8E4D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6861DDB21D1C8E4700E8E4D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8B096FB72115705700A8CA61 /* ClapSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = ClapSound.mp3; path = HighFiveFever/Audio/Sounds/GamePlay/ClapSound.mp3; sourceTree = SOURCE_ROOT; };
 		8B1970E420A63FF500B4ECB1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8B1970E620A64E7200B4ECB1 /* AudioManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
 		8B1970E720A64E7200B4ECB1 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
@@ -129,6 +131,22 @@
 			path = HighFiveFever;
 			sourceTree = "<group>";
 		};
+		8B096FB52115704300A8CA61 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				8B096FB62115704900A8CA61 /* GamePlay */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
+		8B096FB62115704900A8CA61 /* GamePlay */ = {
+			isa = PBXGroup;
+			children = (
+				8B096FB72115705700A8CA61 /* ClapSound.mp3 */,
+			);
+			path = GamePlay;
+			sourceTree = "<group>";
+		};
 		8B1970E220A63FA600B4ECB1 /* Game */ = {
 			isa = PBXGroup;
 			children = (
@@ -206,6 +224,7 @@
 		A02417951D26F0E50023F4A8 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
+				8B096FB52115704300A8CA61 /* Sounds */,
 				8B1970FC20A64E9800B4ECB1 /* Zackery Wilson - RIGHT Off The Bat(tle) [Final Fantasy IV]_165634314_soundcloud.mp3 */,
 				8B1970FD20A64E9800B4ECB1 /* Zackery Wilson - SELECT Tech Samba [Chrono Trigger]_169740465_soundcloud.mp3 */,
 			);
@@ -279,6 +298,7 @@
 				6861DDB11D1C8E4700E8E4D8 /* LaunchScreen.storyboard in Resources */,
 				6861DDAE1D1C8E4600E8E4D8 /* Assets.xcassets in Resources */,
 				8B1970FF20A64E9800B4ECB1 /* Zackery Wilson - SELECT Tech Samba [Chrono Trigger]_169740465_soundcloud.mp3 in Resources */,
+				8B096FB82115705700A8CA61 /* ClapSound.mp3 in Resources */,
 				8B85D7001E1AF2DE00ACA4A0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -430,7 +450,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = N44M43CWH5;
 				INFOPLIST_FILE = HighFiveFever/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.PerfectFifth.HighFiveFever;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -447,7 +467,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = N44M43CWH5;
 				INFOPLIST_FILE = HighFiveFever/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.PerfectFifth.HighFiveFever;
 				PRODUCT_NAME = "$(TARGET_NAME)";

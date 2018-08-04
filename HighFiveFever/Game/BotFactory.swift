@@ -22,6 +22,7 @@ class BotFactory {
         let playerBot: PlayerBot = PlayerBot(normalFilename: normalFilename, highFiveFilename: highFiveFilename, delta: delta)
         initializePhysicsBody(spriteNode: playerBot, categoryBitMask: ColliderType.playerBot, contactBitMask: ColliderType.enemyBot)
         playerBot.setScale(textureScaledBy)
+        playerBot.xScale = playerBot.xScale * -1
         return playerBot
     }
     

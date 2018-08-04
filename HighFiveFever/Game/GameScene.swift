@@ -11,11 +11,16 @@ import SpriteKit
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
     weak var playViewController: PlayViewController?
-    private var count = 0
-    
-    private let FILE_NAME_BACKGROUND = "FinalBackground.png"
-    private let FILE_NAME_PLAYER_N = "Player1Normal.png"
-    private let FILE_NAME_PLAYER_HF = "Player1HF.png"
+    private let userDefaults: UserDefaults = UserDefaults.standard
+
+    // Image file names
+    private let FILE_NAME_BACKGROUND = FileNames.backgroundImage
+    lazy var FILE_NAME_PLAYER_N = {
+        return PlayerSelectObjects().players[userDefaults.integer(forKey: UserDefaultsKeys.settingsPlayerIndex)].gameImageName
+    }()
+    lazy var FILE_NAME_PLAYER_HF = {
+        return PlayerSelectObjects().players[userDefaults.integer(forKey: UserDefaultsKeys.settingsPlayerIndex)].gameHFImageName
+    }()    
     
     private let botNormalFileNames: [String] = {
         var list: [String] = []
@@ -32,6 +37,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         return list
     }()
+    
+    // Sound file names
+    private var clapSound = SKAction.playSoundFileNamed(FileNames.clapSound, waitForCompletion: false)
     
     // hardcoded values determined by screen size
     private let X_COORD_SCORE_LABEL: CGFloat = 230.0
@@ -67,6 +75,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                                               delta: deltaPlayer)
     }()
     
+    private var count = 0
     private var scoreLabel = SKLabelNode()
     private var playerPosition = [0,1,0,0]
     private let zPositionValues: [CGFloat] = [4.0, 3.0, 2.0, 1.0]
@@ -120,6 +129,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             // normal collision disregard zPosition, we need player and bot to be in same zPosition
             if bodyB.node?.zPosition == bodyA.node?.zPosition {
                 bodyB.velocity = CGVector(dx: 0, dy: 0)
+                run(clapSound)
                 scoreAndRemove(enemyBot: bodyB)
             }
         }
@@ -128,6 +138,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             // normal collision disregard zPosition, we need player and bot to be in same zPosition
             if bodyB.node?.zPosition == bodyA.node?.zPosition {
                 bodyA.velocity = CGVector(dx: 0, dy: 0)
+                run(clapSound)
                 scoreAndRemove(enemyBot: bodyA)
             }
         }

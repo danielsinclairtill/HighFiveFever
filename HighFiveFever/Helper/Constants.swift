@@ -12,6 +12,11 @@ struct GameOptionsKeys {
     static let numberOfBots = 9
 }
 
+struct FileNames {
+    static let clapSound = "ClapSound.mp3"
+    static let backgroundImage = "FinalBackground.png"
+}
+
 struct UserDefaultsKeys {
     static let settingsMusicKey = "settingsMusicKey"
     static let settingsSoundFXKey = "settingsSoundFXKey"
